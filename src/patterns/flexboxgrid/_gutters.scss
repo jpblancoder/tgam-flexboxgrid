@@ -5,22 +5,24 @@
   .l-row__no-gutters {
     > .l-col,
     > [class*="l-col-"] {
-      @include make-col-no-gutters();
+      padding-left: 0 !important;
+      padding-right: 0 !important;
     }
   }
 
   // Remove left/right padding from this column
   .l-col__no-gutters {
-    @include make-col-no-gutters();
+    padding-left: 0 !important;
+    padding-right: 0 !important;
   }
 
   // Remove left padding from this column
   .l-col__no-gutters-left {
-    @include make-col-no-gutters-left();
+    padding-left: 0 !important;
   }
 
   // Remove right padding from this column
   .l-col__no-gutters-right {
-    @include make-col-no-gutters-right();
+    padding-right: 0 !important;
   }
 }

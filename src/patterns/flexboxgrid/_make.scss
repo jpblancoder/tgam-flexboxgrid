@@ -6,9 +6,16 @@
 
   // add left/right edge padding to xs grid container only
   @include media-breakpoint-down(xs, $grid-breakpoints) {
-    padding-right: ($gutter / 2);
-    padding-left:  ($gutter / 2);
+    @include make-gutters($gutter);
   }
+
+  // @each $breakpoint in map-keys($gutters) {
+  //   @include media-breakpoint-up($breakpoint) {
+  //     $gutter: map-get($gutters, $breakpoint);
+  //     padding-right: ($gutter / 2);
+  //     padding-left:  ($gutter / 2);
+  //   }
+  // }
 }
 
 // For each breakpoint, define the maximum width of the container in a media query
@@ -24,13 +31,30 @@
 @mixin make-gutters($gutter: $grid-gutter-width-base) {
   padding-right: ($gutter / 2);
   padding-left:  ($gutter / 2);
+
+  // @each $breakpoint in map-keys($gutters) {
+  //   @include media-breakpoint-up($breakpoint) {
+  //     $gutter: map-get($gutters, $breakpoint);
+  //     padding-right: ($gutter / 2);
+  //     padding-left:  ($gutter / 2);
+  //   }
+  // }
 }
 
 @mixin make-row($gutter: $grid-gutter-width-base) {
   display: flex;
   flex-wrap: wrap;
+
   // margin-right: ($gutter / -2);
   // margin-left:  ($gutter / -2);
+
+  // @each $breakpoint in map-keys($gutters) {
+  //   @include media-breakpoint-up($breakpoint) {
+  //     $gutter: map-get($gutters, $breakpoint);
+  //     margin-right: ($gutter / -2);
+  //     margin-left:  ($gutter / -2);
+  //   }
+  // }
 }
 
 @mixin make-col($size, $columns) {
@@ -139,20 +163,20 @@
 
 @mixin make-col-debug() {
   // don't show gutter spaces:
-  // background-color: $debug-bg-color;
-  // border: $debug-outline;
+  background-color: $debug-bg-color;
+  border: $debug-outline;
 
   // yes show gutter spaces:
-  &::before {
-    content: "";
-    display: block;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    left: ($grid-gutter-width-base / 2);
-    width: calc(100% - #{$grid-gutter-width-base});
-    z-index: 1;
-    background-color: $debug-bg-color;
-    border: $debug-outline;
-  }
+  // &::before {
+  //   content: "";
+  //   display: block;
+  //   height: 100%;
+  //   position: absolute;
+  //   top: 0;
+  //   left: ($grid-gutter-width-base / 2);
+  //   width: calc(100% - #{$grid-gutter-width-base});
+  //   z-index: 1;
+  //   background-color: $debug-bg-color;
+  //   border: $debug-outline;
+  // }
 }
