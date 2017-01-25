@@ -26,6 +26,9 @@ primaryNav:
         name: "Grid breakpoint values"
         path: "#o-tiers"
       -
+        name: "Grid summary table"
+        path: "#o-summary-table"
+      -
         name: "Disable/exclude features"
         path: "#o-exclude"
     -
@@ -90,9 +93,6 @@ primaryNav:
     name: "Grid"
     path: "#grid"
     children:
-    -
-      name: "Grid options"
-      path: "#g-options"
     -
       name: "Auto-layout columns"
       path: "#g-layout"

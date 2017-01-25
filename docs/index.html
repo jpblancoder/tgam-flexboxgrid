@@ -80,9 +80,6 @@
         <a class="primary-nav__link" href="#grid">Grid</a>
       <ul class="primary-nav__list primary-nav__list--nested">
         <li class="primary-nav__item primary-nav__item--nested">
-            <a class="primary-nav__link" href="#g-options">Grid options</a>
-        </li>
-        <li class="primary-nav__item primary-nav__item--nested">
             <a class="primary-nav__link" href="#g-layout">Auto-layout columns</a>
         </li>
         <li class="primary-nav__item primary-nav__item--nested">
@@ -190,6 +187,9 @@ Which are extra-small (1), small (8), medium (12), and large (16).</p>
                   <a class="primary-nav__link" href="#o-tiers">Grid breakpoint values</a>
                 </li>
                 <li class="primary-nav__item primary-nav__item--nested">
+                  <a class="primary-nav__link" href="#o-summary-table">Grid summary table</a>
+                </li>
+                <li class="primary-nav__item primary-nav__item--nested">
                   <a class="primary-nav__link" href="#o-exclude">Disable/exclude features</a>
                 </li>
               </ul>
@@ -269,9 +269,6 @@ Which are extra-small (1), small (8), medium (12), and large (16).</p>
         <li class="primary-nav__item">
           <a class="primary-nav__link" href="#grid">Grid</a>
           <ul class="primary-nav__list primary-nav__list--nested">
-            <li class="primary-nav__item primary-nav__item--nested">
-              <a class="primary-nav__link" href="#g-options">Grid options</a>
-            </li>
             <li class="primary-nav__item primary-nav__item--nested">
               <a class="primary-nav__link" href="#g-layout">Auto-layout columns</a>
               <ul class="primary-nav__list primary-nav__list--nested">
@@ -716,6 +713,78 @@ $<span class="token property">grid-containers</span><span class="token punctuati
   changes and recompile. Doing so will out a brand new set of predefined grid
   classes for column widths, offsets, pushes, and pulls. Responsive visibility
   utilities will also be updated to use the custom breakpoints.</p>
+
+<h4 id="o-summary-table">Grid summary table</h4>
+
+<p>See how aspects of the grid system work across multiple devices with a handy table.</p>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th></th>
+      <th class="text-center">
+        Extra small<br>
+        <small>&lt;700px</small>
+      </th>
+      <th class="text-center">
+        Small<br>
+        <small>≥700px</small>
+      </th>
+      <th class="text-center">
+        Medium<br>
+        <small>≥940px</small>
+      </th>
+      <th class="text-center">
+        Large<br>
+        <small>≥1260px</small>
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th class="text-nowrap" scope="row">Grid behavior</th>
+      <td>Horizontal at all times</td>
+      <td colspan="4">Collapsed to start, horizontal above breakpoints</td>
+    </tr>
+    <tr>
+      <th class="text-nowrap" scope="row">Max container width</th>
+      <td>None (auto)</td>
+      <td>720px</td>
+      <td>960px</td>
+      <td>1280px</td>
+    </tr>
+    <tr>
+      <th class="text-nowrap" scope="row">Class prefix</th>
+      <td><code>.l-col-</code></td>
+      <td><code>.l-col-sm-</code></td>
+      <td><code>.l-col-md-</code></td>
+      <td><code>.l-col-lg-</code></td>
+    </tr>
+    <tr>
+      <th class="text-nowrap" scope="row"># of columns</th>
+      <td>1</td>
+      <td>8</td>
+      <td>12</td>
+      <td>16</td>
+    </tr>
+    <tr>
+      <th class="text-nowrap" scope="row">Gutter width</th>
+      <td colspan="4">20px (10px on each side of a column)</td>
+    </tr>
+    <tr>
+      <th class="text-nowrap" scope="row">Nestable</th>
+      <td colspan="4">Yes</td>
+    </tr>
+    <tr>
+      <th class="text-nowrap" scope="row">Offsets</th>
+      <td colspan="4">Yes</td>
+    </tr>
+    <tr>
+      <th class="text-nowrap" scope="row">Column ordering</th>
+      <td colspan="4">Yes</td>
+    </tr>
+  </tbody>
+</table>
 
 <h4 id="o-exclude">Disable/exclude features</h4>
 
@@ -1863,78 +1932,6 @@ The Sass mixin for targeting the same screen size range would be:</p>
 
 <section class="page-section">
 <h2 id="grid">Grid</h2>
-<h3 id="g-options">Grid options</h3>
-
-<p>See how aspects of the grid system work across multiple devices with a handy table.</p>
-
-<table class="table table-bordered">
-  <thead>
-    <tr>
-      <th></th>
-      <th class="text-center">
-        Extra small<br>
-        <small>&lt;700px</small>
-      </th>
-      <th class="text-center">
-        Small<br>
-        <small>≥700px</small>
-      </th>
-      <th class="text-center">
-        Medium<br>
-        <small>≥940px</small>
-      </th>
-      <th class="text-center">
-        Large<br>
-        <small>≥1260px</small>
-      </th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th class="text-nowrap" scope="row">Grid behavior</th>
-      <td>Horizontal at all times</td>
-      <td colspan="4">Collapsed to start, horizontal above breakpoints</td>
-    </tr>
-    <tr>
-      <th class="text-nowrap" scope="row">Max container width</th>
-      <td>None (auto)</td>
-      <td>720px</td>
-      <td>960px</td>
-      <td>1280px</td>
-    </tr>
-    <tr>
-      <th class="text-nowrap" scope="row">Class prefix</th>
-      <td><code>.l-col-</code></td>
-      <td><code>.l-col-sm-</code></td>
-      <td><code>.l-col-md-</code></td>
-      <td><code>.l-col-lg-</code></td>
-    </tr>
-    <tr>
-      <th class="text-nowrap" scope="row"># of columns</th>
-      <td>1</td>
-      <td>8</td>
-      <td>12</td>
-      <td>16</td>
-    </tr>
-    <tr>
-      <th class="text-nowrap" scope="row">Gutter width</th>
-      <td colspan="4">20px (10px on each side of a column)</td>
-    </tr>
-    <tr>
-      <th class="text-nowrap" scope="row">Nestable</th>
-      <td colspan="4">Yes</td>
-    </tr>
-    <tr>
-      <th class="text-nowrap" scope="row">Offsets</th>
-      <td colspan="4">Yes</td>
-    </tr>
-    <tr>
-      <th class="text-nowrap" scope="row">Column ordering</th>
-      <td colspan="4">Yes</td>
-    </tr>
-  </tbody>
-</table>
-
 <h3 id="g-layout">Auto-layout columns</h3>
 
 <p>Utilize breakpoint-specific column classes for equal-width columns.
