@@ -11,21 +11,21 @@
   }
 }
 
-@media (min-width: 700px) {
+@media (min-width: 720px) {
   .l-container {
     width: 720px;
     max-width: 100%;
   }
 }
 
-@media (min-width: 940px) {
+@media (min-width: 960px) {
   .l-container {
     width: 960px;
     max-width: 100%;
   }
 }
 
-@media (min-width: 1260px) {
+@media (min-width: 1280px) {
   .l-container {
     width: 1280px;
     max-width: 100%;
@@ -838,7 +838,7 @@
   text-align: right !important;
 }
 
-@media (min-width: 700px) {
+@media (min-width: 720px) {
   .u-flex-sm-first {
     -ms-flex-order: -1;
     order: -1;
@@ -981,7 +981,7 @@
   }
 }
 
-@media (min-width: 940px) {
+@media (min-width: 960px) {
   .u-flex-md-first {
     -ms-flex-order: -1;
     order: -1;
@@ -1124,7 +1124,7 @@
   }
 }
 
-@media (min-width: 1260px) {
+@media (min-width: 1280px) {
   .u-flex-lg-first {
     -ms-flex-order: -1;
     order: -1;
@@ -1301,7 +1301,7 @@
   display: inline-flex !important;
 }
 
-@media (min-width: 700px) {
+@media (min-width: 720px) {
   .d-none-sm {
     display: none !important;
   }
@@ -1330,7 +1330,7 @@
   }
 }
 
-@media (min-width: 940px) {
+@media (min-width: 960px) {
   .d-none-md {
     display: none !important;
   }
@@ -1359,7 +1359,7 @@
   }
 }
 
-@media (min-width: 1260px) {
+@media (min-width: 1280px) {
   .d-none-lg {
     display: none !important;
   }
@@ -1392,37 +1392,37 @@
   display: none !important;
 }
 
-@media (max-width: 699px) {
+@media (max-width: 719px) {
   .d-hidden-xs-down {
     display: none !important;
   }
 }
 
-@media (min-width: 700px) {
+@media (min-width: 720px) {
   .d-hidden-sm-up {
     display: none !important;
   }
 }
 
-@media (max-width: 939px) {
+@media (max-width: 959px) {
   .d-hidden-sm-down {
     display: none !important;
   }
 }
 
-@media (min-width: 940px) {
+@media (min-width: 960px) {
   .d-hidden-md-up {
     display: none !important;
   }
 }
 
-@media (max-width: 1259px) {
+@media (max-width: 1279px) {
   .d-hidden-md-down {
     display: none !important;
   }
 }
 
-@media (min-width: 1260px) {
+@media (min-width: 1280px) {
   .d-hidden-lg-up {
     display: none !important;
   }

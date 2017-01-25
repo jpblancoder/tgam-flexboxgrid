@@ -1,9 +1,3 @@
-<h3 id="g-options">Grid options</h3>
-
-<p>See how aspects of the grid system work across multiple devices with a handy table.</p>
-
-{{> grid/options}}
-
 <h3 id="g-layout">Auto-layout columns</h3>
 
 <p>Utilize breakpoint-specific column classes for equal-width columns.
@@ -15,7 +9,7 @@
 <p>For example, here are two grid layouts that apply to every device and viewport,
   from <code>xs</code> to <code>xl</code>.</p>
 
-<div class="l-container__debug">
+<div class="l-container__debug u-display-example">
   {{> grid/equal-width}}
 </div>
 {{> grid/equal-width-code}}
@@ -27,7 +21,7 @@
   (as shown below), grid mixins, or inline widths. Note that the other columns will resize
   no matter the width of the center column.</p>
 
-<div class="l-container__debug">
+<div class="l-container__debug u-display-example">
   {{> grid/setting-one}}
 </div>
 {{> grid/setting-one-code}}
@@ -39,7 +33,7 @@
   This, in conjunction with <strong>horizontal alignment</strong> classes, is very useful for centering
   layouts with uneven column sizes as viewport width changes.</p>
 
-<div class="l-container__debug">
+<div class="l-container__debug u-display-example">
   {{> grid/vars-width}}
 </div>
 {{> grid/vars-width-code}}
@@ -50,7 +44,7 @@
   columns to break to a new line. Make the breaks responsive by mixing the <strong>div</strong> with
   some responsive display utilities.</p>
 
-<div class="l-container__debug">
+<div class="l-container__debug u-display-example">
   {{> grid/equal-multi}}
 </div>
 {{> grid/equal-multi-code}}
@@ -67,7 +61,7 @@ Customize the size of your columns on extra small, small, medium, large, or extr
   Specify a numbered class when you need a particularly sized column; otherwise,
   feel free to stick to <code>.l-col</code>.</p>
 
-<div class="l-container__debug">
+<div class="l-container__debug u-display-example">
   {{> grid/all-break}}
 </div>
 {{> grid/all-break-code}}
@@ -77,7 +71,7 @@ Customize the size of your columns on extra small, small, medium, large, or extr
 <p>Using a single set of <code>.l-col-sm-*</code> classes, you can create a basic grid system that starts out
 stacked on extra small devices before becoming horizontal on desktop (medium) devices.</p>
 
-<div class="l-container__debug">
+<div class="l-container__debug u-display-example">
   {{> grid/stacked}}
 </div>
 {{> grid/stacked-code}}
@@ -100,12 +94,12 @@ stacked on extra small devices before becoming horizontal on desktop (medium) de
 
 <h4 id="g-h-align">Horizontal alignment</h4>
 
-<div class="l-container__debug">
+<div class="l-container__debug u-display-example">
   {{> grid/h-align}}
 </div>
 {{> grid/h-align-code}}
 
-<h4 id="g-no-gutters">No gutters</h4>
+<h4 id="g-no-gutters">No column gutters</h4>
 
 <p>The gutters between columns in our predefined grid classes can be removed
   with <code>.l-row__no-gutters</code>. This removes the negative <strong>margins</strong> from <code>.row</code> and the horizontal
@@ -195,8 +189,7 @@ you use all 12 available columns).</p>
 {{> grid/nesting-code}}
 
 <h3 id="g-debugging">Debug highlighting</h3>
-<p>Use the following helper classes to highlight the rows and/or columns of a grid, for debugging purposes.
-These same classes are used throughout the documentation examples.</p>
+<p>Use the following helper classes to highlight the columns of a grid, for debugging purposes.</p>
 
 <h4 id="g-debug-grid">Entire Grid</h4>
 <p>Highlight all columns within all rows of a grid.

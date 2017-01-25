@@ -8,17 +8,18 @@
   .l-container__debug,
   .l-container-fluid__debug {
     .l-row {
-      @include make-debug-row();
+      @include make-row-debug();
     }
   }
 
   // This class should be added onto the element <code>.l-row</code>
   .l-row__debug {
-    @include make-debug-row();
+    @include make-row-debug();
   }
 
   // This class should be added onto the element <code>.l-col</code>
   .l-col__debug {
-    @include make-debug-column();
+    @include make-col-debug();
   }
+
 }

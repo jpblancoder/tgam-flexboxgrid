@@ -23,11 +23,17 @@ primaryNav:
         name: "Columns and gutters"
         path: "#o-settings"
       -
-        name: "Grid tier values"
+        name: "Grid breakpoint values"
         path: "#o-tiers"
+      -
+        name: "Grid summary table"
+        path: "#o-summary-table"
       -
         name: "Disable/exclude features"
         path: "#o-exclude"
+    -
+      name: "Responsive breakpoint mixins"
+      path: "#o-resp-mixins"
   -
     name: "Utilities"
     path: "#util"
@@ -88,9 +94,6 @@ primaryNav:
     path: "#grid"
     children:
     -
-      name: "Grid options"
-      path: "#g-options"
-    -
       name: "Auto-layout columns"
       path: "#g-layout"
       children:
@@ -127,7 +130,7 @@ primaryNav:
         name: "Horizontal alignment"
         path: "#g-h-align"
       -
-        name: "No gutters"
+        name: "No column gutters"
         path: "#g-no-gutters"
       -
         name: "Column wrapping"

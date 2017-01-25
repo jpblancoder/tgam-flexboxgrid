@@ -6,13 +6,12 @@
 
   // add left/right edge padding to xs grid container only
   @include media-breakpoint-down(xs, $grid-breakpoints) {
-    padding-right: ($gutter / 2);
-    padding-left:  ($gutter / 2);
+    @include make-gutters($gutter);
   }
 }
 
 // For each breakpoint, define the maximum width of the container in a media query
-@mixin make-container-max-widths($max-widths: $grid-containers, $breakpoints: $grid-breakpoints) {
+@mixin make-container-max-widths($max-widths: $grid-containers, $breakpoints: $grid-containers) {
   @each $breakpoint, $container-max-width in $max-widths {
     @include media-breakpoint-up($breakpoint, $breakpoints) {
       width: $container-max-width;
@@ -29,8 +28,6 @@
 @mixin make-row($gutter: $grid-gutter-width-base) {
   display: flex;
   flex-wrap: wrap;
-  // margin-right: ($gutter / -2);
-  // margin-left:  ($gutter / -2);
 }
 
 @mixin make-col($size, $columns) {
@@ -130,27 +127,29 @@
   }
 }
 
-@mixin make-debug-row() {
+@mixin make-row-debug() {
   > .l-col,
   > [class*="l-col-"] {
-    @include make-debug-column();
+    @include make-col-debug();
   }
 }
 
-@mixin make-debug-column() {
+@mixin make-col-debug() {
+  // don't show gutter spaces:
   background-color: $debug-bg-color;
   outline: $debug-outline;
-}
 
-@mixin make-col-no-gutters() {
-  @include make-col-no-gutters-left();
-  @include make-col-no-gutters-right();
-}
-
-@mixin make-col-no-gutters-left() {
-  padding-left: 0 !important;
-}
-
-@mixin make-col-no-gutters-right() {
-  padding-right: 0 !important;
+  // yes show gutter spaces:
+  // &::before {
+  //   content: "";
+  //   display: block;
+  //   height: 100%;
+  //   position: absolute;
+  //   top: 0;
+  //   left: ($grid-gutter-width-base / 2);
+  //   width: calc(100% - #{$grid-gutter-width-base});
+  //   z-index: 1;
+  //   background-color: $debug-bg-color;
+  //   border: $debug-outline;
+  // }
 }

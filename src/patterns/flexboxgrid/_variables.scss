@@ -1,12 +1,35 @@
+// Set the the width of the gutters.
+$grid-gutter-width-base: 20px !default;
+
+// Define the maximum width of `.container` for different screen sizes.
+$grid-containers: (
+  // xs: 0, - intentionally excluded
+  sm: 720px,
+  md: 960px,
+  lg: 1280px,
+) !default;
+@include _assert-ascending($grid-containers, "$grid-containers");
+
 // Create or remove breakpoints for your project
+// Tightly bound to container sizes.
 $grid-breakpoints: (
   xs: 0, // locked at 0
-  sm: 700px,
-  md: 940px,
-  lg: 1260px
+  sm: (map-get($grid-containers, sm) - $grid-gutter-width-base),
+  md: (map-get($grid-containers, md) - $grid-gutter-width-base),
+  lg: (map-get($grid-containers, lg) - $grid-gutter-width-base),
 ) !default;
 @include _assert-ascending($grid-breakpoints, "$grid-breakpoints");
 @include _assert-starts-at-zero($grid-breakpoints);
+
+// used for certain breakpoints in (_flex, _display, _visibility)
+$grid-breakers: (
+  xs: 0, // locked at 0
+  sm: map-get($grid-containers, sm),
+  md: map-get($grid-containers, md),
+  lg: map-get($grid-containers, lg),
+) !default;
+@include _assert-ascending($grid-breakers, "$grid-breakers");
+@include _assert-starts-at-zero($grid-breakers);
 
 // Set the number of columns you want to use on your layout.
 $grid-columns: (
@@ -17,18 +40,6 @@ $grid-columns: (
 ) !default;
 @include _assert-ascending($grid-columns, "$grid-columns");
 @include _assert-starts-at-one($grid-columns);
-
-// Set the the width of the gutters.
-$grid-gutter-width-base: 20px !default;
-
-// Define the maximum width of `.container` for different screen sizes.
-$grid-containers: (
-  // xs: 0, - intentionally excluded
-  sm: (map-get($grid-breakpoints, sm) + $grid-gutter-width-base),
-  md: (map-get($grid-breakpoints, md) + $grid-gutter-width-base),
-  lg: (map-get($grid-breakpoints, lg) + $grid-gutter-width-base),
-) !default;
-@include _assert-ascending($grid-containers, "$grid-containers");
 
 // Debug colors for column highlighting
 $debug-bg-color: rgba(86, 61, 124, .15) !default;
