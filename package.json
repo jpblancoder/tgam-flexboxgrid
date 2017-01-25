@@ -15,12 +15,11 @@
   },
   "main": "index.js",
   "files": [
-    "src/grid/"
+    "src/patterns/flexboxgrid/"
   ],
   "scripts": {
     "preversion": "./node_modules/.bin/gulp sass:lint",
-    "build": "./node_modules/.bin/gulp generate",
-    "start": "./node_modules/.bin/gulp default"
+    "start": "./node_modules/.bin/gulp"
   },
   "devDependencies": {
     "babel-polyfill": "6.22.0",
