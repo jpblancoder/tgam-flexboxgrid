@@ -6,5 +6,5 @@
 //   @import "../node_modules/tgam-flexboxgrid/src/grid/flexboxgrid";
 
 module.exports = {
-  sassIncludePath: __dirname + "/src"
+  sassIncludePath: __dirname + "/src/patterns"
 };
