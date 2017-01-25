@@ -67,15 +67,15 @@ and the container widths—then recompile.</p>
   <code>$grid-columns</code> is used to generate the widths (in percent) of each individual column while
   <code>$grid-gutter-width-base</code> sets padding-left and padding-right for the column gutters.</p>
 
-{{> overview/grid-breakpoints-scss}}
+{{> overview/grid-columns-scss}}
 
-<h4 id="o-tiers">Grid tier values</h4>
+<h4 id="o-tiers">Grid breakpoint values</h4>
 
 <p>Moving beyond the columns themselves, you may also customize the number of grid tiers.
 If you wanted just three grid tiers, you’d update the
 <code>$grid-breakpoints</code> and <code>$grid-containers</code> to something like this:</p>
 
-{{> overview/grid-tiers-scss}}
+{{> overview/grid-breakpoints-scss}}
 
 <p>When making any changes to the Sass variables or maps, you’ll need to save your
   changes and recompile. Doing so will out a brand new set of predefined grid
@@ -87,4 +87,36 @@ If you wanted just three grid tiers, you’d update the
 <p>In the <code>_variables.scss</code> file.
   Disable any of the below (undesired) features to reduce the grid bundle size.</p>
 
+<p>For details, refer to: <a href="#u-visibility">Visibility classes</a>, or <a href="#u-display">display classes</a>,
+  or <a href="#u-flexbox">flexbox classes</a>, or <a href="#grid">various grid classes</a>.</p>
+
 {{> overview/grid-exclude-scss}}
+
+<h3 id="o-resp-mixins">Responsive breakpoint mixins</h3>
+
+<p>Since Bootstrap is developed to be mobile first, we use a handful of media queries to create sensible
+breakpoints for our layouts and interfaces. These breakpoints are mostly based on minimum viewport widths
+and allow us to scale up elements as the viewport changes.</p>
+
+<p>Bootstrap primarily uses the following media query ranges—or breakpoints—in our source
+Sass files for our layout, grid system, and components.</p>
+
+<p>Since we write our source CSS in Sass, all our media queries are available via Sass mixins:</p>
+
+{{> overview/resp-breakpoints-up-scss}}
+
+<p>We occasionally use media queries that go in the other direction (the given screen size or smaller).
+  Once again, these media queries are also available via Sass mixins:</p>
+
+{{> overview/resp-breakpoints-down-scss}}
+
+<p>There are also media queries and mixins for targeting a single segment of screen sizes
+  using the minimum and maximum breakpoint widths.
+  These media queries are also available via Sass mixins:</p>
+
+{{> overview/resp-breakpoints-only-scss}}
+
+<p>Similarly, media queries may span multiple breakpoint widths.
+The Sass mixin for targeting the same screen size range would be:</p>
+
+{{> overview/resp-breakpoints-between-scss}}

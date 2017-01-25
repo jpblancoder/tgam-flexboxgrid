@@ -23,11 +23,14 @@ primaryNav:
         name: "Columns and gutters"
         path: "#o-settings"
       -
-        name: "Grid tier values"
+        name: "Grid breakpoint values"
         path: "#o-tiers"
       -
         name: "Disable/exclude features"
         path: "#o-exclude"
+    -
+      name: "Responsive breakpoint mixins"
+      path: "#o-resp-mixins"
   -
     name: "Utilities"
     path: "#util"
