@@ -307,7 +307,7 @@ Which are extra-small (1), small (8), medium (12), and large (16).</p>
                   <a class="primary-nav__link" href="#g-h-align">Horizontal alignment</a>
                 </li>
                 <li class="primary-nav__item primary-nav__item--nested">
-                  <a class="primary-nav__link" href="#g-no-gutters">No gutters</a>
+                  <a class="primary-nav__link" href="#g-no-gutters">No column gutters</a>
                 </li>
                 <li class="primary-nav__item primary-nav__item--nested">
                   <a class="primary-nav__link" href="#g-col-wrap">Column wrapping</a>
@@ -428,7 +428,7 @@ Which are extra-small (1), small (8), medium (12), and large (16).</p>
 
 <p>While containers can be nested, most layouts do not require a nested container.
   Resize your screen to see how the two containers behave differently when between breakpoints.</p>
-<div class="l-container__debug">
+<div class="l-container__debug u-display-example">
   <div class="l-container">
     <div class="l-row">
       <div class="l-col"> 8 </div>
@@ -449,7 +449,7 @@ Which are extra-small (1), small (8), medium (12), and large (16).</p>
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span></code></pre></div>
 <p>Use <code>.l-container-fluid</code> for a full width container, spanning the entire width of the viewport.</p>
-<div class="l-container__debug">
+<div class="l-container__debug u-display-example">
   <div class="l-container-fluid">
     <div class="l-row">
       <div class="l-col"> 8 </div>
@@ -471,7 +471,7 @@ Which are extra-small (1), small (8), medium (12), and large (16).</p>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span></code></pre></div>
 <h3 id="o-fluid-grid">Fluid columns</h3>
 <p>Percent based widths allow fluid resizing of columns and rows.</p>
-<div class="l-container__debug">
+<div class="l-container__debug u-display-example">
   <div class="l-container-fluid">
     <div class="l-row">
       <div class="l-col"> 8 </div>
@@ -541,7 +541,7 @@ Which are extra-small (1), small (8), medium (12), and large (16).</p>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span></code></pre></div>
 <h3 id="o-responsive-modifiers">Responsive modifiers</h3>
 <p>Responsive modifiers enable specifying different column sizes, offsets, alignment and distribution at xs, sm, md &amp; lg viewport widths.</p>
-<div class="l-container__debug">
+<div class="l-container__debug u-display-example">
   <div class="l-container-fluid">
     <div class="l-row">
       <div class="l-col l-col-sm-2 l-col-md-2 l-col-lg-1"> A1 </div>
@@ -575,7 +575,7 @@ Which are extra-small (1), small (8), medium (12), and large (16).</p>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span></code></pre></div>
 <h3 id="o-responsive-grid">Responsive columns</h3>
 <p>Each of the 4 breakpoint tiers has a different column count. Extra-small (1), small (8), medium (12), large (16).</p>
-<div class="l-container__debug">
+<div class="l-container__debug u-display-example">
   <div class="l-container">
     <div class="l-row">
       <div class="l-col l-col-sm-8 l-col-md-12 l-col-lg-16">
@@ -1943,7 +1943,7 @@ The Sass mixin for targeting the same screen size range would be:</p>
 <p>For example, here are two grid layouts that apply to every device and viewport,
   from <code>xs</code> to <code>xl</code>.</p>
 
-<div class="l-container__debug">
+<div class="l-container__debug u-display-example">
   <div class="l-container">
     <div class="l-row">
       <div class="l-col">
@@ -1984,7 +1984,7 @@ The Sass mixin for targeting the same screen size range would be:</p>
   (as shown below), grid mixins, or inline widths. Note that the other columns will resize
   no matter the width of the center column.</p>
 
-<div class="l-container__debug">
+<div class="l-container__debug u-display-example">
   <div class="l-container">
     <div class="l-row">
       <div class="l-col">
@@ -2029,13 +2029,13 @@ The Sass mixin for targeting the same screen size range would be:</p>
   This, in conjunction with <strong>horizontal alignment</strong> classes, is very useful for centering
   layouts with uneven column sizes as viewport width changes.</p>
 
-<div class="l-container__debug">
+<div class="l-container__debug u-display-example">
   <div class="l-container">
     <div class="l-row u-justify-content-md-center">
       <div class="l-col l-col-lg-2">
         1 of 3
       </div>
-      <div class="l-col-12 l-col-md-auto">
+      <div class="l-col-lg-2 l-col-md-auto">
         Variable width content
       </div>
       <div class="l-col l-col-lg-2">
@@ -2046,7 +2046,7 @@ The Sass mixin for targeting the same screen size range would be:</p>
       <div class="l-col">
         1 of 3
       </div>
-      <div class="l-col-12 l-col-md-auto">
+      <div class="l-col-lg-2 l-col-md-auto">
         Variable width content
       </div>
       <div class="l-col l-col-lg-2">
@@ -2058,12 +2058,12 @@ The Sass mixin for targeting the same screen size range would be:</p>
 <div class='prettyprint'><pre><h4>HTML</h4><code class='language-markup'><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>l-container<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>l-row u-justify-content-md-center<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>l-col l-col-lg-2<span class="token punctuation">"</span></span><span class="token punctuation">></span></span> 1 of 3 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>l-col-12 l-col-md-auto<span class="token punctuation">"</span></span><span class="token punctuation">></span></span> Variable width content <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>l-col-lg-2 l-col-md-auto<span class="token punctuation">"</span></span><span class="token punctuation">></span></span> Variable width content <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>l-col l-col-lg-2<span class="token punctuation">"</span></span><span class="token punctuation">></span></span> 3 of 3 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>l-row<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>l-col<span class="token punctuation">"</span></span><span class="token punctuation">></span></span> 1 of 3 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>l-col-12 l-col-md-auto<span class="token punctuation">"</span></span><span class="token punctuation">></span></span> Variable width content <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>l-col-lg-2 l-col-md-auto<span class="token punctuation">"</span></span><span class="token punctuation">></span></span> Variable width content <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>l-col l-col-lg-2<span class="token punctuation">"</span></span><span class="token punctuation">></span></span> 3 of 3 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span></code></pre></div>
@@ -2073,7 +2073,7 @@ The Sass mixin for targeting the same screen size range would be:</p>
   columns to break to a new line. Make the breaks responsive by mixing the <strong>div</strong> with
   some responsive display utilities.</p>
 
-<div class="l-container__debug">
+<div class="l-container__debug u-display-example">
   <div class="l-row">
     <div class="l-col">l-col</div>
     <div class="l-col">l-col</div>
@@ -2101,7 +2101,7 @@ Customize the size of your columns on extra small, small, medium, large, or extr
   Specify a numbered class when you need a particularly sized column; otherwise,
   feel free to stick to <code>.l-col</code>.</p>
 
-<div class="l-container__debug">
+<div class="l-container__debug u-display-example">
   <div class="l-row">
     <div class="l-col">l-col</div>
     <div class="l-col">l-col</div>
@@ -2128,7 +2128,7 @@ Customize the size of your columns on extra small, small, medium, large, or extr
 <p>Using a single set of <code>.l-col-sm-*</code> classes, you can create a basic grid system that starts out
 stacked on extra small devices before becoming horizontal on desktop (medium) devices.</p>
 
-<div class="l-container__debug">
+<div class="l-container__debug u-display-example">
   <div class="l-row">
     <div class="l-col-sm-6">l-col-sm-6</div>
     <div class="l-col-sm-2">l-col-sm-2</div>
@@ -2232,7 +2232,7 @@ stacked on extra small devices before becoming horizontal on desktop (medium) de
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span></code></pre></div>
 <h4 id="g-h-align">Horizontal alignment</h4>
 
-<div class="l-container__debug">
+<div class="l-container__debug u-display-example">
   <div class="l-container">
     <div class="l-row u-justify-content-start">
       <div class="l-col-sm-2">
@@ -2298,7 +2298,7 @@ stacked on extra small devices before becoming horizontal on desktop (medium) de
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>l-col-sm-2<span class="token punctuation">"</span></span><span class="token punctuation">></span></span> One of two columns <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span></code></pre></div>
-<h4 id="g-no-gutters">No gutters</h4>
+<h4 id="g-no-gutters">No column gutters</h4>
 
 <p>The gutters between columns in our predefined grid classes can be removed
   with <code>.l-row__no-gutters</code>. This removes the negative <strong>margins</strong> from <code>.row</code> and the horizontal
@@ -2490,8 +2490,7 @@ you use all 12 available columns).</p>
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span></code></pre></div>
 <h3 id="g-debugging">Debug highlighting</h3>
-<p>Use the following helper classes to highlight the rows and/or columns of a grid, for debugging purposes.
-These same classes are used throughout the documentation examples.</p>
+<p>Use the following helper classes to highlight the columns of a grid, for debugging purposes.</p>
 
 <h4 id="g-debug-grid">Entire Grid</h4>
 <p>Highlight all columns within all rows of a grid.
@@ -2570,7 +2569,7 @@ This class should be added onto the element <code>.l-col</code></p>
 <section class="page-section">
 <h2 id="examples">Examples</h2>
 <h3 id="e-section-latest-layout">Section latest layout</h3>
-<div class="l-container__debug">
+<div class="l-container__debug  -display-example">
   <div class="l-container">
     <div class="l-row">
       <div class="l-col-1 l-col-sm-8 l-col-md-12 l-col-lg-3"> 1 </div>
@@ -2589,7 +2588,7 @@ This class should be added onto the element <code>.l-col</code></p>
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span></code></pre></div>
 <h3 id="e-section-list-layout">Section list layout</h3>
-<div class="l-container__debug">
+<div class="l-container__debug u-display-example">
   <div class="l-container">
     <div class="l-row">
       <div class="l-col-1 l-col-sm-4 l-col-md-3 l-col-lg-4"> 1 </div>
@@ -2608,7 +2607,7 @@ This class should be added onto the element <code>.l-col</code></p>
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span></code></pre></div>
 <h3 id="e-group-1-layout">Group 1 layout</h3>
-<div class="l-container__debug">
+<div class="l-container__debug u-display-example">
   <div class="l-container">
     <div class="l-row">
       <div class="l-col-1 l-col-sm-4 l-col-md-3 l-col-lg-4"> 1 </div>
@@ -2627,7 +2626,7 @@ This class should be added onto the element <code>.l-col</code></p>
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span></code></pre></div>
 <h3 id="e-group-2-layout">Group 2 layout</h3>
-<div class="l-container__debug">
+<div class="l-container__debug u-display-example">
   <div class="l-container">
     <div class="l-row">
       <div class="l-col-1 l-col-sm-8 l-col-md-6 l-col-lg-8"> 1 </div>
@@ -2644,7 +2643,7 @@ This class should be added onto the element <code>.l-col</code></p>
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span></code></pre></div>
 <h3 id="e-complex-grid">Complex nested grid</h3>
-<div class="l-container__debug">
+<div class="l-container__debug u-display-example">
   <div class="l-container-fluid">
     <div class="l-row">
       <div class="l-col-sm-5">

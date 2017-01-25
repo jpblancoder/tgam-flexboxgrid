@@ -8,14 +8,6 @@
   @include media-breakpoint-down(xs, $grid-breakpoints) {
     @include make-gutters($gutter);
   }
-
-  // @each $breakpoint in map-keys($gutters) {
-  //   @include media-breakpoint-up($breakpoint) {
-  //     $gutter: map-get($gutters, $breakpoint);
-  //     padding-right: ($gutter / 2);
-  //     padding-left:  ($gutter / 2);
-  //   }
-  // }
 }
 
 // For each breakpoint, define the maximum width of the container in a media query
@@ -31,30 +23,11 @@
 @mixin make-gutters($gutter: $grid-gutter-width-base) {
   padding-right: ($gutter / 2);
   padding-left:  ($gutter / 2);
-
-  // @each $breakpoint in map-keys($gutters) {
-  //   @include media-breakpoint-up($breakpoint) {
-  //     $gutter: map-get($gutters, $breakpoint);
-  //     padding-right: ($gutter / 2);
-  //     padding-left:  ($gutter / 2);
-  //   }
-  // }
 }
 
 @mixin make-row($gutter: $grid-gutter-width-base) {
   display: flex;
   flex-wrap: wrap;
-
-  // margin-right: ($gutter / -2);
-  // margin-left:  ($gutter / -2);
-
-  // @each $breakpoint in map-keys($gutters) {
-  //   @include media-breakpoint-up($breakpoint) {
-  //     $gutter: map-get($gutters, $breakpoint);
-  //     margin-right: ($gutter / -2);
-  //     margin-left:  ($gutter / -2);
-  //   }
-  // }
 }
 
 @mixin make-col($size, $columns) {
@@ -164,7 +137,7 @@
 @mixin make-col-debug() {
   // don't show gutter spaces:
   background-color: $debug-bg-color;
-  border: $debug-outline;
+  outline: $debug-outline;
 
   // yes show gutter spaces:
   // &::before {
