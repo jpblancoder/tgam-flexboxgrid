@@ -3,14 +3,14 @@
 // All classes are prefixed with `d` as in `display`.
 
 @if $include-hidden {
-  @each $bp in map-keys($grid-breakpoints) {
+  @each $bp in map-keys($grid-containers) {
     .d-hidden-#{$bp}-up {
-      @include media-breakpoint-up($bp) {
+      @include media-breakpoint-up($bp, $grid-containers) {
         display: none !important;
       }
     }
     .d-hidden-#{$bp}-down {
-      @include media-breakpoint-down($bp) {
+      @include media-breakpoint-down($bp, $grid-containers) {
         display: none !important;
       }
     }
