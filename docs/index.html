@@ -690,19 +690,10 @@ $<span class="token property">grid-gutter-width-base</span><span class="token pu
 </code></pre></div>
 <h4 id="o-tiers">Grid breakpoint values</h4>
 
-<p>Moving beyond the columns themselves, you may also customize the number of grid tiers.
-If you wanted just three grid tiers, you’d update the
-<code>$grid-breakpoints</code> and <code>$grid-containers</code> to something like this:</p>
+<p>Moving beyond the columns themselves, you may also customize the breakpoint tier container widths.
+Update the Sass variable <code>$grid-containers</code> to something like this:</p>
 
-<div class='prettyprint'><pre><h4>SCSS</h4><code class='language-scss'>$<span class="token property">grid-breakpoints</span><span class="token punctuation">:</span> <span class="token punctuation">(</span>
-  <span class="token property">xs</span><span class="token punctuation">:</span> 0,
-  <span class="token property">sm</span><span class="token punctuation">:</span> 700px,
-  <span class="token property">md</span><span class="token punctuation">:</span> 940px,
-  <span class="token property">lg</span><span class="token punctuation">:</span> 1260px
-<span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-// container values equal <span class="token punctuation">(</span>breakpoint + gutter<span class="token punctuation">)</span>
-$<span class="token property">grid-containers</span><span class="token punctuation">:</span> <span class="token punctuation">(</span>
+<div class='prettyprint'><pre><h4>SCSS</h4><code class='language-scss'>$<span class="token property">grid-containers</span><span class="token punctuation">:</span> <span class="token punctuation">(</span>
   // <span class="token property">xs</span><span class="token punctuation">:</span> 0, - intentionally excluded
   <span class="token property">sm</span><span class="token punctuation">:</span> 720px,
   <span class="token property">md</span><span class="token punctuation">:</span> 960px,

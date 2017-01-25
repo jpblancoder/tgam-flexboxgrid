@@ -2,9 +2,9 @@
 //
 // All classes are prefixed with `d` as in `display`.
 
-@each $breakpoint in map-keys($grid-containers) {
-  @include media-breakpoint-up($breakpoint, $grid-containers) {
-    $infix: breakpoint-infix($breakpoint, $grid-containers);
+@each $breakpoint in map-keys($grid-breakers) {
+  @include media-breakpoint-up($breakpoint, $grid-breakers) {
+    $infix: breakpoint-infix($breakpoint, $grid-breakers);
 
     @if $include-display-none {
       .d-none#{$infix} {
