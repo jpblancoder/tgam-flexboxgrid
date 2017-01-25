@@ -130,7 +130,7 @@ primaryNav:
         name: "Horizontal alignment"
         path: "#g-h-align"
       -
-        name: "No gutters"
+        name: "No column gutters"
         path: "#g-no-gutters"
       -
         name: "Column wrapping"

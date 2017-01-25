@@ -1,4 +1,6 @@
 // Create or remove breakpoints for your project
+// Values are used with @media (min-width: 700px) {}
+// If device width is greater than or equal to min-width, then do.
 $grid-breakpoints: (
   xs: 0, // locked at 0
   sm: 700px,
