@@ -1,0 +1,221 @@
+<h3 id="g-options">Grid options</h3>
+
+<p>See how aspects of the grid system work across multiple devices with a handy table.</p>
+
+{{> grid/options}}
+
+<h3 id="g-layout">Auto-layout columns</h3>
+
+<p>Utilize breakpoint-specific column classes for equal-width columns.
+  Add any number of unit-less classes for each breakpoint you need and
+  every column will be the same width.</p>
+
+<h4 id="g-equal-width">Equal-width</h4>
+
+<p>For example, here are two grid layouts that apply to every device and viewport,
+  from <code>xs</code> to <code>xl</code>.</p>
+
+<div class="l-container__debug">
+  {{> grid/equal-width}}
+</div>
+{{> grid/equal-width-code}}
+
+<h4 id="g-setting-one">Setting one column width</h4>
+
+<p>Auto-layout for flexbox grid columns also means you can set the width of one column and
+  the others will automatically resize around it. You may use predefined grid classes
+  (as shown below), grid mixins, or inline widths. Note that the other columns will resize
+  no matter the width of the center column.</p>
+
+<div class="l-container__debug">
+  {{> grid/setting-one}}
+</div>
+{{> grid/setting-one-code}}
+
+<h4 id="g-vars-width">Variable width content</h4>
+
+<p>Using the <code>l-col-{breakpoint}-auto</code> classes, columns can size itself based on the natural width
+  of its content. This is super handy with single line content like inputs, numbers, etc.
+  This, in conjunction with <strong>horizontal alignment</strong> classes, is very useful for centering
+  layouts with uneven column sizes as viewport width changes.</p>
+
+<div class="l-container__debug">
+  {{> grid/vars-width}}
+</div>
+{{> grid/vars-width-code}}
+
+<h4 id="g-equal-multi">Equal-width multi-row</h4>
+
+<p>Create equal-width columns that span multiple rows by inserting a <strong>div</strong> where you want the
+  columns to break to a new line. Make the breaks responsive by mixing the <strong>div</strong> with
+  some responsive display utilities.</p>
+
+<div class="l-container__debug">
+  {{> grid/equal-multi}}
+</div>
+{{> grid/equal-multi-code}}
+
+<h3 id="g-resp-classes">Responsive classes</h3>
+
+<p>Bootstrap’s grid includes five tiers of predefined classes for building complex responsive layouts.
+Customize the size of your columns on extra small, small, medium, large, or extra large devices however you see fit.</p>
+
+<h4 id="g-all-break">All breakpoints</h4>
+
+<p>For grids that are the same from the smallest of devices to the largest,
+  use the <code>.l-col</code> and <code>.l-col-*</code> classes.
+  Specify a numbered class when you need a particularly sized column; otherwise,
+  feel free to stick to <code>.l-col</code>.</p>
+
+<div class="l-container__debug">
+  {{> grid/all-break}}
+</div>
+{{> grid/all-break-code}}
+
+<h4 id="g-stacked">Stacked to horizontal</h4>
+
+<p>Using a single set of <code>.l-col-sm-*</code> classes, you can create a basic grid system that starts out
+stacked on extra small devices before becoming horizontal on desktop (medium) devices.</p>
+
+<div class="l-container__debug">
+  {{> grid/stacked}}
+</div>
+{{> grid/stacked-code}}
+
+<h3 id="g-alignment">Alignment</h3>
+
+<p>Use flexbox alignment utilities to vertically and horizontally align columns.</p>
+
+<h4 id="g-v-align">Vertical alignment</h4>
+
+<div class="l-container__debug u-display-example">
+  {{> grid/v-align-items}}
+</div>
+{{> grid/v-align-items-code}}
+
+<div class="l-container__debug u-display-example">
+  {{> grid/v-align-self}}
+</div>
+{{> grid/v-align-self-code}}
+
+<h4 id="g-h-align">Horizontal alignment</h4>
+
+<div class="l-container__debug">
+  {{> grid/h-align}}
+</div>
+{{> grid/h-align-code}}
+
+<h4 id="g-no-gutters">No gutters</h4>
+
+<p>The gutters between columns in our predefined grid classes can be removed
+  with <code>.l-row__no-gutters</code>. This removes the negative <strong>margins</strong> from <code>.row</code> and the horizontal
+  <strong>padding</strong> from all immediate children columns.</p>
+
+<p>Here’s the source code for creating these styles. Note that column overrides
+  are scoped to only the first children columns and are targeted via <strong>attribute selector</strong>.
+  While this generates a more specific selector, column padding can still be further
+  customized with <strong>spacing utilities</strong>.</p>
+
+<p>In practice, here’s how it looks. Note you can continue to use this with all other
+  predefined grid classes (including column widths, responsive tiers, reorders, and more).</p>
+
+<div class="l-container__debug u-display-example">
+  {{> grid/no-gutters-row}}
+</div>
+{{> grid/no-gutters-row-code}}
+
+<div class="l-container__debug u-display-example">
+  {{> grid/no-gutters-col}}
+</div>
+{{> grid/no-gutters-col-code}}
+
+<h4 id="g-col-wrap">Column wrapping</h4>
+
+<p>If more than 12 columns are placed within a single row, each group of extra columns will,
+  as one unit, wrap onto a new line.</p>
+
+<div class="l-container__debug u-display-example">
+  {{> grid/col-wrap}}
+</div>
+{{> grid/col-wrap-code}}
+
+<h4 id="g-col-reset">Column resets</h4>
+
+<p>With the handful of grid tiers available, you’re bound to run into issues where,
+at certain breakpoints, your columns don’t clear quite right as one is taller than the other.
+To fix that, use a combination of a .clearfix and our <strong>responsive utility classes</strong>.</p>
+
+<div class="l-container__debug u-display-example">
+  {{> grid/col-reset}}
+</div>
+{{> grid/col-reset-code}}
+
+<h3 id="g-reordering">Reordering</h3>
+
+<h4 id="g-flex-order">Flex order</h4>
+
+<p>Use flexbox utilities for controlling the <strong>visual order</strong> of your content.</p>
+
+<div class="l-container__debug u-display-example">
+  {{> grid/flex-order}}
+</div>
+{{> grid/flex-order-code}}
+
+<h4 id="g-off-col">Offsetting columns</h4>
+
+<p>Move columns to the right using <code>.l-offset-md-*</code> classes. These classes increase the left margin of a
+column by <code>*</code> columns. For example, <code>.l-offset-md-4</code> moves
+<code>.l-col-md-4</code> over four columns.</p>
+
+<div class="l-container__debug u-display-example">
+  {{> grid/off-col}}
+</div>
+{{> grid/off-col-code}}
+
+<h4 id="g-push-pull">Push and pull</h4>
+
+<p>Easily change the order of our built-in grid columns with
+  <code>.l-push-md-*</code> and <code>.l-pull-md-*</code> modifier classes.</p>
+
+<div class="l-container__debug u-display-example">
+  {{> grid/push-pull}}
+</div>
+{{> grid/push-pull-code}}
+
+<h3 id="g-nesting">Nesting</h3>
+
+<p>To nest your content with the default grid, add a new <code>.l-row</code> and set of
+<code>.l-col-sm-*</code> columns within an existing <code>.l-col-sm-*</code> column. Nested rows should
+include a set of columns that add up to 12 or fewer (it is not required that
+you use all 12 available columns).</p>
+
+<div class="l-container__debug u-display-example">
+  {{> grid/nesting}}
+</div>
+{{> grid/nesting-code}}
+
+<h3 id="g-debugging">Debug highlighting</h3>
+<p>Use the following helper classes to highlight the rows and/or columns of a grid, for debugging purposes.
+These same classes are used throughout the documentation examples.</p>
+
+<h4 id="g-debug-grid">Entire Grid</h4>
+<p>Highlight all columns within all rows of a grid.
+This class can be added onto the element <code>.l-container</code> or <code>.l-container-fluid</code>.</p>
+It also can placed onto an element that wraps the container element.</p>
+
+{{> grid/debug-grid}}
+{{> grid/debug-grid-code}}
+
+<h4 id="g-debug-row">Single Row</h4>
+<p>Highlight all columns within a single row in a grid.
+This class should be added onto the element <code>.l-row</code></p>
+
+{{> grid/debug-row}}
+{{> grid/debug-row-code}}
+
+<h4 id="g-debug-col">Single Column</h4>
+<p>Highlight a single column within a grid.
+This class should be added onto the element <code>.l-col</code></p>
+
+{{> grid/debug-col}}
+{{> grid/debug-col-code}}

@@ -1,0 +1,30 @@
+<nav id="primary-nav" aria-labelledby="primary-nav__label">
+  <h2 id="primary-nav__label" class="visually-hidden">Main menu</h2>
+  <ul class="primary-nav__list">
+    <li class="primary-nav__item">
+      <a class="primary-nav__link" href="#home">Home</a>
+    </li>
+    {{#each items as |item|}}
+    <li class="primary-nav__item">
+      {{#if item.active}}
+        <span class="primary-nav__current"><span class="visually-hidden">Current Page: </span>{{item.name}}</span>
+      {{else}}
+        <a class="primary-nav__link" href="{{basePath}}{{item.path}}">{{item.name}}</a>
+      {{/if}}
+      {{#if item.children}}
+      <ul class="primary-nav__list primary-nav__list--nested">
+        {{#each item.children as |child|}}
+        <li class="primary-nav__item primary-nav__item--nested">
+          {{#if child.active}}
+            <span class="primary-nav__current"><span class="visually-hidden">Current Page: </span>{{child.name}}</span>
+          {{else}}
+            <a class="primary-nav__link" href="{{basePath}}{{child.path}}">{{child.name}}</a>
+          {{/if}}
+        </li>
+        {{/each}}
+      </ul>
+      {{/if}}
+    </li>
+    {{/each}}
+  </ul>
+</nav>

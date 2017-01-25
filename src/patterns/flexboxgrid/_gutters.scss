@@ -1,0 +1,26 @@
+// Remove the horizontal padding from the row, and remove padding
+// from all immediate children columns (to prevent runaway style inheritance).
+
+@if $include-grid-no-gutters {
+  .l-row__no-gutters {
+    > .l-col,
+    > [class*="l-col-"] {
+      @include make-col-no-gutters();
+    }
+  }
+
+  // Remove left/right padding from this column
+  .l-col__no-gutters {
+    @include make-col-no-gutters();
+  }
+
+  // Remove left padding from this column
+  .l-col__no-gutters-left {
+    @include make-col-no-gutters-left();
+  }
+
+  // Remove right padding from this column
+  .l-col__no-gutters-right {
+    @include make-col-no-gutters-right();
+  }
+}

@@ -1,0 +1,38 @@
+<div class="l-row">
+    {{#each items as |item|}}
+    <div class="l-col-1 l-col-sm-4 l-col-md-3">
+      <ul class="primary-nav__list">
+        <li class="primary-nav__item">
+          <a class="primary-nav__link" href="{{basePath}}{{item.path}}">{{item.name}}</a>
+          {{#if item.children}}
+          <ul class="primary-nav__list primary-nav__list--nested">
+            {{#each item.children as |child|}}
+            <li class="primary-nav__item primary-nav__item--nested">
+              <a class="primary-nav__link" href="{{basePath}}{{child.path}}">{{child.name}}</a>
+              {{#if child.children}}
+              <ul class="primary-nav__list primary-nav__list--nested">
+                {{#each child.children as |gchild|}}
+                <li class="primary-nav__item primary-nav__item--nested">
+                  <a class="primary-nav__link" href="{{basePath}}{{gchild.path}}">{{gchild.name}}</a>
+                  {{#if gchild.children}}
+                  <ul class="primary-nav__list primary-nav__list--nested">
+                    {{#each gchild.children as |ggchild|}}
+                    <li class="primary-nav__item primary-nav__item--nested">
+                      <a class="primary-nav__link" href="{{basePath}}{{ggchild.path}}">{{ggchild.name}}</a>
+                    </li>
+                    {{/each}}
+                  </ul>
+                  {{/if}}
+                </li>
+                {{/each}}
+              </ul>
+              {{/if}}
+            </li>
+            {{/each}}
+          </ul>
+          {{/if}}
+        </li>
+      </ul>
+    </div>
+    {{/each}}
+</div>

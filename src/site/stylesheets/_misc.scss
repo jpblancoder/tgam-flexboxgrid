@@ -1,0 +1,88 @@
+// Display section highlights
+// ------
+
+.u-display-example {
+  .d-flex, .l-row {
+    margin-bottom: 16px;
+  }
+  .example-item {
+    padding: 8px;
+  }
+  .d-inline,
+  .d-block,
+  .d-inline-block,
+  .d-flex,
+  .d-inline-flex,
+  .example-item,
+  .l-row {
+    background-color: rgba(86, 61, 124, .15);
+    outline: 1px solid rgba(86, 61, 124, .2);
+  }
+}
+
+// Helpers for visibility
+// ------
+
+.is-hidden {
+  color: #ccc;
+  background-color: #f9f9f9!important;
+}
+
+.is-visible {
+  color: #468847;
+  background-color: #dff0d8!important;
+}
+
+// HTML code
+// ------
+
+div.prettyprint {
+  background: #F9F9F9;
+  padding: 10px;
+  margin: 20px 0;
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+  border-top: 1px solid #CCCCCC;
+  font-size: 12px;
+
+  h4 {
+    margin: 0;
+  }
+
+  pre {
+    margin: 0;
+    padding: 10px;
+    background: #FFF;
+    white-space: pre;
+    word-wrap: normal;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+  }
+}
+
+// Misc
+// ------
+
+.head-to-top {
+  display: block;
+  float: right;
+  font-weight: bold;
+  padding-top: 12px;
+  padding-right: 16px;
+  color: #fff;
+  text-decoration: none;
+}
+
+.back-to-top {
+  text-align: center;
+  font-weight: bold;
+
+  a {
+    text-decoration: none;
+  }
+}
+
+.page-section {
+  border-bottom: 2px dotted $light-gray;
+  margin-bottom: 100px;
+}

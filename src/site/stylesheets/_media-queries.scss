@@ -1,0 +1,46 @@
+@media all and (max-width: 800px) {
+  html,
+  body {
+    height: auto;
+  }
+  body {
+    overflow: auto;
+  }
+  #page,
+  #main {
+    width: auto;
+    height: auto;
+    display: block;
+  }
+  #main,
+  #main-content {
+    flex: none;
+  }
+  #main-content {
+    padding-top: 60px; // Add #site-title height
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  #header {
+    width: 100%;
+    position: fixed;
+    z-index: 2;
+  }
+  #sidebar {
+    padding-top: 60px; // Add #site-title height
+    background-color: rgba($lightest-gray, 0.95);
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    z-index: 1;
+  }
+  .snippet {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .specimen__view-code,
+  .snippet__size,
+  .snippet__handle {
+    display: none;
+  }
+}

@@ -1,0 +1,28 @@
+.primary-nav__list {
+  list-style-type: none;
+  margin-left: 0;
+  margin-bottom: 0;
+}
+.primary-nav__item {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+.primary-nav__current {
+  color: $red;
+}
+.primary-nav__link {
+  text-decoration: none;
+  &:hover,
+  &:focus {
+    text-decoration: underline;;
+  }
+}
+.primary-nav__list--nested {
+  margin-top: 10px;
+  list-style-type: disc;
+}
+.primary-nav__item--nested {
+  margin-left: 20px;
+  margin-bottom: 2px;
+  font-weight: normal;
+}

@@ -1,0 +1,24 @@
+// Debug grid classes
+//
+// Will cause the columns to appear highlighted for debugging purposes.
+
+@if $include-grid-debug {
+  // This class can be added onto the element <code>.l-container</code> or <code>.l-container-fluid</code>.</p>
+  // It also can placed onto an element that wraps the container element.</p>
+  .l-container__debug,
+  .l-container-fluid__debug {
+    .l-row {
+      @include make-debug-row();
+    }
+  }
+
+  // This class should be added onto the element <code>.l-row</code>
+  .l-row__debug {
+    @include make-debug-row();
+  }
+
+  // This class should be added onto the element <code>.l-col</code>
+  .l-col__debug {
+    @include make-debug-column();
+  }
+}

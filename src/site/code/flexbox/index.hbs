@@ -1,0 +1,327 @@
+<h3 id="u-flexbox">Flexbox</h3>
+
+<p>Quickly manage the layout, alignment, and sizing of grid columns, navigation, components,
+  and more with a full suite of responsive flexbox utilities.
+  For more complex implementations, custom CSS may be necessary.</p>
+
+<h4 id="u-flexbox-dir">Direction</h4>
+<p>Set the direction of flex items in a flex container with direction utilities.
+  In most cases you can omit the horizontal class here as the browser default is <code>row</code>. However, you may encounter
+  situations where you needed to explicitly set this value (like responsive layouts).</p>
+
+<p>Use <code>.u-flex-row</code> to set a horizontal direction (the browser default),
+  or <code>.u-flex-row-reverse</code> to start the horizontal direction from the opposite side.</p>
+
+<div class="u-display-example">
+  {{> flexbox/flexbox-dir}}
+</div>
+{{> flexbox/flexbox-dir-code}}
+
+<p>Use <code>.u-flex-column</code> to set a vertical direction,
+  or <code>.u-flex-column-reverse</code> to start the vertical direction from the opposite side.</p>
+
+  <div class="u-display-example">
+    {{> flexbox/flexbox-dir-col}}
+  </div>
+{{> flexbox/flexbox-dir-col-code}}
+
+<p>Responsive variations also exist for <code>u-flex-direction</code>.</p>
+<ul>
+  <li><code>.u-flex-row</code></li>
+  <li><code>.u-flex-row-reverse</code></li>
+  <li><code>.u-flex-column</code></li>
+  <li><code>.u-flex-column-reverse</code></li>
+  <li><code>.u-flex-sm-row</code></li>
+  <li><code>.u-flex-sm-row-reverse</code></li>
+  <li><code>.u-flex-sm-column</code></li>
+  <li><code>.u-flex-sm-column-reverse</code></li>
+  <li><code>.u-flex-md-row</code></li>
+  <li><code>.u-flex-md-row-reverse</code></li>
+  <li><code>.u-flex-md-column</code></li>
+  <li><code>.u-flex-md-column-reverse</code></li>
+  <li><code>.u-flex-lg-row</code></li>
+  <li><code>.u-flex-lg-row-reverse</code></li>
+  <li><code>.u-flex-lg-column</code></li>
+  <li><code>.u-flex-lg-column-reverse</code></li>
+</ul>
+
+<h4 id="u-flexbox-justify">Justify content</h4>
+
+<p>Use <code>u-justify-content</code> utilities on flexbox containers to change the alignment of
+  flex items on the main axis (the x-axis to start, y-axis if <code>flex-direction: column</code>).
+  Choose from <strong>start</strong> (browser default), <strong>end</strong>, <strong>center</strong>,
+  <strong>between</strong>, or <strong>around</strong>.</p>
+
+<div class="u-display-example">
+  {{> flexbox/flexbox-justify}}
+</div>
+{{> flexbox/flexbox-justify-code}}
+
+<p>Responsive variations also exist for <code>u-justify-content</code>.</p>
+<ul>
+  <li><code>.u-justify-content-start</code></li>
+  <li><code>.u-justify-content-end</code></li>
+  <li><code>.u-justify-content-center</code></li>
+  <li><code>.u-justify-content-between</code></li>
+  <li><code>.u-justify-content-around</code></li>
+  <li><code>.u-justify-content-sm-start</code></li>
+  <li><code>.u-justify-content-sm-end</code></li>
+  <li><code>.u-justify-content-sm-center</code></li>
+  <li><code>.u-justify-content-sm-between</code></li>
+  <li><code>.u-justify-content-sm-around</code></li>
+  <li><code>.u-justify-content-md-start</code></li>
+  <li><code>.u-justify-content-md-end</code></li>
+  <li><code>.u-justify-content-md-center</code></li>
+  <li><code>.u-justify-content-md-between</code></li>
+  <li><code>.u-justify-content-md-around</code></li>
+  <li><code>.u-justify-content-lg-start</code></li>
+  <li><code>.u-justify-content-lg-end</code></li>
+  <li><code>.u-justify-content-lg-center</code></li>
+  <li><code>.u-justify-content-lg-between</code></li>
+  <li><code>.u-justify-content-lg-around</code></li>
+</ul>
+
+<h4 id="u-flexbox-items">Align items</h4>
+
+<p>Use <code>u-align-items</code> utilities on flexbox containers to change the alignment of flex items on the cross axis
+  (the y-axis to start, x-axis if <code>flex-direction: column</code>).
+  Choose from <strong>start</strong>, <strong>end</strong>, <strong>center</strong>, <strong>baseline</strong>,
+  or <strong>stretch</strong> (browser default).</p>
+
+<div class="u-display-example">
+  {{> flexbox/flexbox-items}}
+</div>
+{{> flexbox/flexbox-items-code}}
+
+<p>Responsive variations also exist for <code>u-align-items</code>.</p>
+<ul>
+  <li><code>.u-align-items-start</code></li>
+  <li><code>.u-align-items-end</code></li>
+  <li><code>.u-align-items-center</code></li>
+  <li><code>.u-align-items-baseline</code></li>
+  <li><code>.u-align-items-stretch</code></li>
+  <li><code>.u-align-items-sm-start</code></li>
+  <li><code>.u-align-items-sm-end</code></li>
+  <li><code>.u-align-items-sm-center</code></li>
+  <li><code>.u-align-items-sm-baseline</code></li>
+  <li><code>.u-align-items-sm-stretch</code></li>
+  <li><code>.u-align-items-md-start</code></li>
+  <li><code>.u-align-items-md-end</code></li>
+  <li><code>.u-align-items-md-center</code></li>
+  <li><code>.u-align-items-md-baseline</code></li>
+  <li><code>.u-align-items-md-stretch</code></li>
+  <li><code>.u-align-items-lg-start</code></li>
+  <li><code>.u-align-items-lg-end</code></li>
+  <li><code>.u-align-items-lg-center</code></li>
+  <li><code>.u-align-items-lg-baseline</code></li>
+  <li><code>.u-align-items-lg-stretch</code></li>
+</ul>
+
+<h4 id="u-flexbox-self">Align self</h4>
+
+<p>Use <code>u-align-self</code> utilities on flexbox items to individually change their alignment on the
+  cross axis (the y-axis to start, x-axis if <code>flex-direction: column</code>).
+  Choose from the same options as <code>align-items</code>:
+  <strong>start</strong>, <strong>end</strong>, <strong>center</strong>, <strong>baseline</strong>,
+  or <strong>stretch</strong> (browser default).</p>
+
+<div class="u-display-example">
+  {{> flexbox/flexbox-self}}
+</div>
+{{> flexbox/flexbox-self-code}}
+
+<p>Responsive variations also exist for <code>u-align-self</code>.</p>
+<ul>
+  <li><code>.u-align-self-start</code></li>
+  <li><code>.u-align-self-end</code></li>
+  <li><code>.u-align-self-center</code></li>
+  <li><code>.u-align-self-baseline</code></li>
+  <li><code>.u-align-self-stretch</code></li>
+  <li><code>.u-align-self-sm-start</code></li>
+  <li><code>.u-align-self-sm-end</code></li>
+  <li><code>.u-align-self-sm-center</code></li>
+  <li><code>.u-align-self-sm-baseline</code></li>
+  <li><code>.u-align-self-sm-stretch</code></li>
+  <li><code>.u-align-self-md-start</code></li>
+  <li><code>.u-align-self-md-end</code></li>
+  <li><code>.u-align-self-md-center</code></li>
+  <li><code>.u-align-self-md-baseline</code></li>
+  <li><code>.u-align-self-md-stretch</code></li>
+  <li><code>.u-align-self-lg-start</code></li>
+  <li><code>.u-align-self-lg-end</code></li>
+  <li><code>.u-align-self-lg-center</code></li>
+  <li><code>.u-align-self-lg-baseline</code></li>
+  <li><code>.u-align-self-lg-stretch</code></li>
+</ul>
+
+<h4 id="u-flexbox-auto">Auto margins</h4>
+<p>Flexbox can do some pretty awesome things when you mix flex alignments with auto margins.</p>
+
+<h5 id="u-flexbox-auto-justify">With justify-content</h5>
+
+<p>Easily move all flex items to one side, but keep another on the opposite end
+  by mixing justify-content with <code>margin-right: auto</code> or <code>margin-left: auto</code>.</p>
+
+<div class="u-display-example">
+  {{> flexbox/flexbox-auto-justify}}
+</div>
+{{> flexbox/flexbox-auto-justify-code}}
+
+<h5 id="u-flexbox-auto-items">With align-items</h5>
+
+<p>Similarly, move one flex item to the top or bottom of a container by mixing <code>align-items</code>,
+  <code>flex-direction: column</code>, and <code>margin-top: auto</code> or <code>margin-bottom: auto</code>.</p>
+
+<div class="u-display-example">
+  {{> flexbox/flexbox-auto-items}}
+</div>
+{{> flexbox/flexbox-auto-items-code}}
+
+<h4 id="u-flexbox-wrap">Wrap</h4>
+
+<p>Change how flex items wrap in a flex container. Choose from no wrapping at all
+  (the browser default) with <code>.u-flex-nowrap</code>, wrapping with <code>.u-flex-wrap</code>,
+  or reverse wrapping with <code>.u-flex-wrap-reverse</code>.</p>
+
+<div class="u-display-example">
+  {{> flexbox/flexbox-wrap-yes}}
+</div>
+{{> flexbox/flexbox-wrap-yes-code}}
+
+<div class="u-display-example">
+  {{> flexbox/flexbox-wrap-reverse}}
+</div>
+{{> flexbox/flexbox-wrap-reverse-code}}
+
+<p>Responsive variations also exist for <code>u-flex-wrap</code>.</p>
+<ul>
+  <li><code>.u-flex-nowrap</code></li>
+  <li><code>.u-flex-wrap</code></li>
+  <li><code>.u-flex-wrap-reverse</code></li>
+  <li><code>.u-flex-sm-nowrap</code></li>
+  <li><code>.u-flex-sm-wrap</code></li>
+  <li><code>.u-flex-sm-wrap-reverse</code></li>
+  <li><code>.u-flex-md-nowrap</code></li>
+  <li><code>.u-flex-md-wrap</code></li>
+  <li><code>.u-flex-md-wrap-reverse</code></li>
+  <li><code>.u-flex-lg-nowrap</code></li>
+  <li><code>.u-flex-lg-wrap</code></li>
+  <li><code>.u-flex-lg-wrap-reverse</code></li>
+</ul>
+
+<h4 id="u-flexbox-order">Order</h4>
+
+<p>Change the visual order of specific flex items with a handful of <code>u-order</code> utilities.
+  We only provide options for making an item first or last, as well as a reset to use the DOM order.
+  As <code>order</code> takes any integer value (e.g., 5), add custom CSS for any additional values needed.</p>
+
+<div class="u-display-example">
+  {{> flexbox/flexbox-order}}
+</div>
+{{> flexbox/flexbox-order-code}}
+
+<p>Responsive variations also exist for <code>order</code>.</p>
+<ul>
+  <li><code>.u-order-first</code></li>
+  <li><code>.u-order-last</code></li>
+  <li><code>.u-order-unordered</code></li>
+  <li><code>.u-order-sm-first</code></li>
+  <li><code>.u-order-sm-last</code></li>
+  <li><code>.u-order-sm-unordered</code></li>
+  <li><code>.u-order-md-first</code></li>
+  <li><code>.u-order-md-last</code></li>
+  <li><code>.u-order-md-unordered</code></li>
+  <li><code>.u-order-lg-first</code></li>
+  <li><code>.u-order-lg-last</code></li>
+  <li><code>.u-order-lg-unordered</code></li>
+</ul>
+
+<h4 id="u-flexbox-content">Align content</h4>
+
+<p>Use <code>u-align-content</code> utilities on flexbox containers to align flex items together on the cross axis.
+  Choose from <strong>start</strong> (browser default), <strong>end</strong>, <strong>center</strong>,
+  <strong>between</strong>, <strong>around</strong>, or <strong>stretch</strong>.
+  To demonstrate these utilities, we’ve enforced <code>flex-wrap: wrap</code> and increased the number
+  of flex items.</p>
+
+<p><strong>Heads up!</strong> This property has no affect on single rows of flex items.</p>
+
+<div class="u-display-example">
+  {{> flexbox/flexbox-content-start}}
+</div>
+{{> flexbox/flexbox-content-start-code}}
+
+<div class="u-display-example">
+  {{> flexbox/flexbox-content-end}}
+</div>
+{{> flexbox/flexbox-content-end-code}}
+
+<div class="u-display-example">
+  {{> flexbox/flexbox-content-center}}
+</div>
+{{> flexbox/flexbox-content-center-code}}
+
+<div class="u-display-example">
+  {{> flexbox/flexbox-content-between}}
+</div>
+{{> flexbox/flexbox-content-between-code}}
+
+<div class="u-display-example">
+  {{> flexbox/flexbox-content-around}}
+</div>
+{{> flexbox/flexbox-content-around-code}}
+
+<div class="u-display-example">
+  {{> flexbox/flexbox-content-stretch}}
+</div>
+{{> flexbox/flexbox-content-stretch-code}}
+
+<p>Responsive variations also exist for <code>u-align-content</code>.</p>
+<ul>
+  <li><code>.u-align-content-start</code></li>
+  <li><code>.u-align-content-end</code></li>
+  <li><code>.u-align-content-center</code></li>
+  <li><code>.u-align-content-around</code></li>
+  <li><code>.u-align-content-stretch</code></li>
+  <li><code>.u-align-content-sm-start</code></li>
+  <li><code>.u-align-content-sm-end</code></li>
+  <li><code>.u-align-content-sm-center</code></li>
+  <li><code>.u-align-content-sm-around</code></li>
+  <li><code>.u-align-content-sm-stretch</code></li>
+  <li><code>.u-align-content-md-start</code></li>
+  <li><code>.u-align-content-md-end</code></li>
+  <li><code>.u-align-content-md-center</code></li>
+  <li><code>.u-align-content-md-around</code></li>
+  <li><code>.u-align-content-md-stretch</code></li>
+  <li><code>.u-align-content-lg-start</code></li>
+  <li><code>.u-align-content-lg-end</code></li>
+  <li><code>.u-align-content-lg-center</code></li>
+  <li><code>.u-align-content-lg-around</code></li>
+  <li><code>.u-align-content-lg-stretch</code></li>
+</ul>
+
+<h4 id="u-flexbox-text">Align text</h4>
+
+<p>Use <code>u-text-align</code> utilities on flexbox containers to align flex item text.
+  Choose from <strong>left</strong> (browser default), <strong>right</strong>, or <strong>center</strong>.</p>
+
+<div class="u-display-example">
+  {{> flexbox/flexbox-text}}
+</div>
+{{> flexbox/flexbox-text-code}}
+
+<p>Responsive variations also exist for <code>u-text-align</code>.</p>
+<ul>
+  <li><code>.u-text-align-left</code></li>
+  <li><code>.u-text-align-center</code></li>
+  <li><code>.u-text-align-right</code></li>
+  <li><code>.u-text-align-sm-left</code></li>
+  <li><code>.u-text-align-sm-center</code></li>
+  <li><code>.u-text-align-sm-right</code></li>
+  <li><code>.u-text-align-md-left</code></li>
+  <li><code>.u-text-align-md-center</code></li>
+  <li><code>.u-text-align-md-right</code></li>
+  <li><code>.u-text-align-lg-left</code></li>
+  <li><code>.u-text-align-lg-center</code></li>
+  <li><code>.u-text-align-lg-right</code></li>
+</ul>

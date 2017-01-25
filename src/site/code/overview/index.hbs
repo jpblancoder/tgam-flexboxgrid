@@ -1,0 +1,90 @@
+<p>A grid system uses a series of containers, rows, and columns to layout and align content.
+  It’s built with flexbox and is fully responsive.</p>
+
+<ul>
+  <li>Containers provide a means to center your site’s contents. Use <code>.l-container</code> for fixed width
+    or <code>.l-container-fluid</code> for full width.</li>
+  <li>Content should be placed within columns, and only columns may be immediate children of rows.</li>
+  <li>There are <strong>four grid tiers</strong>, one for each responsive breakpoint: all breakpoints
+    (extra small), small, medium, and large.</li>
+  <li>Grid tiers are based on minimum widths, meaning they apply to that one tier and all those above it
+    (e.g., <code>.l-col-sm-4</code> applies to small, medium, and large devices).</li>
+</ul>
+
+<p>Be aware of the limitations and <a href="https://github.com/philipwalton/flexbugs">bugs around flexbox</a>,
+  like the <a href="https://github.com/philipwalton/flexbugs#9-some-html-elements-cant-be-flex-containers">inability
+  to use some HTML elements as flex containers</a>.</p>
+
+<h3 id="o-containers">Containers</h3>
+<p>Containers are the most basic layout element and are required when using our default grid system.
+  Choose from a responsive, fixed-width container (meaning its <code>max-width</code> changes at each breakpoint)
+  or fluid-width (meaning it’s <code>100%</code> wide all the time).</p>
+
+<p>While containers can be nested, most layouts do not require a nested container.
+  Resize your screen to see how the two containers behave differently when between breakpoints.</p>
+<div class="l-container__debug">
+  {{> overview/containers-fixed}}
+</div>
+{{> overview/containers-fixed-code}}
+
+<p>Use <code>.l-container-fluid</code> for a full width container, spanning the entire width of the viewport.</p>
+<div class="l-container__debug">
+  {{> overview/containers-fluid}}
+</div>
+{{> overview/containers-fluid-code}}
+
+<h3 id="o-fluid-grid">Fluid columns</h3>
+<p>Percent based widths allow fluid resizing of columns and rows.</p>
+<div class="l-container__debug">
+  {{> overview/fluid-grid}}
+</div>
+{{> overview/fluid-grid-code}}
+
+<h3 id="o-responsive-modifiers">Responsive modifiers</h3>
+<p>Responsive modifiers enable specifying different column sizes, offsets, alignment and distribution at xs, sm, md &amp; lg viewport widths.</p>
+<div class="l-container__debug">
+  {{> overview/responsive-modifiers}}
+</div>
+{{> overview/responsive-modifiers-code}}
+
+<h3 id="o-responsive-grid">Responsive columns</h3>
+<p>Each of the 4 breakpoint tiers has a different column count. Extra-small (1), small (8), medium (12), large (16).</p>
+<div class="l-container__debug">
+  {{> overview/responsive-grid}}
+</div>
+{{> overview/responsive-grid-code}}
+
+
+<h3 id="o-custom">Customizing the grid</h3>
+
+<p>Using our built-in grid Sass <code>_variables.scss</code> and maps, it’s possible to completely customize the
+predefined grid classes. Change the number of tiers, the media query dimensions,
+and the container widths—then recompile.</p>
+
+<h4 id="o-settings">Columns and gutters</h4>
+
+<p>The number of grid columns and their horizontal padding (aka, gutters) can be modified via Sass variables.
+  <code>$grid-columns</code> is used to generate the widths (in percent) of each individual column while
+  <code>$grid-gutter-width-base</code> sets padding-left and padding-right for the column gutters.</p>
+
+{{> overview/grid-breakpoints-scss}}
+
+<h4 id="o-tiers">Grid tier values</h4>
+
+<p>Moving beyond the columns themselves, you may also customize the number of grid tiers.
+If you wanted just three grid tiers, you’d update the
+<code>$grid-breakpoints</code> and <code>$grid-containers</code> to something like this:</p>
+
+{{> overview/grid-tiers-scss}}
+
+<p>When making any changes to the Sass variables or maps, you’ll need to save your
+  changes and recompile. Doing so will out a brand new set of predefined grid
+  classes for column widths, offsets, pushes, and pulls. Responsive visibility
+  utilities will also be updated to use the custom breakpoints.</p>
+
+<h4 id="o-exclude">Disable/exclude features</h4>
+
+<p>In the <code>_variables.scss</code> file.
+  Disable any of the below (undesired) features to reduce the grid bundle size.</p>
+
+{{> overview/grid-exclude-scss}}

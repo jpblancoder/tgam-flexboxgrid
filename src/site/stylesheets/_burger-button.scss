@@ -1,0 +1,61 @@
+$button-size: 40px;
+$button-padding: 5px;
+$line-height: 3px;
+
+#burger-container {
+  width: $button-size;
+  height: $button-size;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+#burger-button {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+  // background-color: red;
+  appearance: none;
+  display: block;
+}
+.burger-button__text {
+  @include visually-hidden;
+}
+@mixin burger-line {
+  width: $button-size - ($button-padding * 2);
+  height: $line-height;
+  background-color: #FFF;
+  border-radius: 7%;
+  transition: .3s;
+  position: absolute;
+  left: 0;
+}
+.burger-button__lines {
+  @include burger-line;
+  margin-top: -($line-height / 2);
+  top: 50%;
+  left: $button-padding;
+  &:before,
+  &:after {
+    @include burger-line;
+    content: "";
+    transform-origin: 50% 50%;
+  }
+  &:before {
+    transform: translateY(-250%);
+  }
+  &:after {
+    transform: translateY(250%);
+  }
+}
+#burger-button[aria-expanded="true"] .burger-button__lines {
+  background-color: transparent;
+  &:before {
+    transform: rotate3d(0, 0, 1, 45deg);
+  }
+  &:after {
+    transform: rotate3d(0, 0, 1, -45deg);
+  }
+}

@@ -1,0 +1,112 @@
+options:
+  formatter: stylish
+files:
+  include: '**/*.s+(a|c)ss'
+rules:
+  # Rule documentation:
+  # https://github.com/sasstools/sass-lint/tree/master/docs/rules
+
+  # Extends
+  extends-before-mixins: 2
+  extends-before-declarations: 2
+  placeholder-in-extend: 0
+
+  # Mixins
+  mixins-before-declarations: 1
+
+  # Line Spacing
+  one-declaration-per-line: 2
+  # This also applies to nested blocks
+  empty-line-between-blocks: 0
+  single-line-per-selector: 0
+
+  # Disallows
+  no-color-keywords: 0
+  # Doesn't allow you to use color keywords as object keys, because SASS may
+  # convert them to hexadecimals: $map: (green: #168a1c, blue: #19719a);
+  # Also limits you to using hex colors only in variables.
+  no-color-literals: 0
+  no-css-comments: 0
+  no-debug: 1
+  no-duplicate-properties: 2
+  no-empty-rulesets: 0
+  no-extends: 0
+  no-ids: 1
+  no-important: 1
+  no-invalid-hex: 2
+  # Disabled due to problems with media queries:
+  # https://github.com/sasstools/sass-lint/issues/307
+  no-mergeable-selectors: 0
+  no-misspelled-properties: 2
+  no-qualifying-elements: 0
+  no-trailing-zero: 1
+  no-transition-all: 0
+  no-url-protocols: 1
+  no-vendor-prefixes: 2
+  no-warn: 0
+  property-units: 0
+
+  # Nesting
+  force-attribute-nesting: 0
+  force-element-nesting: 0
+  force-pseudo-nesting: 0
+
+  # Name Formats
+  # We're using Harry Roberts’ modified BEM class-naming syntax:
+  # http://csswizardry.com/2013/01/mindbemding-getting-your-head-round-bem-syntax/
+  class-name-format:
+    - 2
+    -
+      convention: hyphenatedbem
+  function-name-format: 2
+  id-name-format: 2
+  mixin-name-format: 2
+  placeholder-name-format: 2
+  variable-name-format: 1
+
+  # Style Guide
+  bem-depth:
+    - 2
+    -
+      max-depth: 2
+  border-zero: 0
+  brace-style:
+    - 1
+    -
+      allow-single-line: false
+  clean-import-paths:
+    - 0
+    -
+      leading-underscore: true
+  empty-args: 0
+  hex-length: 0
+  hex-notation: 0
+  indentation: 2
+  leading-zero: 0
+  nesting-depth:
+    - 3
+    -
+      max-depth: 3
+  property-sort-order: 0
+  quotes:
+    - 1
+    -
+      style: double
+  shorthand-values: 0
+  url-quotes: 1
+  variable-for-property: 0
+  zero-unit: 0
+
+  # Inner Spacing
+  space-after-comma: 1
+  space-before-colon: 1
+  space-after-colon: 1
+  space-before-brace: 1
+  space-before-bang: 1
+  space-after-bang: 1
+  space-between-parens: 1
+  space-around-operator: 1
+
+  # Final Items
+  trailing-semicolon: 1
+  final-newline: 0

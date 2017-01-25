@@ -1,0 +1,37 @@
+#sidebar__logo {
+  margin-bottom: 20px;
+}
+#sidebar {
+  width: 200px;
+  padding: 20px;
+  background-color: $lightest-gray;
+  overflow: auto;
+  &.sidebar--hiding {
+    // Even though "animation-play-state" is supposed to be the 8th shorthand
+    // property (see https://developer.mozilla.org/en/docs/Web/CSS/animation),
+    // Safari 9.1.1 rejects the entire "animation" declaration when we include
+    // it, so we have to specify it separately.
+    animation: hide-sidebar 0.3s ease-out 0s 1 normal forwards;
+    animation-play-state: running;
+  }
+  &.sidebar--revealing {
+    animation: reveal-sidebar 0.3s ease-out 0s 1 normal forwards;
+    animation-play-state: running;
+  }
+}
+@keyframes hide-sidebar {
+  from {
+    margin-left: 0;
+  }
+  to {
+    margin-left: -200px;
+  }
+}
+@keyframes reveal-sidebar {
+  from {
+    margin-left: -200px;
+  }
+  to {
+    margin-left: 0;
+  }
+}

@@ -1,0 +1,246 @@
+// Box model
+// ---------
+
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+// Body
+// ----
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #FFF;
+  @include default-font;
+  font-size: 87.5%; // (14 / 16) * 100 (default is 16px in most browsers)
+  line-height: 1.35;
+  color: $dark-gray;
+  overflow: hidden;
+  // Fix font rendering problems in various browsers
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  // Prevent Webkit and Windows Mobile platforms from changing default font sizes
+  text-size-adjust: none;
+}
+
+// Margins
+// -------
+
+h1, h2, h3, h4, h5, h6, p, ul, ol, dl, table {
+  margin: 0 0 20px 0;
+}
+
+// Headings
+// --------
+
+h1, h2, h3, h4, h5, h6 {
+  color: $dark-gray;
+  font-weight: bold;
+}
+h1 { font-size: 2.0em; }
+h2 { font-size: 1.8em; }
+h3 { font-size: 1.4em; }
+h4 { font-size: 1.3em; }
+h5 { font-size: 1.2em; }
+h6 { font-size: 1.1em; }
+
+// Clearing floats
+// ---------------
+
+.clear {
+  @include clearfix;
+}
+
+// Emphasis and miscellaneous
+// --------------------------
+
+small {
+  font-size: 0.85em;
+}
+strong, b {
+  font-weight: bold;
+}
+em, i {
+  font-style: italic;
+}
+cite {
+  font-style: normal;
+}
+// Provides relatively consistent positioning across browsers, but
+// font-size, top and bottom may still need to be tweaked in some cases.
+// http://www.adobe.com/cfusion/communityengine/index.cfm?event=showdetails&postId=5341&productId=1
+sup, sub {
+  height: 0;
+  font-size: smaller;
+  line-height: 1;
+  vertical-align: baseline;
+  position: relative;
+}
+sup {
+  bottom: .5ex;
+}
+sub {
+  top: .5ex;
+}
+pre {
+  margin: 0;
+  white-space: pre-wrap;
+}
+code {
+  @include monospace-font;
+  font-size: 0.8rem;
+  // display: block;
+}
+code,
+code[class*="language-"] {
+  white-space: pre-wrap;
+}
+.code--inline {
+  margin-left: 2px;
+  margin-right: 2px;
+  display: inline-block;
+}
+abbr[title] {
+  border-bottom: 1px dotted #FFF;
+  text-decoration: none;
+  // If the new text-decoration values were better supported, we
+  // could use them instead of having to rely on border-bottom:
+  // https://developer.mozilla.org/en/docs/Web/CSS/text-decoration
+  // text-decoration-style: dotted;
+}
+
+// Lists
+// -----
+
+ul, ol {
+  margin-left: 25px;
+  padding: 0;
+}
+ul {
+  list-style: disc outside;
+}
+ol {
+  list-style: decimal outside;
+}
+li {
+  margin: 4px 0;
+}
+
+// Links
+// -----
+
+a {
+  transition: all 0.1s ease;
+  color: $dark-gray;
+  text-decoration: underline;
+  &:hover,
+  &:focus {
+    color: $red;
+    text-decoration: none;
+  }
+}
+
+// Pseudo-classes should be defined in this order
+// (Lord Vader Hates Furry Animals):
+
+// a
+// a:link
+// a:visited
+// a:hover
+// a:focus
+// a:active
+
+// Visually hidden
+// ---------------
+
+.visually-hidden {
+  @include visually-hidden;
+}
+
+// Skip to main content link
+// -------------------------
+
+#skip-link {
+  height: 1px;
+  clip: rect(1px, 1px, 1px, 1px);
+  overflow: hidden;
+  position: absolute;
+  z-index: 1;
+}
+#skip-link:active,
+#skip-link:focus {
+  height: auto;
+  clip: auto;
+  overflow: visible;
+  position: static;
+}
+#skip-link:focus {
+  padding: 10px;
+  background-color: $dark-gray;
+  color: #FFF;
+  position: absolute;
+  top: 20px;
+  left: 20px;
+}
+
+// Page layout
+// -----------
+
+#page {
+  width: 100%;
+  height: 100%;
+  // Primary flexbox container
+  flex-direction: column;
+  display: flex;
+}
+#main {
+  height: 100%;
+  // Firefox hack, see:
+  // http://stackoverflow.com/questions/29398259/css-flexbox-issue-in-firefox-v36-and-greater
+  min-height: 0;
+  // Primary flexbox cell
+  flex: 1;
+  // Secondary flexbox container
+  flex-direction: row;
+  display: flex;
+}
+#main-content {
+  padding: 20px 40px;
+  overflow: auto;
+  // Secondary flexbox cell
+  flex: 1;
+}
+// #main-content {
+//   padding: 20px 10px;
+//   overflow: auto;
+//   position: relative;
+//   margin-left: auto;
+//   margin-right: auto;
+//   max-width: 1280px;
+//   // Secondary flexbox cell
+//   flex: 1;
+// }
+
+// Header
+// ------
+
+#header {
+  background-color: #999;
+}
+#site-title {
+  height: 40px;
+  margin-bottom: 0;
+  padding: 0 50px;
+  line-height: 40px;
+  font-size: 1.3em;
+  font-weight: normal;
+  text-align: center;
+  color: #FFF;
+}

@@ -1,0 +1,26 @@
+@mixin visually-hidden {
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+  position: absolute;
+}
+
+// Clear fix
+// http://nicolasgallagher.com/micro-clearfix-hack/
+// (Simplified for IE8+ support, since we no longer support IE7)
+// ---------
+
+@mixin clearfix {
+  &:before,
+  &:after {
+    content: "";
+    display: table;
+  }
+  &:after {
+    clear: both;
+  }
+}

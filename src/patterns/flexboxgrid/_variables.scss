@@ -1,0 +1,73 @@
+// Create or remove breakpoints for your project
+$grid-breakpoints: (
+  xs: 0, // locked at 0
+  sm: 700px,
+  md: 940px,
+  lg: 1260px
+) !default;
+@include _assert-ascending($grid-breakpoints, "$grid-breakpoints");
+@include _assert-starts-at-zero($grid-breakpoints);
+
+// Set the number of columns you want to use on your layout.
+$grid-columns: (
+  xs: 1, // locked at 1
+  sm: 8,
+  md: 12,
+  lg: 16
+) !default;
+@include _assert-ascending($grid-columns, "$grid-columns");
+@include _assert-starts-at-one($grid-columns);
+
+// Set the the width of the gutters.
+$grid-gutter-width-base: 20px !default;
+
+// Define the maximum width of `.container` for different screen sizes.
+$grid-containers: (
+  // xs: 0, - intentionally excluded
+  sm: (map-get($grid-breakpoints, sm) + $grid-gutter-width-base),
+  md: (map-get($grid-breakpoints, md) + $grid-gutter-width-base),
+  lg: (map-get($grid-breakpoints, lg) + $grid-gutter-width-base),
+) !default;
+@include _assert-ascending($grid-containers, "$grid-containers");
+
+// Debug colors for column highlighting
+$debug-bg-color: rgba(86, 61, 124, .15) !default;
+$debug-outline: 1px solid rgba(86, 61, 124, .2) !default;
+
+
+// Disable any of the below feature to reduce the grid bundle size
+
+// Responsive visibility utility classes
+// Enable or disable features of the grid system
+$include-hidden:                 true !default;
+
+// Display property utility classes
+// Enable or disable sub-features for this feature
+$include-display-block:          true !default;
+$include-display-flex:           true !default;
+$include-display-inline-block:   true !default;
+$include-display-inline-flex:    true !default;
+$include-display-inline:         true !default;
+$include-display-none:           true !default;
+$include-display-table-cell:     true !default;
+$include-display-table:          true !default;
+
+// Flexbox grid utility classes
+// Enable or disable sub-features for this feature
+$include-flex-align-content:     true !default;
+$include-flex-align-content:     true !default;
+$include-flex-align-items:       true !default;
+$include-flex-align-self:        true !default;
+$include-flex-direction:         true !default;
+$include-flex-justify-content:   true !default;
+$include-flex-order:             true !default;
+$include-flex-text-align:        true !default;
+$include-flex-wrap:              true !default;
+
+// Flexbox grid layout classes
+// Enable or disable sub-features for this feature
+$include-grid-debug:             true !default;
+$include-grid-no-gutters:        true !default;
+$include-grid-offset:            true !default;
+$include-grid-pull:              true !default;
+$include-grid-push:              true !default;
