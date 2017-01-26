@@ -428,7 +428,7 @@ Which are extra-small (1), small (8), medium (12), and large (16).</p>
 
 <p>While containers can be nested, most layouts do not require a nested container.
   Resize your screen to see how the two containers behave differently when between breakpoints.</p>
-<div class="l-container__debug u-display-example">
+<div class="l-container--debug u-display-example">
   <div class="l-container">
     <div class="l-row">
       <div class="l-col"> 8 </div>
@@ -449,7 +449,7 @@ Which are extra-small (1), small (8), medium (12), and large (16).</p>
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span></code></pre></div>
 <p>Use <code>.l-container-fluid</code> for a full width container, spanning the entire width of the viewport.</p>
-<div class="l-container__debug u-display-example">
+<div class="l-container--debug u-display-example">
   <div class="l-container-fluid">
     <div class="l-row">
       <div class="l-col"> 8 </div>
@@ -471,7 +471,7 @@ Which are extra-small (1), small (8), medium (12), and large (16).</p>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span></code></pre></div>
 <h3 id="o-fluid-grid">Fluid columns</h3>
 <p>Percent based widths allow fluid resizing of columns and rows.</p>
-<div class="l-container__debug u-display-example">
+<div class="l-container--debug u-display-example">
   <div class="l-container-fluid">
     <div class="l-row">
       <div class="l-col"> 8 </div>
@@ -541,7 +541,7 @@ Which are extra-small (1), small (8), medium (12), and large (16).</p>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span></code></pre></div>
 <h3 id="o-responsive-modifiers">Responsive modifiers</h3>
 <p>Responsive modifiers enable specifying different column sizes, offsets, alignment and distribution at xs, sm, md &amp; lg viewport widths.</p>
-<div class="l-container__debug u-display-example">
+<div class="l-container--debug u-display-example">
   <div class="l-container-fluid">
     <div class="l-row">
       <div class="l-col l-col-sm-2 l-col-md-2 l-col-lg-1"> A1 </div>
@@ -575,7 +575,7 @@ Which are extra-small (1), small (8), medium (12), and large (16).</p>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span></code></pre></div>
 <h3 id="o-responsive-grid">Responsive columns</h3>
 <p>Each of the 4 breakpoint tiers has a different column count. Extra-small (1), small (8), medium (12), large (16).</p>
-<div class="l-container__debug u-display-example">
+<div class="l-container--debug u-display-example">
   <div class="l-container">
     <div class="l-row">
       <div class="l-col l-col-sm-8 l-col-md-12 l-col-lg-16">
@@ -1934,7 +1934,7 @@ The Sass mixin for targeting the same screen size range would be:</p>
 <p>For example, here are two grid layouts that apply to every device and viewport,
   from <code>xs</code> to <code>xl</code>.</p>
 
-<div class="l-container__debug u-display-example">
+<div class="l-container--debug u-display-example">
   <div class="l-container">
     <div class="l-row">
       <div class="l-col">
@@ -1975,7 +1975,7 @@ The Sass mixin for targeting the same screen size range would be:</p>
   (as shown below), grid mixins, or inline widths. Note that the other columns will resize
   no matter the width of the center column.</p>
 
-<div class="l-container__debug u-display-example">
+<div class="l-container--debug u-display-example">
   <div class="l-container">
     <div class="l-row">
       <div class="l-col">
@@ -2020,7 +2020,7 @@ The Sass mixin for targeting the same screen size range would be:</p>
   This, in conjunction with <strong>horizontal alignment</strong> classes, is very useful for centering
   layouts with uneven column sizes as viewport width changes.</p>
 
-<div class="l-container__debug u-display-example">
+<div class="l-container--debug u-display-example">
   <div class="l-container">
     <div class="l-row u-justify-content-md-center">
       <div class="l-col l-col-lg-2">
@@ -2064,7 +2064,7 @@ The Sass mixin for targeting the same screen size range would be:</p>
   columns to break to a new line. Make the breaks responsive by mixing the <strong>div</strong> with
   some responsive display utilities.</p>
 
-<div class="l-container__debug u-display-example">
+<div class="l-container--debug u-display-example">
   <div class="l-row">
     <div class="l-col">l-col</div>
     <div class="l-col">l-col</div>
@@ -2092,7 +2092,7 @@ Customize the size of your columns on extra small, small, medium, large, or extr
   Specify a numbered class when you need a particularly sized column; otherwise,
   feel free to stick to <code>.l-col</code>.</p>
 
-<div class="l-container__debug u-display-example">
+<div class="l-container--debug u-display-example">
   <div class="l-row">
     <div class="l-col">l-col</div>
     <div class="l-col">l-col</div>
@@ -2119,7 +2119,7 @@ Customize the size of your columns on extra small, small, medium, large, or extr
 <p>Using a single set of <code>.l-col-sm-*</code> classes, you can create a basic grid system that starts out
 stacked on extra small devices before becoming horizontal on desktop (medium) devices.</p>
 
-<div class="l-container__debug u-display-example">
+<div class="l-container--debug u-display-example">
   <div class="l-row">
     <div class="l-col-sm-6">l-col-sm-6</div>
     <div class="l-col-sm-2">l-col-sm-2</div>
@@ -2145,7 +2145,7 @@ stacked on extra small devices before becoming horizontal on desktop (medium) de
 
 <h4 id="g-v-align">Vertical alignment</h4>
 
-<div class="l-container__debug u-display-example">
+<div class="l-container--debug u-display-example">
   <div class="l-container">
     <div class="l-row u-align-items-start">
       <div class="l-col">
@@ -2199,7 +2199,7 @@ stacked on extra small devices before becoming horizontal on desktop (medium) de
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>l-col<span class="token punctuation">"</span></span><span class="token punctuation">></span></span> One of three columns <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span></code></pre></div>
-<div class="l-container__debug u-display-example">
+<div class="l-container--debug u-display-example">
   <div class="l-container">
     <div class="l-row" style="min-height: 4em;">
       <div class="l-col u-align-self-start">
@@ -2223,7 +2223,7 @@ stacked on extra small devices before becoming horizontal on desktop (medium) de
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span></code></pre></div>
 <h4 id="g-h-align">Horizontal alignment</h4>
 
-<div class="l-container__debug u-display-example">
+<div class="l-container--debug u-display-example">
   <div class="l-container">
     <div class="l-row u-justify-content-start">
       <div class="l-col-sm-2">
@@ -2292,7 +2292,7 @@ stacked on extra small devices before becoming horizontal on desktop (medium) de
 <h4 id="g-no-gutters">No column gutters</h4>
 
 <p>The gutters between columns in our predefined grid classes can be removed
-  with <code>.l-row__no-gutters</code>. This removes the negative <strong>margins</strong> from <code>.row</code> and the horizontal
+  with <code>.l-row--no-gutters</code>. This removes the negative <strong>margins</strong> from <code>.row</code> and the horizontal
   <strong>padding</strong> from all immediate children columns.</p>
 
 <p>Here’s the source code for creating these styles. Note that column overrides
@@ -2303,32 +2303,32 @@ stacked on extra small devices before becoming horizontal on desktop (medium) de
 <p>In practice, here’s how it looks. Note you can continue to use this with all other
   predefined grid classes (including column widths, responsive tiers, reorders, and more).</p>
 
-<div class="l-container__debug u-display-example">
-  <div class="l-row l-row__no-gutters">
+<div class="l-container--debug u-display-example">
+  <div class="l-row l-row--no-gutters">
     <div class="l-col l-col-sm-4 l-col-md-6">A - no gutters</div>
     <div class="l-col l-col-sm-4 l-col-md-6">B - no gutters</div>
   </div>
 </div>
-<div class='prettyprint'><pre><h4>HTML</h4><code class='language-markup'><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>l-row l-row__no-gutters<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+<div class='prettyprint'><pre><h4>HTML</h4><code class='language-markup'><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>l-row l-row--no-gutters<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>l-col l-col-sm-4 l-col-md-6<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>A - no gutters<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>l-col l-col-sm-4 l-col-md-6<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>B - no gutters<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span></code></pre></div>
-<div class="l-container__debug u-display-example">
+<div class="l-container--debug u-display-example">
   <div class="l-row">
-    <div class="l-col l-col-sm-4 l-col-md-6 l-col__no-gutters">A - no gutters</div>
-    <div class="l-col l-col-sm-4 l-col-md-6 l-col__no-gutters-left">B - no left gutter</div>
+    <div class="l-col l-col-sm-4 l-col-md-6 l-col--no-gutters">A - no gutters</div>
+    <div class="l-col l-col-sm-4 l-col-md-6 l-col--no-gutters-left">B - no left gutter</div>
   </div>
   <div class="l-row">
-    <div class="l-col l-col-sm-4 l-col-md-6 l-col__no-gutters-right">C - no right gutter</div>
+    <div class="l-col l-col-sm-4 l-col-md-6 l-col--no-gutters-right">C - no right gutter</div>
     <div class="l-col l-col-sm-4 l-col-md-6">D - yes gutters</div>
   </div>
 </div>
 <div class='prettyprint'><pre><h4>HTML</h4><code class='language-markup'><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>l-row<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
-  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>l-col l-col-sm-4 l-col-md-6 l-col__no-gutters<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>A - no gutters<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
-  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>l-col l-col-sm-4 l-col-md-6 l-col__no-gutters-left<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>B - no left gutter<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>l-col l-col-sm-4 l-col-md-6 l-col--no-gutters<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>A - no gutters<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>l-col l-col-sm-4 l-col-md-6 l-col--no-gutters-left<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>B - no left gutter<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>l-row<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
-  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>l-col l-col-sm-4 l-col-md-6 l-col__no-gutters-right<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>C - no right gutter<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>l-col l-col-sm-4 l-col-md-6 l-col--no-gutters-right<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>C - no right gutter<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>l-col l-col-sm-4 l-col-md-6<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>D - yes gutters<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span></code></pre></div>
 <h4 id="g-col-wrap">Column wrapping</h4>
@@ -2336,7 +2336,7 @@ stacked on extra small devices before becoming horizontal on desktop (medium) de
 <p>If more than 12 columns are placed within a single row, each group of extra columns will,
   as one unit, wrap onto a new line.</p>
 
-<div class="l-container__debug u-display-example">
+<div class="l-container--debug u-display-example">
   <div class="l-row">
     <div class="l-col-md-9">.l-col-md-9</div>
     <div class="l-col-md-4">.l-col-md-4<br>Since 9 + 4 = 13 (greater than) 12,
@@ -2357,7 +2357,7 @@ stacked on extra small devices before becoming horizontal on desktop (medium) de
 at certain breakpoints, your columns don’t clear quite right as one is taller than the other.
 To fix that, use a combination of a .clearfix and our <strong>responsive utility classes</strong>.</p>
 
-<div class="l-container__debug u-display-example">
+<div class="l-container--debug u-display-example">
   <div class="l-row">
     <div class="l-col-sm-4 l-col-md-3">.l-col-sm-4 .l-col-md-3</div>
     <div class="l-col-sm-4 l-col-md-3">.l-col-sm-4 .l-col-md-3</div>
@@ -2383,7 +2383,7 @@ To fix that, use a combination of a .clearfix and our <strong>responsive utility
 
 <p>Use flexbox utilities for controlling the <strong>visual order</strong> of your content.</p>
 
-<div class="l-container__debug u-display-example">
+<div class="l-container--debug u-display-example">
   <div class="l-container">
     <div class="l-row">
       <div class="l-col u-flex-unordered">
@@ -2411,7 +2411,7 @@ To fix that, use a combination of a .clearfix and our <strong>responsive utility
 column by <code>*</code> columns. For example, <code>.l-offset-md-4</code> moves
 <code>.l-col-md-4</code> over four columns.</p>
 
-<div class="l-container__debug u-display-example">
+<div class="l-container--debug u-display-example">
   <div class="l-row">
     <div class="l-col-md-4">.l-col-md-4</div>
     <div class="l-col-md-4 l-offset-md-4">.l-col-md-4 .l-offset-md-4</div>
@@ -2440,7 +2440,7 @@ column by <code>*</code> columns. For example, <code>.l-offset-md-4</code> moves
 <p>Easily change the order of our built-in grid columns with
   <code>.l-push-md-*</code> and <code>.l-pull-md-*</code> modifier classes.</p>
 
-<div class="l-container__debug u-display-example">
+<div class="l-container--debug u-display-example">
   <div class="l-row">
     <div class="l-col-md-9 l-push-md-3">.l-col-md-9 .l-push-md-3</div>
     <div class="l-col-md-3 l-pull-md-9">.l-col-md-3 .l-pull-md-9</div>
@@ -2457,8 +2457,8 @@ column by <code>*</code> columns. For example, <code>.l-offset-md-4</code> moves
 include a set of columns that add up to 12 or fewer (it is not required that
 you use all 12 available columns).</p>
 
-<div class="l-container__debug u-display-example">
-  <div class="l-row l-row__no-gutters">
+<div class="l-container--debug u-display-example">
+  <div class="l-row l-row--no-gutters">
     <div class="l-col-sm-7">
       Level 1: .col-sm-7
       <div class="l-row">
@@ -2472,7 +2472,7 @@ you use all 12 available columns).</p>
     </div>
   </div>
 </div>
-<div class='prettyprint'><pre><h4>HTML</h4><code class='language-markup'><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>l-row l-row__no-gutters<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+<div class='prettyprint'><pre><h4>HTML</h4><code class='language-markup'><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>l-row l-row--no-gutters<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>l-col-sm-7<span class="token punctuation">"</span></span><span class="token punctuation">></span></span> Level 1: .col-sm-7
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>l-row<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
       <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>l-col-sm-4 l-col-md-4<span class="token punctuation">"</span></span><span class="token punctuation">></span></span> Level 2: .l-col-sm-4 .l-col-md-4 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
@@ -2488,7 +2488,7 @@ you use all 12 available columns).</p>
 This class can be added onto the element <code>.l-container</code> or <code>.l-container-fluid</code>.</p>
 It also can placed onto an element that wraps the container element.</p>
 
-<div class="l-container l-container__debug">
+<div class="l-container l-container--debug">
   <div class="l-row">
     <div class="l-col"> 1 </div>
     <div class="l-col"> 2 </div>
@@ -2498,7 +2498,7 @@ It also can placed onto an element that wraps the container element.</p>
     <div class="l-col-sm-6"> 4 </div>
   </div>
 </div>
-<div class='prettyprint'><pre><h4>HTML</h4><code class='language-markup'><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>l-container l-container__debug<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+<div class='prettyprint'><pre><h4>HTML</h4><code class='language-markup'><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>l-container l-container--debug<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>l-row<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>l-col<span class="token punctuation">"</span></span><span class="token punctuation">></span></span> 1 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>l-col<span class="token punctuation">"</span></span><span class="token punctuation">></span></span> 2 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
@@ -2513,7 +2513,7 @@ It also can placed onto an element that wraps the container element.</p>
 This class should be added onto the element <code>.l-row</code></p>
 
 <div class="l-container">
-  <div class="l-row l-row__debug">
+  <div class="l-row l-row--debug">
     <div class="l-col"> 1 </div>
     <div class="l-col"> 2 </div>
   </div>
@@ -2523,7 +2523,7 @@ This class should be added onto the element <code>.l-row</code></p>
   </div>
 </div>
 <div class='prettyprint'><pre><h4>HTML</h4><code class='language-markup'><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>l-container<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
-  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>l-row l-row__debug<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>l-row l-row--debug<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>l-col<span class="token punctuation">"</span></span><span class="token punctuation">></span></span> 1 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>l-col<span class="token punctuation">"</span></span><span class="token punctuation">></span></span> 2 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
@@ -2538,29 +2538,29 @@ This class should be added onto the element <code>.l-col</code></p>
 
 <div class="l-container">
   <div class="l-row">
-    <div class="l-col l-col__debug"> 1 </div>
+    <div class="l-col l-col--debug"> 1 </div>
     <div class="l-col"> 2 </div>
   </div>
   <div class="l-row">
     <div class="l-col-sm-2"> 3 </div>
-    <div class="l-col-sm-6 l-col__debug"> 4 </div>
+    <div class="l-col-sm-6 l-col--debug"> 4 </div>
   </div>
 </div>
 <div class='prettyprint'><pre><h4>HTML</h4><code class='language-markup'><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>l-container<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>l-row<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>l-col l-col__debug<span class="token punctuation">"</span></span><span class="token punctuation">></span></span> 1 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>l-col l-col--debug<span class="token punctuation">"</span></span><span class="token punctuation">></span></span> 1 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>l-col<span class="token punctuation">"</span></span><span class="token punctuation">></span></span> 2 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>l-row<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>l-col-sm-2<span class="token punctuation">"</span></span><span class="token punctuation">></span></span> 3 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>l-col-sm-6 l-col__debug<span class="token punctuation">"</span></span><span class="token punctuation">></span></span> 4 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>l-col-sm-6 l-col--debug<span class="token punctuation">"</span></span><span class="token punctuation">></span></span> 4 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span></code></pre></div></section>
 
 <section class="page-section">
 <h2 id="examples">Examples</h2>
 <h3 id="e-section-latest-layout">Section latest layout</h3>
-<div class="l-container__debug  -display-example">
+<div class="l-container--debug u-display-example">
   <div class="l-container">
     <div class="l-row">
       <div class="l-col-1 l-col-sm-8 l-col-md-12 l-col-lg-3"> 1 </div>
@@ -2579,7 +2579,7 @@ This class should be added onto the element <code>.l-col</code></p>
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span></code></pre></div>
 <h3 id="e-section-list-layout">Section list layout</h3>
-<div class="l-container__debug u-display-example">
+<div class="l-container--debug u-display-example">
   <div class="l-container">
     <div class="l-row">
       <div class="l-col-1 l-col-sm-4 l-col-md-3 l-col-lg-4"> 1 </div>
@@ -2598,7 +2598,7 @@ This class should be added onto the element <code>.l-col</code></p>
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span></code></pre></div>
 <h3 id="e-group-1-layout">Group 1 layout</h3>
-<div class="l-container__debug u-display-example">
+<div class="l-container--debug u-display-example">
   <div class="l-container">
     <div class="l-row">
       <div class="l-col-1 l-col-sm-4 l-col-md-3 l-col-lg-4"> 1 </div>
@@ -2617,7 +2617,7 @@ This class should be added onto the element <code>.l-col</code></p>
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span></code></pre></div>
 <h3 id="e-group-2-layout">Group 2 layout</h3>
-<div class="l-container__debug u-display-example">
+<div class="l-container--debug u-display-example">
   <div class="l-container">
     <div class="l-row">
       <div class="l-col-1 l-col-sm-8 l-col-md-6 l-col-lg-8"> 1 </div>
@@ -2634,7 +2634,7 @@ This class should be added onto the element <code>.l-col</code></p>
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span></code></pre></div>
 <h3 id="e-complex-grid">Complex nested grid</h3>
-<div class="l-container__debug u-display-example">
+<div class="l-container--debug u-display-example">
   <div class="l-container-fluid">
     <div class="l-row">
       <div class="l-col-sm-5">
@@ -2691,7 +2691,7 @@ This class should be added onto the element <code>.l-col</code></p>
 <h3 id="e-four-grid-tier">Four grid tier</h3>
 <p>There are four tiers to the grid system, one for each range of devices we support.
   Each tier starts at a minimum viewport size and automatically applies to the larger devices unless overridden.</p>
-<div class="l-container__debug u-display-example">
+<div class="l-container--debug u-display-example">
   <div class="l-row">
     <div class="l-col">.l-col</div>
     <div class="l-col">.l-col</div>
@@ -2744,7 +2744,7 @@ This class should be added onto the element <code>.l-col</code></p>
 <h3 id="e-three-equal-cols">Three equal columns</h3>
 <p>Get three equal-width columns <strong>starting at desktops and scaling to large desktops</strong>.
   On mobile devices, tablets and below, the columns will automatically stack.</p>
-<div class="l-container__debug u-display-example">
+<div class="l-container--debug u-display-example">
   <div class="l-row">
     <div class="l-col-md-4">.l-col-md-4</div>
     <div class="l-col-md-4">.l-col-md-4</div>
@@ -2770,7 +2770,7 @@ This class should be added onto the element <code>.l-col</code></p>
 <p>Get three columns <strong>starting at desktops and scaling to large desktops</strong> of various widths.
   Remember, grid columns should add up to twelve for a single horizontal block.
   More than that, and columns start stacking no matter the viewport.</p>
-<div class="l-container__debug u-display-example">
+<div class="l-container--debug u-display-example">
   <div class="l-row">
     <div class="l-col-md-3">.l-col-md-3</div>
     <div class="l-col-md-6">.l-col-md-6</div>
@@ -2784,7 +2784,7 @@ This class should be added onto the element <code>.l-col</code></p>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span></code></pre></div>
 <h3 id="e-two-columns">Two columns</h3>
 <p>Get two columns starting at desktops and scaling to large desktops.</p>
-<div class="l-container__debug u-display-example">
+<div class="l-container--debug u-display-example">
   <div class="l-row">
     <div class="l-col-md-8">.l-col-md-8</div>
     <div class="l-col-md-4">.l-col-md-4</div>
@@ -2799,9 +2799,9 @@ This class should be added onto the element <code>.l-col</code></p>
   This gives you two columns <strong>starting at desktops and scaling to large desktops</strong>,
   with another two (equal widths) within the larger column.</p>
 <p>At mobile device sizes, tablets and down, these columns and their nested columns will stack.</p>
-<div class="l-container__debug u-display-example">
+<div class="l-container--debug u-display-example">
   <div class="l-row">
-    <div class="l-col-md-8 l-col__no-gutters">
+    <div class="l-col-md-8 l-col--no-gutters">
       .l-col-md-8
       <div class="l-row">
         <div class="l-col-md-6">.l-col-md-6</div>
@@ -2812,7 +2812,7 @@ This class should be added onto the element <code>.l-col</code></p>
   </div>
 </div>
 <div class='prettyprint'><pre><h4>HTML</h4><code class='language-markup'><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>l-row<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
-  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>l-col-md-8 l-col__no-gutters<span class="token punctuation">"</span></span><span class="token punctuation">></span></span> .l-col-md-8
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>l-col-md-8 l-col--no-gutters<span class="token punctuation">"</span></span><span class="token punctuation">></span></span> .l-col-md-8
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>l-row<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
       <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>l-col-md-6<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>.l-col-md-6<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
       <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>l-col-md-6<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>.l-col-md-6<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
@@ -2826,7 +2826,7 @@ This class should be added onto the element <code>.l-col</code></p>
   to create more dynamic and flexible layouts.</p>
 <p>Each tier of classes scales up, meaning if you plan on setting the same widths for xs and sm,
   you only need to specify xs.</p>
-<div class="l-container__debug u-display-example">
+<div class="l-container--debug u-display-example">
   <div class="l-row">
     <div class="l-col-sm-8 l-col-md-8">.l-col-sm-8 .l-col-md-8</div>
     <div class="l-col-sm-4 l-col-md-4">.l-col-sm-4 .l-col-md-4</div>
@@ -2855,7 +2855,7 @@ This class should be added onto the element <code>.l-col</code></p>
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>l-col-sm-4<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>.l-col-sm-4<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span></code></pre></div>
 <h3 id="e-mixed-3">Mixed: mobile, tablet, desktop</h3>
-<div class="l-container__debug u-display-example">
+<div class="l-container--debug u-display-example">
   <div class="l-row">
     <div class="l-col-1 l-col-sm-6 l-col-lg-6">.l-col-1 .l-col-sm-6 .l-col-lg-6</div>
     <div class="l-col-1 l-col-sm-2 l-col-lg-10">.l-col-1 .l-col-sm-2 .l-col-lg-10</div>
@@ -2877,7 +2877,7 @@ This class should be added onto the element <code>.l-col</code></p>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span></code></pre></div>
 <h3 id="e-offset-resets">Offset, push, and pull resets</h3>
 <p>Reset offsets, pushes, and pulls at specific breakpoints.</p>
-<div class="l-container__debug u-display-example">
+<div class="l-container--debug u-display-example">
   <div class="l-row">
     <div class="l-col-sm-4 l-col-md-5 l-col-lg-8">.l-col-sm-4 .l-col-md-5 .l-col-lg-8</div>
     <div class="l-col-sm-4 l-col-md-5 l-offset-md-2 l-col-lg-8 l-offset-lg-0">.l-col-sm-4 .l-col-md-5 .l-offset-md-2 .l-col-lg-8 .l-offset-lg-0</div>

@@ -1432,40 +1432,40 @@
   display: none !important;
 }
 
-.l-row__no-gutters > .l-col,
-.l-row__no-gutters > [class*="l-col-"] {
+.l-row--no-gutters > .l-col,
+.l-row--no-gutters > [class*="l-col-"] {
   padding-left: 0 !important;
   padding-right: 0 !important;
 }
 
-.l-col__no-gutters {
+.l-col--no-gutters {
   padding-left: 0 !important;
   padding-right: 0 !important;
 }
 
-.l-col__no-gutters-left {
+.l-col--no-gutters-left {
   padding-left: 0 !important;
 }
 
-.l-col__no-gutters-right {
+.l-col--no-gutters-right {
   padding-right: 0 !important;
 }
 
-.l-container__debug .l-row > .l-col,
-.l-container__debug .l-row > [class*="l-col-"],
-.l-container-fluid__debug .l-row > .l-col,
-.l-container-fluid__debug .l-row > [class*="l-col-"] {
+.l-container--debug .l-row > .l-col,
+.l-container--debug .l-row > [class*="l-col-"],
+.l-container-fluid--debug .l-row > .l-col,
+.l-container-fluid--debug .l-row > [class*="l-col-"] {
   background-color: rgba(86, 61, 124, 0.15);
   outline: 1px solid rgba(86, 61, 124, 0.2);
 }
 
-.l-row__debug > .l-col,
-.l-row__debug > [class*="l-col-"] {
+.l-row--debug > .l-col,
+.l-row--debug > [class*="l-col-"] {
   background-color: rgba(86, 61, 124, 0.15);
   outline: 1px solid rgba(86, 61, 124, 0.2);
 }
 
-.l-col__debug {
+.l-col--debug {
   background-color: rgba(86, 61, 124, 0.15);
   outline: 1px solid rgba(86, 61, 124, 0.2);
 }
