@@ -2,7 +2,7 @@
 // from all immediate children columns (to prevent runaway style inheritance).
 
 @if $include-grid-no-gutters {
-  .l-row__no-gutters {
+  .l-row--no-gutters {
     > .l-col,
     > [class*="l-col-"] {
       padding-left: 0 !important;
@@ -11,18 +11,18 @@
   }
 
   // Remove left/right padding from this column
-  .l-col__no-gutters {
+  .l-col--no-gutters {
     padding-left: 0 !important;
     padding-right: 0 !important;
   }
 
   // Remove left padding from this column
-  .l-col__no-gutters-left {
+  .l-col--no-gutters-left {
     padding-left: 0 !important;
   }
 
   // Remove right padding from this column
-  .l-col__no-gutters-right {
+  .l-col--no-gutters-right {
     padding-right: 0 !important;
   }
 }
