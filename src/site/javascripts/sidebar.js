@@ -15,26 +15,19 @@ const animationEnd = require("./utils.js").whichAnimationEvent();
 const toggle = document.getElementById("burger-button");
 const toggleText = toggle.getElementsByClassName("burger-button__text").item(0);
 const sidebar = document.getElementById("sidebar");
+const main = document.getElementById("main-content");
 
 let maintainSidebarStateOnResize = false;
+let sidebarKey = "flexboxgrid-sidebar-open";
 
 function setSidebarState() {
-  if (typeof window.matchMedia !== "undefined") {
-    if (window.matchMedia("(max-width: 800px)").matches) {
-      if (!maintainSidebarStateOnResize) {
-        closeImmediately();
-        maintainSidebarStateOnResize = true;
-      }
-    } else {
-      if (maintainSidebarStateOnResize) {
-        openImmediately();
-        maintainSidebarStateOnResize = false;
-      }
-    }
+  var sidebarOpen = sessionStorage.getItem(sidebarKey);
+
+  if (sidebarOpen && sidebarOpen == "true") {
+    openImmediately();
   }
 }
 setSidebarState();
-window.addEventListener("optimizedResize", setSidebarState);
 
 toggle.addEventListener("click", toggleSidebar);
 sidebar.addEventListener(animationEnd, onSidebarAnimationEnd);
@@ -54,13 +47,20 @@ function open() {
     toggle.setAttribute("aria-expanded", true);
     toggleText.textContent = "Hide navigation";
     sidebar.classList.add("sidebar--revealing");
+    main.classList.remove("sidebar--hidden");
+    main.classList.remove("sidebar--hiding");
+    main.classList.add("sidebar--revealing");
     sidebar.removeAttribute("hidden");
+    sessionStorage.setItem(sidebarKey, true);
   }
 }
 
 function openImmediately() {
   sidebar.classList.remove("sidebar--hiding");
   sidebar.classList.remove("sidebar--revealing");
+  main.classList.remove("sidebar--hidden");
+  main.classList.remove("sidebar--hiding");
+  main.classList.remove("sidebar--revealing");
   sidebar.removeAttribute("hidden");
   toggle.setAttribute("aria-expanded", true);
   toggleText.textContent = "Hide navigation";
@@ -72,15 +72,10 @@ function close() {
     toggle.setAttribute("aria-expanded", false);
     toggleText.textContent = "Show navigation";
     sidebar.classList.add("sidebar--hiding");
+    main.classList.add("sidebar--hiding");
+    main.classList.add("sidebar--hidden");
+    sessionStorage.setItem(sidebarKey, false);
   }
-}
-
-function closeImmediately() {
-  sidebar.classList.remove("sidebar--hiding");
-  sidebar.classList.remove("sidebar--revealing");
-  sidebar.setAttribute("hidden", "hidden");
-  toggle.setAttribute("aria-expanded", false);
-  toggleText.textContent = "Show navigation";
 }
 
 function onSidebarAnimationEnd(e) {
@@ -88,8 +83,12 @@ function onSidebarAnimationEnd(e) {
   // so we're removing classes separately
   sidebar.classList.remove("sidebar--hiding");
   sidebar.classList.remove("sidebar--revealing");
+  main.classList.remove("sidebar--hiding");
+  main.classList.remove("sidebar--revealing");
   if (toggle.getAttribute("aria-expanded") === "false") {
     sidebar.setAttribute("hidden", "hidden");
+    main.classList.add("sidebar--hidden");
+    sessionStorage.setItem(sidebarKey, false);
   }
 }
 
