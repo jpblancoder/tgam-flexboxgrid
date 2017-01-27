@@ -2,27 +2,44 @@
 // from all immediate children columns (to prevent runaway style inheritance).
 
 @if $include-grid-no-gutters {
-  .l-row--no-gutters {
-    > .l-col,
-    > [class*="l-col-"] {
-      padding-left: 0 !important;
-      padding-right: 0 !important;
+  // special case for xs tier (due to container padding)
+  @include media-breakpoint-down(xs, $grid-breakers) {
+    .l-row--no-gutters {
+      > .l-row {
+        margin-left: -($grid-gutter-width-base / 2);
+        margin-right: -($grid-gutter-width-base / 2);
+      }
     }
   }
 
-  // Remove left/right padding from this column
-  .l-col--no-gutters {
-    padding-left: 0 !important;
-    padding-right: 0 !important;
-  }
+  // process all tiers as usual
+  @each $breakpoint in map-keys($grid-breakers) {
+    @include media-breakpoint-up($breakpoint, $grid-breakers) {
+      $infix: breakpoint-infix($breakpoint, $grid-breakers);
 
-  // Remove left padding from this column
-  .l-col--no-gutters-left {
-    padding-left: 0 !important;
-  }
+      .l-row#{$infix}--no-gutters {
+        > .l-col,
+        > [class*="l-col-"] {
+          padding-left: 0 !important;
+          padding-right: 0 !important;
+        }
+      }
 
-  // Remove right padding from this column
-  .l-col--no-gutters-right {
-    padding-right: 0 !important;
+      // Remove left/right padding from this column
+      .l-col#{$infix}--no-gutters {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+      }
+
+      // Remove left padding from this column
+      .l-col#{$infix}--no-gutters-left {
+        padding-left: 0 !important;
+      }
+
+      // Remove right padding from this column
+      .l-col#{$infix}--no-gutters-right {
+        padding-right: 0 !important;
+      }
+    }
   }
 }

@@ -184,6 +184,9 @@ primaryNav:
       name: "Group 2 layout"
       path: "#e-group-2-layout"
     -
+      name: "Template 1 layout"
+      path: "#e-template-1-layout"
+    -
       name: "Complex nested grid"
       path: "#e-complex-grid"
     -
