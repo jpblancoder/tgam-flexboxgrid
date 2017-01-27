@@ -4,60 +4,58 @@
 @if $include-grid-no-gutters {
   // special case for xs tier (due to container padding)
   @include media-breakpoint-down(xs, $grid-breakers) {
-    .l-row--no-gutters {
+    .l-row--gutters-none {
       margin-left: -($grid-gutter-width-base / 2);
       margin-right: -($grid-gutter-width-base / 2);
-      > .l-col,
-      > [class*="l-col-"] {
-        padding-left: 0 !important;
-        padding-right: 0 !important;
-      }
-    }
-
-    // Remove left/right padding from this column
-    .l-col--no-gutters {
-      padding-left: 0 !important;
-      padding-right: 0 !important;
-    }
-
-    // Remove left padding from this column
-    .l-col--no-gutters-left {
-      padding-left: 0 !important;
-    }
-
-    // Remove right padding from this column
-    .l-col--no-gutters-right {
-      padding-right: 0 !important;
     }
   }
 
-  // process all tiers as usual
-  @each $breakpoint in map-keys($grid-containers) {
-    @include media-breakpoint-only($breakpoint, $grid-containers) {
-      $infix: breakpoint-infix($breakpoint, $grid-containers);
+  @each $breakpoint in map-keys($grid-breakers) {
+    @include media-breakpoint-up($breakpoint, $grid-breakers) {
+      $infix: breakpoint-infix($breakpoint, $grid-breakers);
 
-      .l-row#{$infix}--no-gutters {
+      // Remove left/right padding from all columns in row
+      .l-row#{$infix}--gutters-none {
         > .l-col,
         > [class*="l-col-"] {
           padding-left: 0 !important;
           padding-right: 0 !important;
         }
       }
+      .l-row#{$infix}--gutters-default {
+        margin-left: 0;
+        margin-right: 0;
+        > .l-col,
+        > [class*="l-col-"] {
+          padding-left: ($grid-gutter-width-base / 2) !important;
+          padding-right: ($grid-gutter-width-base / 2) !important;
+        }
+      }
 
       // Remove left/right padding from this column
-      .l-col#{$infix}--no-gutters {
+      .l-col#{$infix}--gutters-none {
         padding-left: 0 !important;
         padding-right: 0 !important;
+      }
+      .l-col#{$infix}--gutters-default {
+        padding-left: ($grid-gutter-width-base / 2) !important;
+        padding-right: ($grid-gutter-width-base / 2) !important;
       }
 
       // Remove left padding from this column
-      .l-col#{$infix}--no-gutters-left {
+      .l-col#{$infix}--gutters-left-none {
         padding-left: 0 !important;
+      }
+      .l-col#{$infix}--gutters-left-default {
+        padding-left: ($grid-gutter-width-base / 2)!important;
       }
 
       // Remove right padding from this column
-      .l-col#{$infix}--no-gutters-right {
+      .l-col#{$infix}--gutters-right-none {
         padding-right: 0 !important;
+      }
+      .l-col#{$infix}--gutters-right-default {
+        padding-right: ($grid-gutter-width-base / 2) !important;
       }
     }
   }
