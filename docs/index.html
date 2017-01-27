@@ -2298,7 +2298,8 @@ stacked on extra small devices before becoming horizontal on desktop (medium) de
 <h4 id="g-no-gutters">No column gutters</h4>
 
 <p>The gutters between columns in our predefined grid classes can be removed
-  with <code>.l-row--no-gutters</code>. This removes the negative <strong>margins</strong> from <code>.row</code> and the horizontal
+  with <code>.l-row--no-gutters</code> for XS tier, or <code>.l-row-*-no-gutters</code> or other tiers.
+  This removes the negative <strong>margins</strong> from <code>.row</code> and the horizontal
   <strong>padding</strong> from all immediate children columns.</p>
 
 <p>Here’s the source code for creating these styles. Note that column overrides
@@ -2310,31 +2311,31 @@ stacked on extra small devices before becoming horizontal on desktop (medium) de
   predefined grid classes (including column widths, responsive tiers, reorders, and more).</p>
 
 <div class="l-container--debug u-display-example">
-  <div class="l-row l-row--no-gutters">
+  <div class="l-row l-row--no-gutters l-row-md-no-gutters">
     <div class="l-col l-col-sm-4 l-col-md-6">A - no gutters</div>
     <div class="l-col l-col-sm-4 l-col-md-6">B - no gutters</div>
   </div>
 </div>
-<div class='prettyprint'><pre><h4>HTML</h4><code class='language-markup'><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>l-row l-row--no-gutters<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+<div class='prettyprint'><pre><h4>HTML</h4><code class='language-markup'><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>l-row l-row--no-gutters l-row-md-no-gutters<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>l-col l-col-sm-4 l-col-md-6<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>A - no gutters<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>l-col l-col-sm-4 l-col-md-6<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>B - no gutters<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span></code></pre></div>
 <div class="l-container--debug u-display-example">
   <div class="l-row">
-    <div class="l-col l-col-sm-4 l-col-md-6 l-col--no-gutters">A - no gutters</div>
-    <div class="l-col l-col-sm-4 l-col-md-6 l-col--no-gutters-left">B - no left gutter</div>
+    <div class="l-col l-col-sm-4 l-col-md-6 l-col--no-gutters l-col-md-no-gutters l-col-lg-no-gutters">A - no gutters</div>
+    <div class="l-col l-col-sm-4 l-col-md-6 l-col--no-gutters-left l-col-lg-no-gutters-left">B - no left gutter</div>
   </div>
   <div class="l-row">
-    <div class="l-col l-col-sm-4 l-col-md-6 l-col--no-gutters-right">C - no right gutter</div>
+    <div class="l-col l-col-sm-4 l-col-md-6 l-col--no-gutters-right l-col-lg-no-gutters-right">C - no right gutter</div>
     <div class="l-col l-col-sm-4 l-col-md-6">D - yes gutters</div>
   </div>
 </div>
 <div class='prettyprint'><pre><h4>HTML</h4><code class='language-markup'><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>l-row<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
-  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>l-col l-col-sm-4 l-col-md-6 l-col--no-gutters<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>A - no gutters<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
-  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>l-col l-col-sm-4 l-col-md-6 l-col--no-gutters-left<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>B - no left gutter<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>l-col l-col-sm-4 l-col-md-6 l-col--no-gutters l-col-md-no-gutters l-col-lg-no-gutters<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>A - no gutters<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>l-col l-col-sm-4 l-col-md-6 l-col--no-gutters-left l-col-lg-no-gutters-left<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>B - no left gutter<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>l-row<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
-  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>l-col l-col-sm-4 l-col-md-6 l-col--no-gutters-right<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>C - no right gutter<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>l-col l-col-sm-4 l-col-md-6 l-col--no-gutters-right l-col-lg-no-gutters-right<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>C - no right gutter<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>l-col l-col-sm-4 l-col-md-6<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>D - yes gutters<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span></code></pre></div>
 <h4 id="g-col-wrap">Column wrapping</h4>
