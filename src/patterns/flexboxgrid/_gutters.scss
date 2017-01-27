@@ -5,9 +5,12 @@
   // special case for xs tier (due to container padding)
   @include media-breakpoint-down(xs, $grid-breakers) {
     .l-row--no-gutters {
-      > .l-row {
-        margin-left: -($grid-gutter-width-base / 2);
-        margin-right: -($grid-gutter-width-base / 2);
+      margin-left: -($grid-gutter-width-base / 2);
+      margin-right: -($grid-gutter-width-base / 2);
+      > .l-col,
+      > [class*="l-col-"] {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
       }
     }
 

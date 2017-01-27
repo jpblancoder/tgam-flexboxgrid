@@ -1433,9 +1433,14 @@
 }
 
 @media (max-width: 719px) {
-  .l-row--no-gutters > .l-row {
+  .l-row--no-gutters {
     margin-left: -10px;
     margin-right: -10px;
+  }
+  .l-row--no-gutters > .l-col,
+  .l-row--no-gutters > [class*="l-col-"] {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
   }
   .l-col--no-gutters {
     padding-left: 0 !important;
