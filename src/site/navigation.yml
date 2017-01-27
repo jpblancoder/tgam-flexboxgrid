@@ -1,215 +1,220 @@
 primaryNav:
   -
+    name: "Home"
+    path: "index.html"
+    secondary: false,
+    children:
+  -
     name: "Overview"
-    path: "#overview"
+    path: "overview.html"
     children:
     -
       name: "Containers"
-      path: "#o-containers"
+      path: "overview.html#o-containers"
     -
       name: "Fluid columns"
-      path: "#o-fluid-grid"
+      path: "overview.html#o-fluid-grid"
     -
       name: "Responsive modifiers"
-      path: "#o-responsive-modifiers"
+      path: "overview.html#o-responsive-modifiers"
     -
       name: "Responsive column counts"
-      path: "#o-responsive-grid"
+      path: "overview.html#o-responsive-grid"
     -
       name: "Customizing the grid"
-      path: "#o-custom"
+      path: "overview.html#o-custom"
       children:
       -
         name: "Columns and gutters"
-        path: "#o-settings"
+        path: "overview.html#o-settings"
       -
         name: "Grid breakpoint values"
-        path: "#o-tiers"
+        path: "overview.html#o-tiers"
       -
         name: "Grid summary table"
-        path: "#o-summary-table"
+        path: "overview.html#o-summary-table"
       -
         name: "Disable/exclude features"
-        path: "#o-exclude"
+        path: "overview.html#o-exclude"
     -
       name: "Responsive breakpoint mixins"
-      path: "#o-resp-mixins"
+      path: "overview.html#o-resp-mixins"
   -
     name: "Utilities"
-    path: "#util"
+    path: "util.html"
     children:
     -
       name: "Visibility"
-      path: "#u-visibility"
+      path: "util.html#u-visibility"
     -
       name: "Display"
-      path: "#u-display"
+      path: "util.html#u-display"
       children:
       -
         name: "Enable inline/block behaviors"
-        path: "#u-display-inline"
+        path: "util.html#u-display-inline"
       -
         name: "Enable flex behaviors"
-        path: "#u-display-flexbox"
+        path: "util.html#u-display-flexbox"
     -
       name: "Flexbox"
-      path: "#u-flexbox"
+      path: "util.html#u-flexbox"
       children:
       -
         name: "Direction"
-        path: "#u-flexbox-dir"
+        path: "util.html#u-flexbox-dir"
       -
         name: "Justify content"
-        path: "#u-flexbox-justify"
+        path: "util.html#u-flexbox-justify"
       -
         name: "Align items"
-        path: "#u-flexbox-items"
+        path: "util.html#u-flexbox-items"
       -
         name: "Align self"
-        path: "#u-flexbox-self"
+        path: "util.html#u-flexbox-self"
       -
         name: "Auto margins"
-        path: "#u-flexbox-auto"
+        path: "util.html#u-flexbox-auto"
         children:
         -
           name: "With justify-content"
-          path: "#u-flexbox-auto-justify"
+          path: "util.html#u-flexbox-auto-justify"
         -
           name: "With align-items"
-          path: "#u-flexbox-auto-items"
+          path: "util.html#u-flexbox-auto-items"
       -
         name: "Wrap"
-        path: "#u-flexbox-wrap"
+        path: "util.html#u-flexbox-wrap"
       -
         name: "Order"
-        path: "#u-flexbox-order"
+        path: "util.html#u-flexbox-order"
       -
         name: "Align content"
-        path: "#u-flexbox-content"
+        path: "util.html#u-flexbox-content"
       -
         name: "Align text"
-        path: "#u-flexbox-text"
+        path: "util.html#u-flexbox-text"
   -
     name: "Grid"
-    path: "#grid"
+    path: "grid.html"
     children:
     -
       name: "Auto-layout columns"
-      path: "#g-layout"
+      path: "grid.html#g-layout"
       children:
       -
         name: "Equal-width"
-        path: "#g-equal-width"
+        path: "grid.html#g-equal-width"
       -
         name: "Setting one column width"
-        path: "#g-setting-one"
+        path: "grid.html#g-setting-one"
       -
         name: "Variable width content"
-        path: "#g-vars-width"
+        path: "grid.html#g-vars-width"
       -
         name: "Equal-width multi-row"
-        path: "#g-equal-multi"
+        path: "grid.html#g-equal-multi"
     -
       name: "Responsive classes"
-      path: "#g-resp-classes"
+      path: "grid.html#g-resp-classes"
       children:
       -
         name: "All breakpoints"
-        path: "#g-all-break"
+        path: "grid.html#g-all-break"
       -
         name: "Stacked to horizontal"
-        path: "#g-stacked"
+        path: "grid.html#g-stacked"
     -
       name: "Alignment"
-      path: "#g-alignment"
+      path: "grid.html#g-alignment"
       children:
       -
         name: "Vertical alignment"
-        path: "#g-v-align"
+        path: "grid.html#g-v-align"
       -
         name: "Horizontal alignment"
-        path: "#g-h-align"
+        path: "grid.html#g-h-align"
       -
         name: "No column gutters"
-        path: "#g-no-gutters"
+        path: "grid.html#g-no-gutters"
       -
         name: "Column wrapping"
-        path: "#g-col-wrap"
+        path: "grid.html#g-col-wrap"
       -
         name: "Column resets"
-        path: "#g-col-reset"
+        path: "grid.html#g-col-reset"
     -
       name: "Reordering"
-      path: "#g-reordering"
+      path: "grid.html#g-reordering"
       children:
       -
         name: "Flex order"
-        path: "#g-flex-order"
+        path: "grid.html#g-flex-order"
       -
         name: "Offsetting columns"
-        path: "#g-off-col"
+        path: "grid.html#g-off-col"
       -
         name: "Push and pull"
-        path: "#g-push-pull"
+        path: "grid.html#g-push-pull"
     -
       name: "Nesting"
-      path: "#g-nesting"
+      path: "grid.html#g-nesting"
     -
       name: "Debug highlighting"
-      path: "#g-debugging"
+      path: "grid.html#g-debugging"
       children:
       -
         name: "Entire Grid"
-        path: "#g-debug-grid"
+        path: "grid.html#g-debug-grid"
       -
         name: "Single Row"
-        path: "#g-debug-row"
+        path: "grid.html#g-debug-row"
       -
         name: "Single Column"
-        path: "#g-debug-col"
+        path: "grid.html#g-debug-col"
   -
     name: "Examples"
-    path: "#examples"
+    path: "example.html"
     children:
     -
       name: "Section latest layout"
-      path: "#e-section-latest-layout"
+      path: "example.html#e-section-latest-layout"
     -
       name: "Section list layout"
-      path: "#e-section-list-layout"
+      path: "example.html#e-section-list-layout"
     -
       name: "Group 1 layout"
-      path: "#e-group-1-layout"
+      path: "example.html#e-group-1-layout"
     -
       name: "Group 2 layout"
-      path: "#e-group-2-layout"
+      path: "example.html#e-group-2-layout"
     -
       name: "Template 1 layout"
-      path: "#e-template-1-layout"
+      path: "example.html#e-template-1-layout"
     -
       name: "Complex nested grid"
-      path: "#e-complex-grid"
+      path: "example.html#e-complex-grid"
     -
       name: "Four grid tier"
-      path: "#e-four-grid-tier"
+      path: "example.html#e-four-grid-tier"
     -
       name: "Three equal columns"
-      path: "#e-three-equal-cols"
+      path: "example.html#e-three-equal-cols"
     -
       name: "Three unequal columns"
-      path: "#e-three-unequal-cols"
+      path: "example.html#e-three-unequal-cols"
     -
       name: "Two columns"
-      path: "#e-two-columns"
+      path: "example.html#e-two-columns"
     -
       name: "Two columns with two nested columns"
-      path: "#e-two-columns-nested"
+      path: "example.html#e-two-columns-nested"
     -
       name: "Mixed: mobile and desktop"
-      path: "#e-mixed-2"
+      path: "example.html#e-mixed-2"
     -
       name: "Mixed: mobile, tablet, desktop"
-      path: "#e-mixed-3"
+      path: "example.html#e-mixed-3"
     -
       name: "Offset, push, and pull resets"
-      path: "#e-offset-resets"
+      path: "example.html#e-offset-resets"

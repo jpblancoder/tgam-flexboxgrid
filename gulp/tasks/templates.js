@@ -4,7 +4,7 @@ const fs = require("fs");
 const gulp = require("gulp");
 const rename = require('gulp-rename');
 const tap = require("gulp-tap");
-const Handlebars = require('gulp-compile-handlebars');
+const handlebars = require('gulp-compile-handlebars');
 const beautify_html = require("js-beautify").html;
 const Prism = require("prismjs");
 const runSequence = require("run-sequence");
@@ -13,8 +13,8 @@ const helpers = require("../helpers.js");
 // Primary navigation tree
 let navTree;
 
-// Specimen partials
-let specimenPartials;
+// Static templates
+let pageTemplate;
 
 /**
  * Initialization
@@ -25,6 +25,10 @@ gulp.task("templates:init", function templatesInitTask() {
   if (config.primaryNav) {
     navTree = config.primaryNav;
   }
+  // Compile static templates
+  pageTemplate = handlebars.Handlebars.compile(
+    fs.readFileSync("./src/site/templates/page.hbs", "utf8")
+  );
 });
 
 /**
@@ -88,28 +92,45 @@ gulp.task("templates:html", function templatesSpecimensSnippetsTask() {
  * Generate site pages
  */
 gulp.task("templates:site", function templatesSitePagesTask() {
-    let templateData = {
-      basePath: "/",
-      navTree: navTree
-    };
+  let templateData = {
+    basePath: "/",
+    navTree: navTree
+  };
 
-    let options = {
-      ignorePartials: true,
-      // partials: {
-          // footer: '<footer>the end</footer>'
-      // },
-      batch: ["./src/site/code", "./src/site/templates", "./temp"]
-      // helpers: {
-      //   capitals: function(str) {
-      //     return str.toUpperCase();
-      //   }
-      // }
-    };
+  let options = {
+    ignorePartials: true,
+    // partials: {
+        // footer: '<footer>the end</footer>'
+    // },
+    batch: ["./src/site/code", "./src/site/templates", "./temp"]
+    // helpers: {
+    //   capitals: function(str) {
+    //     return str.toUpperCase();
+    //   }
+    // }
+  };
 
-    return gulp.src("./src/site/templates/index.hbs")
-      .pipe(Handlebars(templateData, options))
-      .pipe(rename("index.html"))
-      .pipe(gulp.dest("./docs"));
+  return gulp.src("./src/site/pages/**/*.hbs")
+    .pipe(handlebars(templateData, options))
+    .pipe(tap(file => {
+      // Identify which item in the nav tree corresponds to the current page
+      // (the regex replacement removes "filename.hbs")
+      let filePath = file.path.split("/src/site/pages/")[1].replace(".hbs", ".html");
+      let updatedTree = applyActivePathToTree(navTree, filePath);
+
+      // Pass page HTML into page template
+      let pageHtml = pageTemplate({
+        basePath: "/",
+        body: file.contents.toString(),
+        navTree: updatedTree
+      });
+
+      // Replace file contents with snippet HTML
+      file.contents = new Buffer(pageHtml);
+      return file;
+    }))
+    .pipe(rename({extname: ".html"}))
+    .pipe(gulp.dest("./docs"));
 });
 
 /**
@@ -126,3 +147,33 @@ gulp.task("templates", function templatesTask(done) {
     }
   );
 });
+
+/**
+ * Returns a copy of the original tree, with an "active" property added
+ * to the object who's "path" property matches the search string
+ */
+function applyActivePathToTree(tree, searchString) {
+  const findPath = function iterate(obj, search) {
+    for (let prop in obj) {
+      if (obj.hasOwnProperty(prop)) {
+        if (prop === "path") {
+          if (removeOuterSlashes(obj[prop]) === search) {
+            obj.active = true;
+          }
+        } else if (typeof obj[prop] == "object") {
+          iterate(obj[prop], search);
+        }
+      }
+    }
+  };
+  let treeCopy = JSON.parse(JSON.stringify(tree));
+  findPath(treeCopy, removeOuterSlashes(searchString));
+  return treeCopy;
+}
+
+/**
+ * Removes leading and trailing slashes from string
+ */
+function removeOuterSlashes(str) {
+  return str.replace(/^\/|\/$/g, "");
+}
