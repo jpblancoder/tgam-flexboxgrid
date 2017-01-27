@@ -1,3 +1,5 @@
+$sidebar-width: 250px;
+
 // Box model
 // ---------
 
@@ -21,7 +23,6 @@ body {
   font-size: 87.5%; // (14 / 16) * 100 (default is 16px in most browsers)
   line-height: 1.35;
   color: $dark-gray;
-  overflow: hidden;
   // Fix font rendering problems in various browsers
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
@@ -195,16 +196,11 @@ a {
 
 #page {
   width: 100%;
-  height: 100%;
   // Primary flexbox container
   flex-direction: column;
   display: flex;
 }
 #main {
-  height: 100%;
-  // Firefox hack, see:
-  // http://stackoverflow.com/questions/29398259/css-flexbox-issue-in-firefox-v36-and-greater
-  min-height: 0;
   // Primary flexbox cell
   flex: 1;
   // Secondary flexbox container
@@ -212,12 +208,24 @@ a {
   display: flex;
 }
 #main-content {
-  padding-top: 20px;
-  padding-left: 20px;
+  padding-top: 60px; // Add #site-title height
+  padding-left: $sidebar-width + 20px;
   padding-right: 20px;
-  overflow: auto;
   // Secondary flexbox cell
   flex: 1;
+
+  &.sidebar--hiding {
+    // Even though "animation-play-state" is supposed to be the 8th shorthand
+    // property (see https://developer.mozilla.org/en/docs/Web/CSS/animation),
+    // Safari 9.1.1 rejects the entire "animation" declaration when we include
+    // it, so we have to specify it separately.
+    animation: bigger-main-content 0.3s ease-out 0s 1 normal forwards;
+    animation-play-state: running;
+  }
+  &.sidebar--revealing {
+    animation: smaller-main-content 0.3s ease-out 0s 1 normal forwards;
+    animation-play-state: running;
+  }
 }
 
 // Header
@@ -225,6 +233,9 @@ a {
 
 #header {
   background-color: #999;
+  width: 100%;
+  position: fixed;
+  z-index: 2;
 }
 #site-title {
   height: 40px;

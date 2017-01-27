@@ -22,7 +22,7 @@
   <a class="head-to-top" href="#page-heading">▲ TOP</a>
   <h1 id="site-title"><abbr title="The Globe and Mail">TGAM</abbr> <span data-short-title="Grid">Flexbox Grid</span></h1>
   <div id="burger-container">
-    <button id="burger-button" type="button" aria-controls="sidebar" aria-expanded="true">
+    <button id="burger-button" type="button" aria-controls="sidebar" aria-expanded="false">
       <span class="burger-button__lines"></span>
       <span class="burger-button__text">Hide navigation</span>
     </button>
@@ -31,7 +31,7 @@
 
 <main id="main">
 
-<aside id="sidebar">
+<aside id="sidebar" hidden="hidden">
 <img id="sidebar__logo" src="images/tgam-logo-square.gif" width="90" height="95" alt="Globe and Mail logo" />
 <nav id="primary-nav" aria-labelledby="primary-nav__label">
   <h2 id="primary-nav__label" class="visually-hidden">Main menu</h2>
@@ -150,7 +150,7 @@
 </nav>
 </aside>
 
-<div id="main-content">
+<div id="main-content" class="sidebar--hidden">
 <h2 id="page-heading" tabindex="-1">Utility</h2>
 
 <h3 id="u-visibility">Visibility</h3>
@@ -1215,7 +1215,7 @@
 </div>
 
 <script src="javascripts/babel-polyfill.min.js"></script>
-<script src="javascripts/vendor.min.js"></script>
+<!-- <script src="javascripts/vendor.min.js"></script> -->
 <script src="javascripts/bundle.min.js"></script>
 
 </body>

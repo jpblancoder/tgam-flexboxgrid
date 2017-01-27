@@ -2,7 +2,7 @@
   margin-bottom: 20px;
 }
 #sidebar {
-  width: 200px;
+  width: $sidebar-width;
   padding: 20px;
   background-color: $lightest-gray;
   overflow: auto;
@@ -18,20 +18,44 @@
     animation: reveal-sidebar 0.3s ease-out 0s 1 normal forwards;
     animation-play-state: running;
   }
+  padding-top: 60px; // Add #site-title height
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  z-index: 1;
 }
 @keyframes hide-sidebar {
   from {
     margin-left: 0;
   }
   to {
-    margin-left: -200px;
+    margin-left: -($sidebar-width);
   }
 }
 @keyframes reveal-sidebar {
   from {
-    margin-left: -200px;
+    margin-left: -($sidebar-width);
   }
   to {
     margin-left: 0;
   }
+}
+@keyframes smaller-main-content {
+  from {
+    padding-left: 20px;
+  }
+  to {
+    padding-left: $sidebar-width + 20px;
+  }
+}
+@keyframes bigger-main-content {
+  from {
+    padding-left: $sidebar-width + 20px;
+  }
+  to {
+    padding-left: 20px;
+  }
+}
+#main-content.sidebar--hidden {
+  padding-left: 20px !important;
 }

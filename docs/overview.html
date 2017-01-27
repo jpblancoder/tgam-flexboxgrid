@@ -22,7 +22,7 @@
   <a class="head-to-top" href="#page-heading">▲ TOP</a>
   <h1 id="site-title"><abbr title="The Globe and Mail">TGAM</abbr> <span data-short-title="Grid">Flexbox Grid</span></h1>
   <div id="burger-container">
-    <button id="burger-button" type="button" aria-controls="sidebar" aria-expanded="true">
+    <button id="burger-button" type="button" aria-controls="sidebar" aria-expanded="false">
       <span class="burger-button__lines"></span>
       <span class="burger-button__text">Hide navigation</span>
     </button>
@@ -31,7 +31,7 @@
 
 <main id="main">
 
-<aside id="sidebar">
+<aside id="sidebar" hidden="hidden">
 <img id="sidebar__logo" src="images/tgam-logo-square.gif" width="90" height="95" alt="Globe and Mail logo" />
 <nav id="primary-nav" aria-labelledby="primary-nav__label">
   <h2 id="primary-nav__label" class="visually-hidden">Main menu</h2>
@@ -150,7 +150,7 @@
 </nav>
 </aside>
 
-<div id="main-content">
+<div id="main-content" class="sidebar--hidden">
 <h2 id="page-heading" tabindex="-1">Overview</h2>
 
 <p>A grid system uses a series of containers, rows, and columns to layout and align content.
@@ -536,37 +536,37 @@ Update the Sass variable <code>$grid-containers</code> to something like this:</
 
 <div class='prettyprint'><pre><h4>SCSS</h4><code class='language-scss'>// Responsive visibility utility classes
 // Enable or disable features of the grid system
-$<span class="token property">include-hidden</span><span class="token punctuation">:</span>                 true !default<span class="token punctuation">;</span>
+$<span class="token property">include-hidden</span><span class="token punctuation">:</span>                 true<span class="token punctuation">;</span>
 
 // Display property utility classes
 // Enable or disable sub-features for this feature
-$<span class="token property">include-display-none</span><span class="token punctuation">:</span>           true !default<span class="token punctuation">;</span>
-$<span class="token property">include-display-inline</span><span class="token punctuation">:</span>         true !default<span class="token punctuation">;</span>
-$<span class="token property">include-display-inline-block</span><span class="token punctuation">:</span>   true !default<span class="token punctuation">;</span>
-$<span class="token property">include-display-block</span><span class="token punctuation">:</span>          true !default<span class="token punctuation">;</span>
-$<span class="token property">include-display-table</span><span class="token punctuation">:</span>          true !default<span class="token punctuation">;</span>
-$<span class="token property">include-display-table-cell</span><span class="token punctuation">:</span>     true !default<span class="token punctuation">;</span>
-$<span class="token property">include-display-inline-flex</span><span class="token punctuation">:</span>    true !default<span class="token punctuation">;</span>
+$<span class="token property">include-display-none</span><span class="token punctuation">:</span>           true<span class="token punctuation">;</span>
+$<span class="token property">include-display-inline</span><span class="token punctuation">:</span>         true<span class="token punctuation">;</span>
+$<span class="token property">include-display-inline-block</span><span class="token punctuation">:</span>   true<span class="token punctuation">;</span>
+$<span class="token property">include-display-block</span><span class="token punctuation">:</span>          true<span class="token punctuation">;</span>
+$<span class="token property">include-display-table</span><span class="token punctuation">:</span>          true<span class="token punctuation">;</span>
+$<span class="token property">include-display-table-cell</span><span class="token punctuation">:</span>     true<span class="token punctuation">;</span>
+$<span class="token property">include-display-inline-flex</span><span class="token punctuation">:</span>    true<span class="token punctuation">;</span>
 
 // Flexbox grid utility classes
 // Enable or disable sub-features for this feature
-$<span class="token property">include-flex-align-content</span><span class="token punctuation">:</span>     true !default<span class="token punctuation">;</span>
-$<span class="token property">include-flex-align-content</span><span class="token punctuation">:</span>     true !default<span class="token punctuation">;</span>
-$<span class="token property">include-flex-align-items</span><span class="token punctuation">:</span>       true !default<span class="token punctuation">;</span>
-$<span class="token property">include-flex-align-self</span><span class="token punctuation">:</span>        true !default<span class="token punctuation">;</span>
-$<span class="token property">include-flex-direction</span><span class="token punctuation">:</span>         true !default<span class="token punctuation">;</span>
-$<span class="token property">include-flex-justify-content</span><span class="token punctuation">:</span>   true !default<span class="token punctuation">;</span>
-$<span class="token property">include-flex-order</span><span class="token punctuation">:</span>             true !default<span class="token punctuation">;</span>
-$<span class="token property">include-flex-text-align</span><span class="token punctuation">:</span>        true !default<span class="token punctuation">;</span>
-$<span class="token property">include-flex-wrap</span><span class="token punctuation">:</span>              true !default<span class="token punctuation">;</span>
+$<span class="token property">include-flex-align-content</span><span class="token punctuation">:</span>     true<span class="token punctuation">;</span>
+$<span class="token property">include-flex-align-content</span><span class="token punctuation">:</span>     true<span class="token punctuation">;</span>
+$<span class="token property">include-flex-align-items</span><span class="token punctuation">:</span>       true<span class="token punctuation">;</span>
+$<span class="token property">include-flex-align-self</span><span class="token punctuation">:</span>        true<span class="token punctuation">;</span>
+$<span class="token property">include-flex-direction</span><span class="token punctuation">:</span>         true<span class="token punctuation">;</span>
+$<span class="token property">include-flex-justify-content</span><span class="token punctuation">:</span>   true<span class="token punctuation">;</span>
+$<span class="token property">include-flex-order</span><span class="token punctuation">:</span>             true<span class="token punctuation">;</span>
+$<span class="token property">include-flex-text-align</span><span class="token punctuation">:</span>        true<span class="token punctuation">;</span>
+$<span class="token property">include-flex-wrap</span><span class="token punctuation">:</span>              true<span class="token punctuation">;</span>
 
 // Flexbox grid layout classes
 // Enable or disable sub-features for this feature
-$<span class="token property">include-grid-debug</span><span class="token punctuation">:</span>             true !default<span class="token punctuation">;</span>
-$<span class="token property">include-grid-no-gutters</span><span class="token punctuation">:</span>        true !default<span class="token punctuation">;</span>
-$<span class="token property">include-grid-offset</span><span class="token punctuation">:</span>            true !default<span class="token punctuation">;</span>
-$<span class="token property">include-grid-pull</span><span class="token punctuation">:</span>              true !default<span class="token punctuation">;</span>
-$<span class="token property">include-grid-push</span><span class="token punctuation">:</span>              true !default<span class="token punctuation">;</span>
+$<span class="token property">include-grid-debug</span><span class="token punctuation">:</span>             true<span class="token punctuation">;</span>
+$<span class="token property">include-grid-no-gutters</span><span class="token punctuation">:</span>        true<span class="token punctuation">;</span>
+$<span class="token property">include-grid-offset</span><span class="token punctuation">:</span>            true<span class="token punctuation">;</span>
+$<span class="token property">include-grid-pull</span><span class="token punctuation">:</span>              true<span class="token punctuation">;</span>
+$<span class="token property">include-grid-push</span><span class="token punctuation">:</span>              true<span class="token punctuation">;</span>
 </code></pre></div>
 <h3 id="o-resp-mixins">Responsive breakpoint mixins</h3>
 
@@ -621,7 +621,7 @@ The Sass mixin for targeting the same screen size range would be:</p>
 </div>
 
 <script src="javascripts/babel-polyfill.min.js"></script>
-<script src="javascripts/vendor.min.js"></script>
+<!-- <script src="javascripts/vendor.min.js"></script> -->
 <script src="javascripts/bundle.min.js"></script>
 
 </body>

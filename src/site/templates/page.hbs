@@ -22,7 +22,7 @@
   <a class="head-to-top" href="#page-heading">▲ TOP</a>
   <h1 id="site-title"><abbr title="The Globe and Mail">TGAM</abbr> <span data-short-title="Grid">Flexbox Grid</span></h1>
   <div id="burger-container">
-    <button id="burger-button" type="button" aria-controls="sidebar" aria-expanded="true">
+    <button id="burger-button" type="button" aria-controls="sidebar" aria-expanded="false">
       <span class="burger-button__lines"></span>
       <span class="burger-button__text">Hide navigation</span>
     </button>
@@ -31,12 +31,12 @@
 
 <main id="main">
 
-<aside id="sidebar">
+<aside id="sidebar" hidden="hidden">
 <img id="sidebar__logo" src="images/tgam-logo-square.gif" width="90" height="95" alt="Globe and Mail logo" />
 {{> primary-nav items=navTree }}
 </aside>
 
-<div id="main-content">
+<div id="main-content" class="sidebar--hidden">
 {{{ body }}}
 <p class="back-to-top"><a href="#page-heading">▲ Back to top</a></p>
 </div>
@@ -46,7 +46,7 @@
 </div>
 
 <script src="javascripts/babel-polyfill.min.js"></script>
-<script src="javascripts/vendor.min.js"></script>
+<!-- <script src="javascripts/vendor.min.js"></script> -->
 <script src="javascripts/bundle.min.js"></script>
 
 </body>
