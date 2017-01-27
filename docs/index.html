@@ -115,6 +115,9 @@
             <a class="primary-nav__link" href="#e-group-2-layout">Group 2 layout</a>
         </li>
         <li class="primary-nav__item primary-nav__item--nested">
+            <a class="primary-nav__link" href="#e-template-1-layout">Template 1 layout</a>
+        </li>
+        <li class="primary-nav__item primary-nav__item--nested">
             <a class="primary-nav__link" href="#e-complex-grid">Complex nested grid</a>
         </li>
         <li class="primary-nav__item primary-nav__item--nested">
@@ -368,6 +371,9 @@ Which are extra-small (1), small (8), medium (12), and large (16).</p>
             </li>
             <li class="primary-nav__item primary-nav__item--nested">
               <a class="primary-nav__link" href="#e-group-2-layout">Group 2 layout</a>
+            </li>
+            <li class="primary-nav__item primary-nav__item--nested">
+              <a class="primary-nav__link" href="#e-template-1-layout">Template 1 layout</a>
             </li>
             <li class="primary-nav__item primary-nav__item--nested">
               <a class="primary-nav__link" href="#e-complex-grid">Complex nested grid</a>
@@ -2631,6 +2637,31 @@ This class should be added onto the element <code>.l-col</code></p>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>l-col-1 l-col-sm-8 l-col-md-6 l-col-lg-8<span class="token punctuation">"</span></span><span class="token punctuation">></span></span> 1 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>l-col-1 l-col-sm-4 l-col-md-3 l-col-lg-4<span class="token punctuation">"</span></span><span class="token punctuation">></span></span> 2 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>l-col-1 l-col-sm-4 l-col-md-3 l-col-lg-4<span class="token punctuation">"</span></span><span class="token punctuation">></span></span> 3 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span></code></pre></div>
+<h3 id="e-template-1-layout">Template 1 layout</h3>
+<div class="l-container--debug u-display-example">
+  <div class="l-container">
+    <div class="l-row">
+      <div class="l-col-1 l-col-sm-4 l-col-md-4 l-col-lg-5 l-offset-lg-1"> left card #1</div>
+      <div class="l-col-1 l-col-sm-4 l-col-md-4 l-col-lg-5"> left &amp; right cards #1</div>
+      <div class="l-col-1 l-col-sm-8 l-col-md-4 l-col-lg-4 l-offset-lg-1"> right rail #1</div>
+    </div>
+    <div class="l-row">
+      <div class="l-col-1 l-col-sm-8 l-col-md-8 l-col-lg-10 l-offset-lg-1"> left &amp; right cards #2 </div>
+      <div class="l-col-1 l-col-sm-8 l-col-md-4 l-col-lg-4 l-offset-lg-1"> right rail #2</div>
+    </div>
+  </div>
+</div>
+<div class='prettyprint'><pre><h4>HTML</h4><code class='language-markup'><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>l-container<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>l-row<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>l-col-1 l-col-sm-4 l-col-md-4 l-col-lg-5 l-offset-lg-1<span class="token punctuation">"</span></span><span class="token punctuation">></span></span> left card #1<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>l-col-1 l-col-sm-4 l-col-md-4 l-col-lg-5<span class="token punctuation">"</span></span><span class="token punctuation">></span></span> left <span class="token entity" title="&amp;">&amp;amp;</span> right cards #1<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>l-col-1 l-col-sm-8 l-col-md-4 l-col-lg-4 l-offset-lg-1<span class="token punctuation">"</span></span><span class="token punctuation">></span></span> right rail #1<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>l-row<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>l-col-1 l-col-sm-8 l-col-md-8 l-col-lg-10 l-offset-lg-1<span class="token punctuation">"</span></span><span class="token punctuation">></span></span> left <span class="token entity" title="&amp;">&amp;amp;</span> right cards #2 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>l-col-1 l-col-sm-8 l-col-md-4 l-col-lg-4 l-offset-lg-1<span class="token punctuation">"</span></span><span class="token punctuation">></span></span> right rail #2<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span></code></pre></div>
 <h3 id="e-complex-grid">Complex nested grid</h3>
