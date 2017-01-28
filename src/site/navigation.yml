@@ -159,19 +159,6 @@ primaryNav:
     -
       name: "Nesting"
       path: "/grid/#g-nesting"
-    -
-      name: "Debug highlighting"
-      path: "/grid/#g-debugging"
-      children:
-      -
-        name: "Entire Grid"
-        path: "/grid/#g-debug-grid"
-      -
-        name: "Single Row"
-        path: "/grid/#g-debug-row"
-      -
-        name: "Single Column"
-        path: "/grid/#g-debug-col"
   -
     name: "Examples"
     path: "/example/"

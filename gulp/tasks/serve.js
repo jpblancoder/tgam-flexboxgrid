@@ -35,7 +35,7 @@ gulp.task("serve", function serveTask(done) {
 gulp.task("watch", function watchTask(done) {
   gulp.watch([
     "./gulp/tasks/templates.js",
-    "./src/site/specimens/**/*",
+    "./src/specimens/**/*",
     "./src/site/pages/**/*",
     "./src/site/templates/*.hbs",
   ], function runWatchSequence() {

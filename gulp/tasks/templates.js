@@ -17,6 +17,8 @@ const siteConfig = require("../site-config.js");
 let navTree;
 
 // Static templates
+let specimenPageTemplate;
+let specimenSnippetTemplate;
 let pageTemplate;
 
 /**
@@ -29,6 +31,12 @@ gulp.task("templates:init", function templatesInitTask() {
     navTree = config.primaryNav;
   }
   // Compile static templates
+  specimenPageTemplate = handlebars.Handlebars.compile(
+    fs.readFileSync("./src/site/templates/specimen-page.hbs", "utf8")
+  );
+  specimenSnippetTemplate = handlebars.Handlebars.compile(
+    fs.readFileSync("./src/site/templates/specimen-snippet.hbs", "utf8")
+  );
   pageTemplate = handlebars.Handlebars.compile(
     fs.readFileSync("./src/site/templates/page.hbs", "utf8")
   );
@@ -37,8 +45,8 @@ gulp.task("templates:init", function templatesInitTask() {
 /**
  * Generate a duplicate "partial" file of the encoded SCSS for display
  */
-gulp.task("templates:scss", function templatesSpecimensSnippetsTask() {
-  return gulp.src("./src/site/specimens/**/*.sass")
+gulp.task("templates:specimens:scss", function templatesSpecimensScssTask() {
+  return gulp.src("./src/specimens/**/*.sass")
     .pipe(tap(file => {
       // Scrape metadata
       let specimen = file.contents.toString();
@@ -63,8 +71,8 @@ gulp.task("templates:scss", function templatesSpecimensSnippetsTask() {
 /**
  * Generate a duplicate "partial" file of the encoded HTML for display
  */
-gulp.task("templates:html", function templatesSpecimensSnippetsTask() {
-  return gulp.src("./src/site/specimens/**/*.hbs")
+gulp.task("templates:specimens:html", function templatesSpecimensHtmlTask() {
+  return gulp.src("./src/specimens/**/*.hbs")
     .pipe(tap(file => {
       // Scrape metadata
       let specimen = file.contents.toString();
@@ -92,9 +100,36 @@ gulp.task("templates:html", function templatesSpecimensSnippetsTask() {
 });
 
 /**
+ * Generate an HTML page for each specimen
+ */
+gulp.task("templates:specimens:pages", function templatesSpecimensPagesTask() {
+  return gulp.src("./src/specimens/**/*.hbs")
+    .pipe(tap(file => {
+      let jsonData = {};
+      // Compile specimen template
+      let specimenTemplate = handlebars.Handlebars.compile(file.contents.toString());
+      let specimenHtml = specimenTemplate(jsonData);
+
+      // Pass specimen HTML into specimen page template
+      let pageHtml = specimenPageTemplate({
+        metaTitle: "TGAM Flexbox Grid",
+        basePath: siteConfig.basePath,
+        wrapClasses: "l-container--debug u-display-example",
+        body: specimenHtml
+      });
+      // Replace file contents with page HTML
+      file.contents = new Buffer(pageHtml);
+      return file;
+    }))
+    // .pipe(rename({basename: "index", extname: ".html"}))
+    .pipe(rename({extname: ".html"}))
+    .pipe(gulp.dest(`./public${siteConfig.basePath}/specimens`));
+});
+
+/**
  * Generate site pages
  */
-gulp.task("templates:site", function templatesSitePagesTask() {
+gulp.task("templates:site:pages", function templatesSitePagesTask() {
   let templateData = {
     basePath: siteConfig.basePath,
     navTree: navTree
@@ -102,7 +137,7 @@ gulp.task("templates:site", function templatesSitePagesTask() {
 
   let options = {
     ignorePartials: true,
-    batch: ["./temp", "./src/site/templates", "./src/site/specimens"],
+    batch: ["./temp", "./src/site/templates", "./src/specimens"],
     helpers: {
       // used in primary/secondary nav partials
       basePath: function(str) {
@@ -158,9 +193,10 @@ gulp.task("templates:deinit", function templatesDeinitTask(done) {
 gulp.task("templates", function templatesTask(done) {
   runSequence(
     "templates:init",
-    "templates:html",
-    "templates:scss",
-    "templates:site",
+    "templates:specimens:scss",
+    "templates:specimens:html",
+    "templates:specimens:pages",
+    "templates:site:pages",
     "templates:deinit",
     function onSequenceComplete() {
       done();
