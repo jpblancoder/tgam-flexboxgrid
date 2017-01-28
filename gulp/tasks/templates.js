@@ -133,7 +133,7 @@ gulp.task("templates:site", function templatesSitePagesTask() {
       return file;
     }))
     .pipe(rename({extname: ".html"}))
-    .pipe(gulp.dest(`.${siteConfig.basePath}`));
+    .pipe(gulp.dest(`./public${siteConfig.basePath}`));
 });
 
 /**

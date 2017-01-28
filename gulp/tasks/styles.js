@@ -27,7 +27,7 @@ gulp.task("styles:site:sass", function () {
       cascade: false
     }))
     .pipe(sourcemaps.write("./"))
-    .pipe(gulp.dest(`.${siteConfig.basePath}/stylesheets`));
+    .pipe(gulp.dest(`./public${siteConfig.basePath}/stylesheets`));
 });
 
 /**
@@ -65,7 +65,7 @@ gulp.task("styles:specimen:min", function() {
  */
 gulp.task("styles:specimen:docs", function() {
   return gulp.src("./dist/*")
-    .pipe(gulp.dest(`.${siteConfig.basePath}/dist`));
+    .pipe(gulp.dest(`./public${siteConfig.basePath}/dist`));
 });
 
 /**

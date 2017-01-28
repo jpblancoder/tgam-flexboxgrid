@@ -10,7 +10,7 @@ const siteConfig = require("../site-config.js");
  */
 gulp.task("serve", function serveTask(done) {
   browserSync.init({
-    server: "./",
+    server: "./public",
     startPath: siteConfig.basePath,
     port: 3001,
     // "tunnel" is commented out because it throws an error:
