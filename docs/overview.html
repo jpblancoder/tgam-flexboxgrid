@@ -151,7 +151,8 @@
 </aside>
 
 <div id="main-content" class="sidebar--hidden">
-<h2 id="page-heading" tabindex="-1">Overview</h2>
+<h2>Overview</h2>
+<a id="page-heading" class="anchor" tabindex="-1"></a>
 
 <p>A grid system uses a series of containers, rows, and columns to layout and align content.
   It’s built with flexbox and is fully responsive.</p>
@@ -170,7 +171,9 @@
   like the <a href="https://github.com/philipwalton/flexbugs#9-some-html-elements-cant-be-flex-containers">inability
   to use some HTML elements as flex containers</a>.</p>
 
-<h3 id="o-containers">Containers</h3>
+<h3>Containers</h3>
+<a id="o-containers" class="anchor"></a>
+
 <p>Containers are the most basic layout element and are required when using our default grid system.
   Choose from a responsive, fixed-width container (meaning its <code>max-width</code> changes at each breakpoint)
   or fluid-width (meaning it’s <code>100%</code> wide all the time).</p>
@@ -218,7 +221,9 @@
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>l-col-sm-7<span class="token punctuation">"</span></span><span class="token punctuation">></span></span> 7 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span></code></pre></div>
-<h3 id="o-fluid-grid">Fluid columns</h3>
+<h3>Fluid columns</h3>
+<a id="o-fluid-grid" class="anchor"></a>
+
 <p>Percent based widths allow fluid resizing of columns and rows.</p>
 <div class="l-container--debug u-display-example">
   <div class="l-container-fluid">
@@ -288,7 +293,9 @@
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>l-col-sm-1<span class="token punctuation">"</span></span><span class="token punctuation">></span></span> 1 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span></code></pre></div>
-<h3 id="o-responsive-modifiers">Responsive modifiers</h3>
+<h3>Responsive modifiers</h3>
+<a id="o-responsive-modifiers" class="anchor"></a>
+
 <p>Responsive modifiers enable specifying different column sizes, offsets, alignment and distribution at xs, sm, md &amp; lg viewport widths.</p>
 <div class="l-container--debug u-display-example">
   <div class="l-container-fluid">
@@ -322,7 +329,9 @@
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>l-col l-col-sm-4 l-col-md-4 l-col-lg-3<span class="token punctuation">"</span></span><span class="token punctuation">></span></span> C2 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span></code></pre></div>
-<h3 id="o-responsive-grid">Responsive columns</h3>
+<h3>Responsive columns</h3>
+<a id="o-responsive-grid" class="anchor"></a>
+
 <p>Each of the 4 breakpoint tiers has a different column count. Extra-small (1), small (8), medium (12), large (16).</p>
 <div class="l-container--debug u-display-example">
   <div class="l-container">
@@ -415,13 +424,15 @@
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span></code></pre></div>
 
-<h3 id="o-custom">Customizing the grid</h3>
+<h3>Customizing the grid</h3>
+<a id="o-custom" class="anchor"></a>
 
 <p>Using our built-in grid Sass <code>_variables.scss</code> and maps, it’s possible to completely customize the
 predefined grid classes. Change the number of tiers, the media query dimensions,
 and the container widths—then recompile.</p>
 
-<h4 id="o-settings">Columns and gutters</h4>
+<h4>Columns and gutters</h4>
+<a id="o-gutters" class="anchor"></a>
 
 <p>The number of grid columns and their horizontal padding (aka, gutters) can be modified via Sass variables.
   <code>$grid-columns</code> is used to generate the widths (in percent) of each individual column while
@@ -437,7 +448,8 @@ and the container widths—then recompile.</p>
 // Set the the width of the gutters.
 $<span class="token property">grid-gutter-width-base</span><span class="token punctuation">:</span> 20px<span class="token punctuation">;</span>
 </code></pre></div>
-<h4 id="o-tiers">Grid breakpoint values</h4>
+<h4>Grid breakpoint values</h4>
+<a id="o-tiers" class="anchor"></a>
 
 <p>Moving beyond the columns themselves, you may also customize the breakpoint tier container widths.
 Update the Sass variable <code>$grid-containers</code> to something like this:</p>
@@ -454,7 +466,8 @@ Update the Sass variable <code>$grid-containers</code> to something like this:</
   classes for column widths, offsets, pushes, and pulls. Responsive visibility
   utilities will also be updated to use the custom breakpoints.</p>
 
-<h4 id="o-summary-table">Grid summary table</h4>
+<h4>Grid summary table</h4>
+<a id="o-summary-table" class="anchor"></a>
 
 <p>See how aspects of the grid system work across multiple devices with a handy table.</p>
 
@@ -526,7 +539,8 @@ Update the Sass variable <code>$grid-containers</code> to something like this:</
   </tbody>
 </table>
 
-<h4 id="o-exclude">Disable/exclude features</h4>
+<h4>Disable/exclude features</h4>
+<a id="o-exclude" class="anchor"></a>
 
 <p>In the <code>_variables.scss</code> file.
   Disable any of the below (undesired) features to reduce the grid bundle size.</p>
@@ -568,7 +582,8 @@ $<span class="token property">include-grid-offset</span><span class="token punct
 $<span class="token property">include-grid-pull</span><span class="token punctuation">:</span>              true<span class="token punctuation">;</span>
 $<span class="token property">include-grid-push</span><span class="token punctuation">:</span>              true<span class="token punctuation">;</span>
 </code></pre></div>
-<h3 id="o-resp-mixins">Responsive breakpoint mixins</h3>
+<h3>Responsive breakpoint mixins</h3>
+<a id="o-resp-mixins" class="anchor"></a>
 
 <p>Since Bootstrap is developed to be mobile first, we use a handful of media queries to create sensible
 breakpoints for our layouts and interfaces. These breakpoints are mostly based on minimum viewport widths

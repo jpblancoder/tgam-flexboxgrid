@@ -26,7 +26,7 @@ primaryNav:
       children:
       -
         name: "Columns and gutters"
-        path: "overview.html#o-settings"
+        path: "overview.html#o-gutters"
       -
         name: "Grid breakpoint values"
         path: "overview.html#o-tiers"

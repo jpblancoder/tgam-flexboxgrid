@@ -87,3 +87,10 @@ div.prettyprint {
   border-bottom: 2px dotted $light-gray;
   margin-bottom: 100px;
 }
+
+.anchor {
+  display: block;
+  position: relative;
+  top: -100px;
+  visibility: hidden;
+}
