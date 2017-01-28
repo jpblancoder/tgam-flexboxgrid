@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html lang="en"></html>
 <head>
-  <title>TGAM Flexbox Grid | The Globe and Mail Pattern Library</title>
+  <title>{{ metaTitle }} | The Globe and Mail Pattern Library</title>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" type="image/png" href="images/favicon-16x16.png" sizes="16x16">
-  <link rel="icon" type="image/png" href="images/favicon-32x32.png" sizes="32x32">
-  <link rel="icon" type="image/png" href="images/favicon-96x96.png" sizes="96x96">
-  <link rel="shortcut icon" href="images/favicon.ico">
-  <link rel="stylesheet" href="stylesheets/styles.min.css"/>
-  <link rel="stylesheet" href="dist/flexboxgrid.min.css"/>
+  <link rel="icon" type="image/png" href="{{ basePath }}/images/favicon-16x16.png" sizes="16x16">
+  <link rel="icon" type="image/png" href="{{ basePath }}/images/favicon-32x32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="{{ basePath }}/images/favicon-96x96.png" sizes="96x96">
+  <link rel="shortcut icon" href="{{ basePath }}/images/favicon.ico">
+  <link rel="stylesheet" href="{{ basePath }}/stylesheets/styles.min.css"/>
+  <link rel="stylesheet" href="{{ basePath }}/dist/flexboxgrid.min.css"/>
 </head>
-<body>
+<body class="{{ bodyClasses }}">
 
 <a id="skip-link" href="#page-heading">Skip to main content</a>
 
@@ -32,22 +32,22 @@
 <main id="main">
 
 <aside id="sidebar" hidden="hidden">
-<img id="sidebar__logo" src="images/tgam-logo-square.gif" width="90" height="95" alt="Globe and Mail logo" />
+<img id="sidebar__logo" src="{{ basePath }}/images/tgam-logo-square.gif" width="90" height="95" alt="Globe and Mail logo" />
 {{> primary-nav items=navTree }}
 </aside>
 
 <div id="main-content" class="sidebar--hidden">
 {{{ body }}}
-<p class="back-to-top"><a href="#page-heading">▲ Back to top</a></p>
+<p class="back-to-top"><a href="#page-heading">▲ TOP</a></p>
 </div>
 
 </main>
 
 </div>
 
-<script src="javascripts/babel-polyfill.min.js"></script>
-<!-- <script src="javascripts/vendor.min.js"></script> -->
-<script src="javascripts/bundle.min.js"></script>
+<script src="{{ basePath }}/javascripts/babel-polyfill.min.js"></script>
+<!-- <script src="{{ basePath }}/javascripts/vendor.min.js"></script> -->
+<script src="{{ basePath }}/javascripts/bundle.min.js"></script>
 
 </body>
 </html>

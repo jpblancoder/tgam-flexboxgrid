@@ -8,6 +8,7 @@ const uglify = require("gulp-uglify");
 const source = require("vinyl-source-stream");
 const buffer = require("vinyl-buffer");
 const transform = require("vinyl-transform");
+const siteConfig = require("../site-config.js");
 
 /**
  * Bundle the Babel Polyfill as its own file, because it needs to be included
@@ -19,7 +20,7 @@ gulp.task("scripts:babel-polyfill", function scriptsBabelPolyfillTask() {
     .pipe(source("babel-polyfill.min.js"))
     .pipe(buffer())
     .pipe(uglify())
-    .pipe(gulp.dest(`./docs/javascripts`));
+    .pipe(gulp.dest(`./public${siteConfig.basePath}/javascripts`));
 });
 
 /**
@@ -34,7 +35,7 @@ gulp.task("scripts:site", function scriptsSiteTask() {
     .pipe(sourcemaps.init())
     .pipe(uglify())
     .pipe(sourcemaps.write("./"))
-    .pipe(gulp.dest(`./docs/javascripts`));
+    .pipe(gulp.dest(`./public${siteConfig.basePath}/javascripts`));
 });
 
 /**
@@ -44,7 +45,7 @@ gulp.task("scripts:site:vendor", function scriptsSiteVendorTask() {
   return gulp.src("./src/site/vendor/javascripts/**/*.js")
     .pipe(concat("vendor.min.js"))
     .pipe(uglify())
-    .pipe(gulp.dest(`./docs/javascripts`));
+    .pipe(gulp.dest(`./public${siteConfig.basePath}/javascripts`));
 });
 
 /**

@@ -8,8 +8,9 @@ const gulp = require("gulp");
  */
 gulp.task("clean", function cleanTask() {
   return del([
-    "./temp",      // entire dir
-    "./dist/**/*", // all contents
-    "./docs/**/*"  // all contents
+    "./public/**/*",
+    "./temp/**/*",
+    "./dist/**/*",
+    "./docs/**/*"
   ]);
 });

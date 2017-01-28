@@ -3,15 +3,16 @@
 const gulp = require("gulp");
 const browserSync = require("browser-sync").create();
 const runSequence = require("run-sequence");
+const siteConfig = require("../site-config.js");
 
 /**
  * Start local development server
  */
 gulp.task("serve", function serveTask(done) {
   browserSync.init({
-    server: "./docs",
-    startPath: "/",
-    port: 3030,
+    server: "./public",
+    startPath: siteConfig.basePath,
+    port: 3001,
     // "tunnel" is commented out because it throws an error:
     // connection refused: localtunnel.me:37608 (check your firewall settings)
     // tunnel: "tgam",
@@ -34,7 +35,7 @@ gulp.task("serve", function serveTask(done) {
 gulp.task("watch", function watchTask(done) {
   gulp.watch([
     "./gulp/tasks/templates.js",
-    "./src/site/code/**/*",
+    "./src/site/specimens/**/*",
     "./src/site/pages/**/*",
     "./src/site/templates/*.hbs",
   ], function runWatchSequence() {
