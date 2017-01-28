@@ -51,7 +51,7 @@ gulp.task("launch", function launchTask(done) {
  */
 gulp.task("publish", function launchTask(done) {
   runSequence(
-    "clean",
+    "generate",
     "docs",
     function onSequenceComplete() {
       done();
