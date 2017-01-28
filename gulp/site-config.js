@@ -1,7 +1,7 @@
 "use strict";
 
 module.exports = {
-  // Must have leading slash and no trailing slash
-  // basePath: "/ux-flexbox-grid"
-  basePath: "/"
+  // Must match github repo name.
+  // So that when in github "docs" folder, urls will work.
+  basePath: "tgam-flexboxgrid" 
 };

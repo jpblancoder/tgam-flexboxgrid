@@ -6,9 +6,12 @@ const rename = require('gulp-rename');
 const tap = require("gulp-tap");
 const handlebars = require('gulp-compile-handlebars');
 const beautify_html = require("js-beautify").html;
+const path = require("path");
 const Prism = require("prismjs");
+const rmdir = require("rimraf");
 const runSequence = require("run-sequence");
 const helpers = require("../helpers.js");
+const siteConfig = require("../site-config.js");
 
 // Primary navigation tree
 let navTree;
@@ -35,7 +38,7 @@ gulp.task("templates:init", function templatesInitTask() {
  * Generate a duplicate "partial" file of the encoded SCSS for display
  */
 gulp.task("templates:scss", function templatesSpecimensSnippetsTask() {
-  return gulp.src("./src/site/code/**/*.sass")
+  return gulp.src("./src/site/specimens/**/*.sass")
     .pipe(tap(file => {
       // Scrape metadata
       let specimen = file.contents.toString();
@@ -61,22 +64,22 @@ gulp.task("templates:scss", function templatesSpecimensSnippetsTask() {
  * Generate a duplicate "partial" file of the encoded HTML for display
  */
 gulp.task("templates:html", function templatesSpecimensSnippetsTask() {
-  return gulp.src("./src/site/code/**/*.hbs")
+  return gulp.src("./src/site/specimens/**/*.hbs")
     .pipe(tap(file => {
       // Scrape metadata
       let specimen = file.contents.toString();
 
       // Format HTML for display
-      specimen = beautify_html(specimen, {
+      let formatted = beautify_html(specimen, {
         indent_size: 2,
         preserve_newlines: false,
         wrap_line_length: 0,
         unformatted: []
       });
-      specimen = Prism.highlight(specimen, Prism.languages.markup);
+      let prismed = Prism.highlight(formatted, Prism.languages.markup);
 
       // Wrap the encoded HTML in some tags
-      specimen = "<div class='prettyprint'><pre><h4>HTML</h4><code class='language-markup'>" + specimen + "</code></pre></div>";
+      specimen = "<div class='prettyprint'><pre><h4>HTML</h4><code class='language-markup'>" + prismed + "</code></pre></div>";
 
       // Replace file contents with snippet HTML
       file.contents = new Buffer(specimen);
@@ -93,21 +96,19 @@ gulp.task("templates:html", function templatesSpecimensSnippetsTask() {
  */
 gulp.task("templates:site", function templatesSitePagesTask() {
   let templateData = {
-    basePath: "/",
+    basePath: `/${siteConfig.basePath}`,
     navTree: navTree
   };
 
   let options = {
     ignorePartials: true,
-    // partials: {
-        // footer: '<footer>the end</footer>'
-    // },
-    batch: ["./src/site/code", "./src/site/templates", "./temp"]
-    // helpers: {
-    //   capitals: function(str) {
-    //     return str.toUpperCase();
-    //   }
-    // }
+    batch: ["./temp", "./src/site/templates", "./src/site/specimens"],
+    helpers: {
+      // used in primary/secondary nav partials
+      basePath: function(str) {
+        return templateData.basePath;
+      }
+    }
   };
 
   return gulp.src("./src/site/pages/**/*.hbs")
@@ -115,12 +116,13 @@ gulp.task("templates:site", function templatesSitePagesTask() {
     .pipe(tap(file => {
       // Identify which item in the nav tree corresponds to the current page
       // (the regex replacement removes "filename.hbs")
-      let filePath = file.path.split("/src/site/pages/")[1].replace(".hbs", ".html");
+      let filePath = file.path.split("/src/site/pages/")[1].replace(/\/*[\w\d\s]*.hbs/g, "");
       let updatedTree = applyActivePathToTree(navTree, filePath);
 
       // Pass page HTML into page template
       let pageHtml = pageTemplate({
-        basePath: "/",
+        basePath: `/${siteConfig.basePath}`,
+        bodyClasses: "",
         body: file.contents.toString(),
         navTree: updatedTree
       });
@@ -130,7 +132,23 @@ gulp.task("templates:site", function templatesSitePagesTask() {
       return file;
     }))
     .pipe(rename({extname: ".html"}))
-    .pipe(gulp.dest("./docs"));
+    .pipe(gulp.dest(`./${siteConfig.basePath}`));
+});
+
+/**
+ * Deinitialization
+ */
+gulp.task("templates:deinit", function templatesDeinitTask(done) {
+  // Delete "temp" directory
+  let dirPath = path.resolve("./temp");
+  if (helpers.directoryExists(dirPath)) {
+    rmdir(dirPath, {}, error => {
+      if (error) {
+        console.log(error);
+      }
+    });
+  }
+  done();
 });
 
 /**
@@ -142,6 +160,7 @@ gulp.task("templates", function templatesTask(done) {
     "templates:html",
     "templates:scss",
     "templates:site",
+    "templates:deinit",
     function onSequenceComplete() {
       done();
     }

@@ -8,6 +8,7 @@ const sourcemaps = require("gulp-sourcemaps");
 const sass = require("gulp-sass");
 const runSequence = require("run-sequence");
 const bourbonIncludePaths = require("node-bourbon").includePaths;
+const siteConfig = require("../site-config.js");
 
 /**
  * Compile site styles
@@ -26,7 +27,7 @@ gulp.task("styles:site:sass", function () {
       cascade: false
     }))
     .pipe(sourcemaps.write("./"))
-    .pipe(gulp.dest("./docs/stylesheets"));
+    .pipe(gulp.dest(`./${siteConfig.basePath}/stylesheets`));
 });
 
 /**
@@ -64,7 +65,7 @@ gulp.task("styles:specimen:min", function() {
  */
 gulp.task("styles:specimen:docs", function() {
   return gulp.src("./dist/*")
-    .pipe(gulp.dest("./docs/dist"));
+    .pipe(gulp.dest(`./${siteConfig.basePath}/dist`));
 });
 
 /**

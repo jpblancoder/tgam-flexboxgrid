@@ -47,6 +47,19 @@ gulp.task("launch", function launchTask(done) {
 });
 
 /**
+ * Publish to docs folder from dev folder
+ */
+gulp.task("publish", function launchTask(done) {
+  runSequence(
+    "clean",
+    "docs",
+    function onSequenceComplete() {
+      done();
+    }
+  );
+});
+
+/**
  * Lint the SASS files
  */
 gulp.task("sass:lint", function sassLintTask() {
