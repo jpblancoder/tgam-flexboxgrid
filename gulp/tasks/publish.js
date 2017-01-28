@@ -14,7 +14,7 @@ gulp.task("docs", function publishSiteTask(done) {
   del(["./docs"]);
 
   // create new docs folder with latest
-  fs.rename(`./${siteConfig.basePath}`, "docs", function (err) {
+  fs.rename(`.${siteConfig.basePath}`, "docs", function (err) {
     if (err) {
       throw err;
     }

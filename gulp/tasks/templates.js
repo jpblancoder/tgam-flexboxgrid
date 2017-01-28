@@ -96,7 +96,7 @@ gulp.task("templates:html", function templatesSpecimensSnippetsTask() {
  */
 gulp.task("templates:site", function templatesSitePagesTask() {
   let templateData = {
-    basePath: `/${siteConfig.basePath}`,
+    basePath: siteConfig.basePath,
     navTree: navTree
   };
 
@@ -121,7 +121,8 @@ gulp.task("templates:site", function templatesSitePagesTask() {
 
       // Pass page HTML into page template
       let pageHtml = pageTemplate({
-        basePath: `/${siteConfig.basePath}`,
+        metaTitle: "TGAM Flexbox Grid",
+        basePath: siteConfig.basePath,
         bodyClasses: "",
         body: file.contents.toString(),
         navTree: updatedTree
@@ -132,7 +133,7 @@ gulp.task("templates:site", function templatesSitePagesTask() {
       return file;
     }))
     .pipe(rename({extname: ".html"}))
-    .pipe(gulp.dest(`./${siteConfig.basePath}`));
+    .pipe(gulp.dest(`.${siteConfig.basePath}`));
 });
 
 /**

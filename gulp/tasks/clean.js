@@ -12,6 +12,6 @@ gulp.task("clean", function cleanTask() {
     "./temp",      // entire dir
     "./dist/**/*", // all contents
     "./docs/**/*", // all contents
-    `./${siteConfig.basePath}/**/*` // all contents
+    `.${siteConfig.basePath}/**/*` // all contents
   ]);
 });

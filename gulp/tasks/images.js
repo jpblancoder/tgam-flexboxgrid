@@ -8,7 +8,7 @@ const siteConfig = require("../site-config.js");
  */
 gulp.task("images:site", function imagesSiteTask() {
   return gulp.src("./src/site/images/**/*.*")
-    .pipe(gulp.dest(`./${siteConfig.basePath}/images`));
+    .pipe(gulp.dest(`.${siteConfig.basePath}/images`));
 });
 
 /**

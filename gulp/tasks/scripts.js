@@ -20,7 +20,7 @@ gulp.task("scripts:babel-polyfill", function scriptsBabelPolyfillTask() {
     .pipe(source("babel-polyfill.min.js"))
     .pipe(buffer())
     .pipe(uglify())
-    .pipe(gulp.dest(`./${siteConfig.basePath}/javascripts`));
+    .pipe(gulp.dest(`.${siteConfig.basePath}/javascripts`));
 });
 
 /**
@@ -35,7 +35,7 @@ gulp.task("scripts:site", function scriptsSiteTask() {
     .pipe(sourcemaps.init())
     .pipe(uglify())
     .pipe(sourcemaps.write("./"))
-    .pipe(gulp.dest(`./${siteConfig.basePath}/javascripts`));
+    .pipe(gulp.dest(`.${siteConfig.basePath}/javascripts`));
 });
 
 /**
@@ -45,7 +45,7 @@ gulp.task("scripts:site:vendor", function scriptsSiteVendorTask() {
   return gulp.src("./src/site/vendor/javascripts/**/*.js")
     .pipe(concat("vendor.min.js"))
     .pipe(uglify())
-    .pipe(gulp.dest(`./${siteConfig.basePath}/javascripts`));
+    .pipe(gulp.dest(`.${siteConfig.basePath}/javascripts`));
 });
 
 /**
