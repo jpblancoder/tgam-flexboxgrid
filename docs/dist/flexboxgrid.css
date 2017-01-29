@@ -1593,12 +1593,36 @@
   }
 }
 
+.l-container--debug .l-row, .l-container--debug .d-flex {
+  margin-bottom: 16px;
+}
+
 .l-container--debug .l-row > .l-col,
-.l-container--debug .l-row > [class*="l-col-"],
-.l-container-fluid--debug .l-row > .l-col,
-.l-container-fluid--debug .l-row > [class*="l-col-"] {
+.l-container--debug .l-row > [class*="l-col-"], .l-container--debug .d-flex > .l-col,
+.l-container--debug .d-flex > [class*="l-col-"] {
   background-color: rgba(86, 61, 124, 0.15);
   outline: 1px solid rgba(86, 61, 124, 0.2);
+}
+
+.l-container--debug .example-item {
+  padding: 8px;
+}
+
+.l-container--debug .example-item,
+.l-container--debug .d-none,
+.l-container--debug .d-inline,
+.l-container--debug .d-inline-block,
+.l-container--debug .d-block,
+.l-container--debug .d-table,
+.l-container--debug .d-table-cell,
+.l-container--debug .d-flex,
+.l-container--debug .d-inline-flex {
+  background-color: rgba(86, 61, 124, 0.15);
+  outline: 1px solid rgba(86, 61, 124, 0.2);
+}
+
+.l-row--debug {
+  margin-bottom: 16px;
 }
 
 .l-row--debug > .l-col,
