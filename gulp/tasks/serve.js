@@ -35,22 +35,23 @@ gulp.task("serve", function serveTask(done) {
 gulp.task("watch", function watchTask(done) {
   gulp.watch([
     "./gulp/tasks/templates.js",
-    "./src/specimens/**/*",
-    "./src/site/pages/**/*",
     "./src/site/templates/*",
+    "./src/site/pages/**/*",
+    "./src/specimens/**/*",
   ], function runWatchSequence() {
     runSequence("templates", browserSync.reload);
   });
 
   gulp.watch([
     "./gulp/tasks/styles.js",
-    "./src/site/stylesheets/**/*",
-    "./src/patterns/flexboxgrid/**/*.scss",
+    "./src/site/stylesheets/**/*.scss",
+    "./src/patterns/**/*.scss",
   ], function runWatchSequence() {
     runSequence("styles", browserSync.reload);
   });
 
   gulp.watch([
+    "./gulp/tasks/scripts.js",
     "./src/site/javascripts/**/*.js",
     "./src/site/vendor/javascripts/**/*.js"
   ], function runWatchSequence() {

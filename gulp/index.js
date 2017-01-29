@@ -47,9 +47,9 @@ gulp.task("launch", function launchTask(done) {
 });
 
 /**
- * Publish to docs folder from dev folder
+ * Publish to root docs folder and dist folder
  */
-gulp.task("publish", function launchTask(done) {
+gulp.task("publish", function publishTask(done) {
   runSequence(
     "generate",
     "release",
