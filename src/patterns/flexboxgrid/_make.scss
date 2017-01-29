@@ -128,6 +128,7 @@
 }
 
 @mixin make-row-debug() {
+  margin-bottom: 16px;
   > .l-col,
   > [class*="l-col-"] {
     @include make-col-debug();
@@ -138,18 +139,4 @@
   // don't show gutter spaces:
   background-color: $debug-bg-color;
   outline: $debug-outline;
-
-  // yes show gutter spaces:
-  // &::before {
-  //   content: "";
-  //   display: block;
-  //   height: 100%;
-  //   position: absolute;
-  //   top: 0;
-  //   left: ($grid-gutter-width-base / 2);
-  //   width: calc(100% - #{$grid-gutter-width-base});
-  //   z-index: 1;
-  //   background-color: $debug-bg-color;
-  //   border: $debug-outline;
-  // }
 }

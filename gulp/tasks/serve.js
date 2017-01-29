@@ -58,5 +58,12 @@ gulp.task("watch", function watchTask(done) {
     runSequence("scripts", browserSync.reload);
   });
 
+  gulp.watch([
+    "./gulp/tasks/images.js",
+    "./src/site/images/**/*",
+  ], function runWatchSequence() {
+    runSequence("images", browserSync.reload);
+  });
+
   done();
 });

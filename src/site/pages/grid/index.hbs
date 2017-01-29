@@ -14,7 +14,7 @@
 <p>For example, here are two grid layouts that apply to every device and viewport,
   from <code>xs</code> to <code>xl</code>.</p>
 
-<div class="l-container--debug u-display-example">
+<div class="l-container--debug">
   {{> grid/equal-width}}
 </div>
 {{> grid/equal-width-code}}
@@ -27,7 +27,7 @@
   (as shown below), grid mixins, or inline widths. Note that the other columns will resize
   no matter the width of the center column.</p>
 
-<div class="l-container--debug u-display-example">
+<div class="l-container--debug">
   {{> grid/setting-one}}
 </div>
 {{> grid/setting-one-code}}
@@ -40,7 +40,7 @@
   This, in conjunction with <strong>horizontal alignment</strong> classes, is very useful for centering
   layouts with uneven column sizes as viewport width changes.</p>
 
-<div class="l-container--debug u-display-example">
+<div class="l-container--debug">
   {{> grid/vars-width}}
 </div>
 {{> grid/vars-width-code}}
@@ -52,7 +52,7 @@
   columns to break to a new line. Make the breaks responsive by mixing the <strong>div</strong> with
   some responsive display utilities.</p>
 
-<div class="l-container--debug u-display-example">
+<div class="l-container--debug">
   {{> grid/equal-multi}}
 </div>
 {{> grid/equal-multi-code}}
@@ -71,7 +71,7 @@ Customize the size of your columns on extra small, small, medium, large, or extr
   Specify a numbered class when you need a particularly sized column; otherwise,
   feel free to stick to <code>.l-col</code>.</p>
 
-<div class="l-container--debug u-display-example">
+<div class="l-container--debug">
   {{> grid/all-break}}
 </div>
 {{> grid/all-break-code}}
@@ -82,7 +82,7 @@ Customize the size of your columns on extra small, small, medium, large, or extr
 <p>Using a single set of <code>.l-col-sm-*</code> classes, you can create a basic grid system that starts out
 stacked on extra small devices before becoming horizontal on desktop (medium) devices.</p>
 
-<div class="l-container--debug u-display-example">
+<div class="l-container--debug">
   {{> grid/stacked}}
 </div>
 {{> grid/stacked-code}}
@@ -95,12 +95,12 @@ stacked on extra small devices before becoming horizontal on desktop (medium) de
 <h4>Vertical alignment</h4>
 <a id="g-v-align" class="anchor"></a>
 
-<div class="l-container--debug u-display-example">
+<div class="l-container--debug">
   {{> grid/v-align-items}}
 </div>
 {{> grid/v-align-items-code}}
 
-<div class="l-container--debug u-display-example">
+<div class="l-container--debug">
   {{> grid/v-align-self}}
 </div>
 {{> grid/v-align-self-code}}
@@ -108,7 +108,7 @@ stacked on extra small devices before becoming horizontal on desktop (medium) de
 <h4>Horizontal alignment</h4>
 <a id="g-h-align" class="anchor"></a>
 
-<div class="l-container--debug u-display-example">
+<div class="l-container--debug">
   {{> grid/h-align}}
 </div>
 {{> grid/h-align-code}}
@@ -129,12 +129,12 @@ stacked on extra small devices before becoming horizontal on desktop (medium) de
 <p>In practice, here’s how it looks. Note you can continue to use this with all other
   predefined grid classes (including column widths, responsive tiers, reorders, and more).</p>
 
-<div class="l-container--debug u-display-example">
+<div class="l-container--debug">
   {{> grid/no-gutters-row}}
 </div>
 {{> grid/no-gutters-row-code}}
 
-<div class="l-container--debug u-display-example">
+<div class="l-container--debug">
   {{> grid/no-gutters-col}}
 </div>
 {{> grid/no-gutters-col-code}}
@@ -145,7 +145,7 @@ stacked on extra small devices before becoming horizontal on desktop (medium) de
 <p>If more than 12 columns are placed within a single row, each group of extra columns will,
   as one unit, wrap onto a new line.</p>
 
-<div class="l-container--debug u-display-example">
+<div class="l-container--debug">
   {{> grid/col-wrap}}
 </div>
 {{> grid/col-wrap-code}}
@@ -157,7 +157,7 @@ stacked on extra small devices before becoming horizontal on desktop (medium) de
 at certain breakpoints, your columns don’t clear quite right as one is taller than the other.
 To fix that, use a combination of a .clearfix and our <strong>responsive utility classes</strong>.</p>
 
-<div class="l-container--debug u-display-example">
+<div class="l-container--debug">
   {{> grid/col-reset}}
 </div>
 {{> grid/col-reset-code}}
@@ -170,7 +170,7 @@ To fix that, use a combination of a .clearfix and our <strong>responsive utility
 
 <p>Use flexbox utilities for controlling the <strong>visual order</strong> of your content.</p>
 
-<div class="l-container--debug u-display-example">
+<div class="l-container--debug">
   {{> grid/flex-order}}
 </div>
 {{> grid/flex-order-code}}
@@ -182,7 +182,7 @@ To fix that, use a combination of a .clearfix and our <strong>responsive utility
 column by <code>*</code> columns. For example, <code>.l-offset-md-4</code> moves
 <code>.l-col-md-4</code> over four columns.</p>
 
-<div class="l-container--debug u-display-example">
+<div class="l-container--debug">
   {{> grid/off-col}}
 </div>
 {{> grid/off-col-code}}
@@ -193,7 +193,7 @@ column by <code>*</code> columns. For example, <code>.l-offset-md-4</code> moves
 <p>Easily change the order of our built-in grid columns with
   <code>.l-push-md-*</code> and <code>.l-pull-md-*</code> modifier classes.</p>
 
-<div class="l-container--debug u-display-example">
+<div class="l-container--debug">
   {{> grid/push-pull}}
 </div>
 {{> grid/push-pull-code}}
@@ -206,7 +206,7 @@ column by <code>*</code> columns. For example, <code>.l-offset-md-4</code> moves
 include a set of columns that add up to 12 or fewer (it is not required that
 you use all 12 available columns).</p>
 
-<div class="l-container--debug u-display-example">
+<div class="l-container--debug">
   {{> grid/nesting}}
 </div>
 {{> grid/nesting-code}}

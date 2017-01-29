@@ -5,10 +5,23 @@
 @if $include-grid-debug {
   // This class can be added onto the element <code>.l-container</code> or <code>.l-container-fluid</code>.</p>
   // It also can placed onto an element that wraps the container element.</p>
-  .l-container--debug,
-  .l-container-fluid--debug {
-    .l-row {
+  .l-container--debug {
+    .l-row, .d-flex {
       @include make-row-debug();
+    }
+    .example-item {
+      padding: 8px;
+    }
+    .example-item,
+    .d-none,
+    .d-inline,
+    .d-inline-block,
+    .d-block,
+    .d-table,
+    .d-table-cell,
+    .d-flex,
+    .d-inline-flex {
+      @include make-col-debug();
     }
   }
 
