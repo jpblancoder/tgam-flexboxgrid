@@ -52,10 +52,14 @@ gulp.task("templates:specimens:scss", function templatesSpecimensScssTask() {
       let specimen = file.contents.toString();
 
       // Format HTML for display
-      specimen = Prism.highlight(specimen, Prism.languages.css);
+      let prismed = Prism.highlight(specimen, Prism.languages.css);
 
-      // Wrap the encoded HTML in some tags
-      specimen = "<div class='prettyprint'><pre><h4>SCSS</h4><code class='language-scss'>" + specimen + "</code></pre></div>";
+      // SCSS code cannot be viewed in isolation
+      specimen = specimenSnippetTemplate({
+        title: "SCSS",
+        language: "scss",
+        body: prismed
+      });
 
       // Replace file contents with snippet HTML
       file.contents = new Buffer(specimen);
@@ -86,8 +90,16 @@ gulp.task("templates:specimens:html", function templatesSpecimensHtmlTask() {
       });
       let prismed = Prism.highlight(formatted, Prism.languages.markup);
 
-      // Wrap the encoded HTML in some tags
-      specimen = "<div class='prettyprint'><pre><h4>HTML</h4><code class='language-markup'>" + prismed + "</code></pre></div>";
+      // Get part of the url for the specimen
+      let filePath = file.path.split(siteConfig.basePath + "/src")[1].replace(".hbs", ".html");
+
+      // HTML code can be viewed in isolation
+      specimen = specimenSnippetTemplate({
+        title: "HTML",
+        language: "markup",
+        iframeSrc: siteConfig.basePath + filePath,
+        body: prismed
+      });
 
       // Replace file contents with snippet HTML
       file.contents = new Buffer(specimen);

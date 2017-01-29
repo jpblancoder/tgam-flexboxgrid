@@ -1,0 +1,151 @@
+// .specimen {
+//   margin-bottom: 80px;
+//   padding-bottom: 20px;
+// }
+// .specimen__header {
+//   padding-bottom: 5px;
+//   border-bottom: 1px solid $light-gray;
+//   position: relative;
+//   align-items: center;
+//   display: flex;
+// }
+// .specimen__title {
+//   margin-bottom: 0;
+//   flex: 1;
+// }
+.specimen__button {
+  position: absolute;
+  right: 15px;
+  top: 15px;
+  width: 30px;
+  height: 30px;
+  margin-left: 15px;
+  opacity: 0.6;
+  text-decoration: none;
+  text-indent: -9999px;
+  overflow: hidden;
+  transition: transform 0.2s ease;
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-position: center center;
+  display: block;
+  &:hover,
+  &:focus {
+    opacity: 1;
+    text-decoration: none;
+    transform: scale(1.1);
+  }
+}
+// .specimen__button--fonts,
+// .specimen__button--code {
+//   padding: 0;
+//   cursor: pointer;
+//   appearance: none;
+//   border: none;
+// }
+// .specimen__button--fonts {
+//   background-image: url("../images/icon-font.svg");
+//   background-size: 17px auto;
+// }
+// .specimen__button--code {
+//   background-image: url("../images/icon-code.svg");
+//   background-size: 30px auto;
+// }
+.specimen__button--isolate {
+  background-image: url("../images/icon-enlarge.svg");
+  background-size: 17px auto;
+}
+// .specimen__notes {
+//   margin-top: 20px;
+//   margin-bottom: 20px;
+//   h1, h2, h3, h4, h5, h6, p, ul, ol, dl, table {
+//     margin-bottom: 10px;
+//   }
+//   li {
+//     margin-bottom: 0;
+//   }
+//   h1 { font-size: 1.5em; }
+//   h2 { font-size: 1.4em; }
+//   h3 { font-size: 1.3em; }
+//   h4 { font-size: 1.2em; }
+//   h5 { font-size: 1.1em; }
+//   h6 { font-size: 1.0em; }
+// }
+//
+// // Specimen info
+//
+// .specimen-info {
+//   overflow: hidden;
+//   &.specimen-info--hiding {
+//     // Even though "animation-play-state" is supposed to be the 8th shorthand
+//     // property (see https://developer.mozilla.org/en/docs/Web/CSS/animation),
+//     // Safari 9.1.1 rejects the entire "animation" declaration when we include
+//     // it, so we have to specify it separately.
+//     animation: hide-specimen-info 0.3s ease 0s 1 normal forwards;
+//     animation-play-state: running;
+//   }
+//   &.specimen-info--revealing {
+//     animation: reveal-specimen-info 0.3s ease-in 0s 1 normal forwards;
+//     animation-play-state: running;
+//   }
+// }
+// @keyframes hide-specimen-info {
+//   from {
+//     max-height: 1000px;
+//   }
+//   to {
+//     max-height: 0;
+//   }
+// }
+// @keyframes reveal-specimen-info {
+//   from {
+//     max-height: 0;
+//   }
+//   to {
+//     max-height: 1000px;
+//   }
+// }
+// .specimen-info__contents {
+//   padding: 12px;
+//   border-bottom-right-radius: 8px;
+//   border-bottom-left-radius: 8px;
+//   background-color: $lightest-gray;
+// }
+// .specimen-info__panel {
+//   padding: 10px;
+//   background-color: #FFF;
+//   border-bottom: 1px solid $light-gray;
+//   border-bottom-right-radius: 5px;
+//   border-bottom-left-radius: 5px;
+//   &:last-child {
+//     border-bottom: none;
+//   }
+// }
+// .specimen-info__panel-heading {
+//   font-size: 1em;
+//   margin-bottom: 0;
+// }
+// .specimen-info__panel--notes .specimen-info__panel-heading {
+//   margin-bottom: 20px;
+// }
+// .specimen-info__panel .comp {
+//   position: relative;
+//   &:after {
+//     content: attr(data-title);
+//     padding: 2px 6px;
+//     background-color: #DDD;
+//     color: $dark-gray;
+//     text-shadow: none;
+//     position: absolute;
+//     top: 0;
+//     right: 0;
+//     display: none;
+//   }
+//   &:hover,
+//   &:focus {
+//     outline: 1px solid $light-gray;
+//     &:after {
+//       display: block;
+//     }
+//   }
+// }

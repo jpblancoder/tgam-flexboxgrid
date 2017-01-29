@@ -12,7 +12,7 @@ gulp.task("serve", function serveTask(done) {
   browserSync.init({
     server: "./public",
     startPath: siteConfig.basePath,
-    port: 3002,
+    port: 3003,
     // "tunnel" is commented out because it throws an error:
     // connection refused: localtunnel.me:37608 (check your firewall settings)
     // tunnel: "tgam",
