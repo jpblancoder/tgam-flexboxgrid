@@ -47,24 +47,16 @@ gulp.task("styles:specimen:sass", function () {
       cascade: false
     }))
     .pipe(sourcemaps.write("./"))
-    .pipe(gulp.dest("./dist"));
+    .pipe(gulp.dest(`./public${siteConfig.basePath}/dist`));
 });
 
 /**
  * Minify flexbox grid styles
  */
 gulp.task("styles:specimen:min", function() {
-  return gulp.src("./dist/flexboxgrid.css")
+  return gulp.src(`./public${siteConfig.basePath}/dist/flexboxgrid.css`)
     .pipe(cleanCSS({compatibility: "ie8"}))
     .pipe(rename({ suffix: ".min" }))
-    .pipe(gulp.dest("./dist"));
-});
-
-/**
- * Copy distribution folder into docs folder
- */
-gulp.task("styles:specimen:docs", function() {
-  return gulp.src("./dist/*")
     .pipe(gulp.dest(`./public${siteConfig.basePath}/dist`));
 });
 
@@ -75,7 +67,6 @@ gulp.task("styles:specimen", function stylesSpecimenTask(done) {
   runSequence(
     "styles:specimen:sass",
     "styles:specimen:min",
-    "styles:specimen:docs",
     function onSequenceComplete() {
       done();
     }

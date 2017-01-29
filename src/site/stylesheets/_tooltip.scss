@@ -1,0 +1,19 @@
+.tooltip {
+  height: 22px;
+  padding-left: 7px;
+  padding-right: 7px;
+  line-height: 22px;
+  color: #FFF;
+  font-size: 0.9em;
+  text-align: center;
+  white-space: nowrap;
+  border-radius: 4px;
+  background-color: $dark-gray;
+  position: absolute;
+}
+.tooltip--above {
+  top: -24px;
+}
+.tooltip-right {
+  // TODO: Give nav menu button a tooltip
+}

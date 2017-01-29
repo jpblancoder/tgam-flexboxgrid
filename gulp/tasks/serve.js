@@ -12,7 +12,7 @@ gulp.task("serve", function serveTask(done) {
   browserSync.init({
     server: "./public",
     startPath: siteConfig.basePath,
-    port: 3001,
+    port: 3003,
     // "tunnel" is commented out because it throws an error:
     // connection refused: localtunnel.me:37608 (check your firewall settings)
     // tunnel: "tgam",
@@ -35,22 +35,23 @@ gulp.task("serve", function serveTask(done) {
 gulp.task("watch", function watchTask(done) {
   gulp.watch([
     "./gulp/tasks/templates.js",
-    "./src/site/specimens/**/*",
+    "./src/site/templates/*",
     "./src/site/pages/**/*",
-    "./src/site/templates/*.hbs",
+    "./src/specimens/**/*",
   ], function runWatchSequence() {
     runSequence("templates", browserSync.reload);
   });
 
   gulp.watch([
     "./gulp/tasks/styles.js",
-    "./src/site/stylesheets/**/*",
-    "./src/patterns/flexboxgrid/**/*.scss",
+    "./src/site/stylesheets/**/*.scss",
+    "./src/patterns/**/*.scss",
   ], function runWatchSequence() {
     runSequence("styles", browserSync.reload);
   });
 
   gulp.watch([
+    "./gulp/tasks/scripts.js",
     "./src/site/javascripts/**/*.js",
     "./src/site/vendor/javascripts/**/*.js"
   ], function runWatchSequence() {
