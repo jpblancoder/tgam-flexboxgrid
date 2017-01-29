@@ -154,7 +154,7 @@ gulp.task("templates:specimens:pages", function templatesSpecimensPagesTask() {
       let pageHtml = specimenPageTemplate({
         metaTitle: "TGAM Flexbox Grid",
         basePath: siteConfig.basePath,
-        wrapClasses: "l-container--debug u-display-example",
+        wrapClasses: "l-container--debug",
         body: specimenHtml
       });
       // Replace file contents with page HTML
