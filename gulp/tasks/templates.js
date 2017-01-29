@@ -81,14 +81,40 @@ gulp.task("templates:specimens:html", function templatesSpecimensHtmlTask() {
       // Scrape metadata
       let specimen = file.contents.toString();
 
-      // Format HTML for display
-      let formatted = beautify_html(specimen, {
+      // common beautify html options
+      let beautifyOptions = {
         indent_size: 2,
         preserve_newlines: false,
         wrap_line_length: 0,
         unformatted: []
-      });
+      };
+
+      // Debug classes that wrap code in codepen
+      let debugClasses = "l-container--debug";
+
+      // Required codepen CSS
+      let codepenCSS = "// Optional debug class: " + debugClasses + "\n";
+      codepenCSS += "// Required body styles:\n";
+      codepenCSS += "*, *:before, *:after { box-sizing: border-box; }";
+
+      // Format HTML for display
+      let wrapped = beautify_html(`<div class="${debugClasses}">\n${specimen}\n</div>`, beautifyOptions);
+      let formatted = beautify_html(specimen, beautifyOptions);
       let prismed = Prism.highlight(formatted, Prism.languages.markup);
+
+      // Codepen.io prefill: https://blog.codepen.io/documentation/api/prefill/
+      let codepenData = {
+        title: "TGAM Flexbox Grid",
+        editors: "110", // panels: html show, css show, js hide
+        head: `<meta name="viewport" content="width=device-width, initial-scale=1.0">`,
+        html: wrapped,
+        css: codepenCSS,
+        css_pre_processor: "scss",
+        css_external: `${siteConfig.rawGit}/dist/flexboxgrid.min.css`
+      };
+
+      // Stringify the html for form submission to Codepen
+      var codepenJSON = JSON.stringify(codepenData).replace(/"/g, "&​quot;").replace(/'/g, "&apos;");
 
       // Get part of the url for the specimen
       let filePath = file.path.split(siteConfig.basePath + "/src")[1].replace(".hbs", ".html");
@@ -98,7 +124,9 @@ gulp.task("templates:specimens:html", function templatesSpecimensHtmlTask() {
         title: "HTML",
         language: "markup",
         iframeSrc: siteConfig.basePath + filePath,
-        body: prismed
+        body: prismed,
+        codepen: codepenJSON,
+        uniqueId: "specimen-codepen-" + (new Date%9e6).toString(36)
       });
 
       // Replace file contents with snippet HTML

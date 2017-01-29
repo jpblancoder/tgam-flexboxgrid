@@ -15,7 +15,6 @@
 // }
 .specimen__button {
   position: absolute;
-  right: 15px;
   top: 15px;
   width: 30px;
   height: 30px;
@@ -52,8 +51,14 @@
 //   background-size: 30px auto;
 // }
 .specimen__button--isolate {
+  right: 60px;
   background-image: url("../images/icon-enlarge.svg");
   background-size: 17px auto;
+}
+.specimen__button--codepen {
+  right: 20px;
+  background-image: url("../images/icon-codepen.svg");
+  background-size: 21px auto;
 }
 // .specimen__notes {
 //   margin-top: 20px;
