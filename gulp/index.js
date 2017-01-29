@@ -52,7 +52,7 @@ gulp.task("launch", function launchTask(done) {
 gulp.task("publish", function launchTask(done) {
   runSequence(
     "generate",
-    "publish",
+    "release",
     function onSequenceComplete() {
       done();
     }

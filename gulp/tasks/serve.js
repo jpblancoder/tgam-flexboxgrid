@@ -37,7 +37,7 @@ gulp.task("watch", function watchTask(done) {
     "./gulp/tasks/templates.js",
     "./src/specimens/**/*",
     "./src/site/pages/**/*",
-    "./src/site/templates/*.hbs",
+    "./src/site/templates/*",
   ], function runWatchSequence() {
     runSequence("templates", browserSync.reload);
   });
