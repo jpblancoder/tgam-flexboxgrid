@@ -110,7 +110,7 @@ gulp.task("templates:specimens:html", function templatesSpecimensHtmlTask() {
         html: wrapped,
         css: codepenCSS,
         css_pre_processor: "scss",
-        css_external: `${siteConfig.rawGit}/dist/flexboxgrid.min.css`
+        css_external: siteConfig.distURL
       };
 
       // Stringify the html for form submission to Codepen
