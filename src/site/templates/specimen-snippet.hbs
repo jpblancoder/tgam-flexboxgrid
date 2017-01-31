@@ -2,9 +2,13 @@
   {{#if iframeSrc}}
   <a class="specimen__button specimen__button--isolate" href="{{ iframeSrc }}" target="_blank" tooltip="View in isolation"></a>
   {{/if}}
+  {{#if codepen}}
   <a class="specimen__button specimen__button--codepen" href="#" onclick="document.getElementById('{{ uniqueId }}').submit(); return false;" tooltip="View in codepen.io"></a>
+  {{/if}}
   <pre><h4>{{ title }}</h4><code class='language-{{ language }}'>{{{ body }}}</code></pre>
 </div>
+{{#if codepen}}
 <form id="{{ uniqueId }}" action="http://codepen.io/pen/define" method="POST" target="_blank">
   <input type="hidden" name="data" value="{{{ codepen }}}" />
 </form>
+{{/if}}
