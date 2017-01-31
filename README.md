@@ -113,10 +113,6 @@ The library consists of the SCSS that live inside of the `src/patterns/flexboxgr
 src/patterns/flexboxgrid
 ```
 
-----------
-
-## CSS methodology
-
 These are the files that get copied into the `dist` directory when the Gulp tasks run, and get published when you deploy the static website files (see below).
 
 ## Releasing new versions of the flexbox grid library
