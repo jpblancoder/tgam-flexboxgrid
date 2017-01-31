@@ -1,12 +1,11 @@
 // For each breakpoint, define the container properties and padding
 @mixin make-container($gutter: $grid-gutter-width-base) {
-  position: relative;
   margin-left: auto;
   margin-right: auto;
 
   // add left/right edge padding to xs grid container only
   @if $include-container-padding {
-    @include media-breakpoint-down(xs, $grid-breakpoints) {
+    @include media-breakpoint-down(xs, $grid-breakpoints)
       @include make-gutters($gutter);
     }
   }
