@@ -5,7 +5,7 @@
 
   // add left/right edge padding to xs grid container only
   @if $include-container-padding {
-    @include media-breakpoint-down(xs, $grid-breakpoints)
+    @include media-breakpoint-down(xs, $grid-breakpoints) {
       @include make-gutters($gutter);
     }
   }

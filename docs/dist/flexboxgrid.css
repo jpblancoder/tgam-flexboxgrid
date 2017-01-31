@@ -1,5 +1,4 @@
 .l-container {
-  position: relative;
   margin-left: auto;
   margin-right: auto;
 }
@@ -33,7 +32,6 @@
 }
 
 .l-container-fluid {
-  position: relative;
   margin-left: auto;
   margin-right: auto;
 }
