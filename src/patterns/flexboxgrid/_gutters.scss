@@ -47,7 +47,7 @@
         padding-left: 0 !important;
       }
       .l-col#{$infix}--gutters-left-default {
-        padding-left: ($grid-gutter-width-base / 2)!important;
+        padding-left: ($grid-gutter-width-base / 2) !important;
       }
 
       // Remove right padding from this column

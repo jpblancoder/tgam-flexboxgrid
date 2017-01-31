@@ -76,3 +76,7 @@ $include-grid-no-gutters:        true !default;
 $include-grid-offset:            true !default;
 $include-grid-pull:              true !default;
 $include-grid-push:              true !default;
+
+// Container classes
+// Include (gutter) padding around XS container?
+$include-container-padding:      true !default;
