@@ -94,6 +94,8 @@ gulp.task("templates:specimens:html", function templatesSpecimensHtmlTask() {
 
       // Required codepen CSS
       let codepenCSS = "// Optional debug class: " + debugClasses + "\n";
+      codepenCSS += "// Optional body styles:\n";
+      codepenCSS += "body { padding: 0; margin: 0; }";
       codepenCSS += "// Required body styles:\n";
       codepenCSS += "*, *:before, *:after { box-sizing: border-box; }";
 
