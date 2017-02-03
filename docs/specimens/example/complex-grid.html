@@ -11,6 +11,8 @@
   <link rel="shortcut icon" href="/tgam-flexboxgrid/images/favicon.ico">
   <link rel="stylesheet" href="/tgam-flexboxgrid/dist/flexboxgrid.min.css"/>
   <style media="screen">
+    /* Optional body styles */
+    body { padding: 0; margin: 0; }
     /* Required body styles */
     *, *:before, *:after { box-sizing: border-box; }
   </style>
@@ -25,9 +27,11 @@
       <div class="l-row">
         <div class="l-col-sm-3"> A </div>
         <div class="l-col-sm-5"> B </div>
-        <div class="l-col-sm-2 l-row">
-          <div class="l-col-sm-4"> C </div>
-          <div class="l-col-sm-4"> D </div>
+        <div class="l-col-sm-2">
+          <div class="l-row">
+            <div class="l-col-sm-4"> C </div>
+            <div class="l-col-sm-4"> D </div>
+          </div>
         </div>
         <div class="l-col-sm-6"> E </div>
       </div>
@@ -37,9 +41,11 @@
 
       <div class="l-row">
         <div class="l-col-sm-4"> F </div>
-        <div class="l-col-sm-4 l-row">
-          <div class="l-col-sm-6"> G </div>
-          <div class="l-col-sm-2"> H </div>
+        <div class="l-col-sm-4">
+          <div class="l-row">
+            <div class="l-col-sm-6"> G </div>
+            <div class="l-col-sm-2"> H </div>
+          </div>
         </div>
       </div>
 
