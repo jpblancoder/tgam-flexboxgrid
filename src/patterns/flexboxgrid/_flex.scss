@@ -3,9 +3,9 @@
 // Custom styles for additional flex alignment options.
 // All classes are prefixed with `u` as in `utility`.
 
-@each $breakpoint in map-keys($grid-breakers) {
-  @include media-breakpoint-up($breakpoint, $grid-breakers) {
-    $infix: breakpoint-infix($breakpoint, $grid-breakers);
+@each $breakpoint in map-keys($grid-breakpoints) {
+  @include media-breakpoint-up($breakpoint, $grid-breakpoints) {
+    $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
 
     @if $include-flex-order {
       .u-flex#{$infix}-first {

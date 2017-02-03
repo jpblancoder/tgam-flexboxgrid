@@ -1,6 +1,9 @@
 @import "assert";
 
-// Set the the width of the gutters.
+// Set the the width of the gutters between columns.
+// Choose 0px if you nest more grids than not,
+// and you perfer to manually set the gutter on
+// the final child column only. Which holds the content.
 $grid-gutter-width-base: 20px !default;
 
 // Set the number of columns you want to use on your layout.
@@ -16,30 +19,21 @@ $grid-columns: (
 // Define the maximum width of `.container` for different screen sizes.
 $grid-containers: (
   // xs: 0, - intentionally excluded
-  sm: 720px,
-  md: 960px,
-  lg: 1280px,
+  sm: 700px,
+  md: 940px,
+  lg: 1260px,
 ) !default;
 $grid-containers: map-remove($grid-containers, xs); // remove just in case
 @include _assert-ascending($grid-containers, "$grid-containers");
 
-// need a map copy with extra-small key set to zero
-$grid-breakers: map-merge((xs: 0), $grid-containers);
-@include _assert-ascending($grid-breakers, "$grid-breakers");
-@include _assert-starts-at-zero($grid-breakers);
-
-// create breakpoints based on the above container sizes
+// create breakpoints based on the above container sizes and gutter size
 $grid-breakpoints: ();
 @each $key, $value in $grid-containers {
-  $grid-breakpoints: map-merge($grid-breakpoints, ($key: ($value - $grid-gutter-width-base)));
+  $grid-breakpoints: map-merge($grid-breakpoints, ($key: ($value + $grid-gutter-width-base)));
 }
 $grid-breakpoints: map-merge((xs: 0), $grid-breakpoints); // xs key value should be zero
 @include _assert-ascending($grid-breakpoints, "$grid-breakpoints");
 @include _assert-starts-at-zero($grid-breakpoints);
-
-// Debug colors for column highlighting
-$debug-bg-color: rgba(86, 61, 124, .15) !default;
-$debug-outline: 1px solid rgba(86, 61, 124, .2) !default;
 
 
 // Disable any of the below feature to reduce the grid bundle size
@@ -80,5 +74,5 @@ $include-grid-pull:              true !default;
 $include-grid-push:              true !default;
 
 // Container classes
-// Include (gutter) padding around XS container?
+// Include (double gutter padding) on left/right of XS container?
 $include-container-padding:      true !default;
