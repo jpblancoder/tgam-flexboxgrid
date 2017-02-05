@@ -29,3 +29,24 @@
     @warn "First column in `$grid-columns` must start at 1, but starts at #{$first-value}.";
   }
 }
+
+@mixin _assert-greater-than-equal-to($item-value, $item-name, $other-value) {
+  $item-type: type-of($item-value);
+  @if $item-type == "map" {
+    @each $key, $value in $item-value {
+      @include _assert-gte-to($value, $item-name + "[" + $key + "]", $other-value);
+    }
+  } @else if $item-type == "number" {
+    @include _assert-gte-to($item-value, $item-name, $other-value);
+  } @else {
+    @warn "Invalid item type value for #{$item-name}: This item has value '#{$item-type}' which is neither 'map' or 'number'.";
+  }
+}
+
+@mixin _assert-gte-to($item-value, $item-name, $other-value) {
+  @if not comparable($item-value, $other-value) {
+    @warn "Potentially invalid value for #{$item-name}: This item has value #{$item-value} whose unit makes it incomparable to #{$other-value} !";
+  } @else if $other-value > $item-value {
+    @warn "Invalid value for #{$item-name}: This item has value #{$item-value} which isn't greater than or equal to #{$other-value} !";
+  }
+}

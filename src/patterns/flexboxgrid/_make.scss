@@ -1,21 +1,22 @@
 // For each breakpoint, define the container properties and padding
-@mixin make-container($gutter: $grid-gutter-width-base) {
+@mixin make-container($paddings: $grid-paddings, $breakpoints: $grid-breakpoints, $gutter: $grid-gutter-width-base) {
   margin-left: auto;
   margin-right: auto;
 
-  // add left/right edge padding to xs grid container only
-  @if $include-container-padding {
-    @include media-breakpoint-down(xs, $grid-breakpoints) {
-      @include make-gutters($gutter);
+  // add optional left/right edge padding to container
+  @each $breakpoint in map-keys($paddings) {
+    @include media-breakpoint-up($breakpoint, $breakpoints) {
+      padding-left:  map-get($paddings, $breakpoint);
+      padding-right: map-get($paddings, $breakpoint);
     }
   }
 }
 
 // For each breakpoint, define the maximum width of the container in a media query
-@mixin make-container-max-widths($max-widths: $grid-containers, $breakpoints: $grid-breakpoints) {
-  @each $breakpoint, $container-max-width in $max-widths {
+@mixin make-container-max-widths($sizes: $grid-sizes, $breakpoints: $grid-breakpoints, $gutter: $grid-gutter-width-base) {
+  @each $breakpoint, $size in $sizes {
     @include media-breakpoint-up($breakpoint, $breakpoints) {
-      width: $container-max-width;
+      width: $size + $gutter;
       max-width: 100%;
     }
   }
@@ -31,13 +32,6 @@
 @mixin make-row($gutter: $grid-gutter-width-base) {
   display: flex;
   flex-wrap: wrap;
-
-  @if ($grid-gutter-width-base > 0) {
-    @include media-breakpoint-up(sm, $grid-breakpoints) {
-      margin-left:  ($gutter / -2);
-      margin-right: ($gutter / -2);
-    }
-  }
 }
 
 @mixin make-col($size, $columns) {
@@ -138,7 +132,6 @@
 }
 
 @mixin make-container-debug() {
-  overflow: hidden;
   outline: 1px solid rgba(222, 100, 92, 0.4);
 }
 
