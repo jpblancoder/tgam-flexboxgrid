@@ -2,14 +2,6 @@
 // from all immediate children columns (to prevent runaway style inheritance).
 
 @if $include-grid-no-gutters {
-  // special case for xs tier (due to container padding)
-  @include media-breakpoint-down(xs, $grid-breakpoints) {
-    .l-row--gutters-none {
-      margin-left: -($grid-gutter-width-base / 2);
-      margin-right: -($grid-gutter-width-base / 2);
-    }
-  }
-
   @each $breakpoint in map-keys($grid-breakpoints) {
     @include media-breakpoint-up($breakpoint, $grid-breakpoints) {
       $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
@@ -23,12 +15,10 @@
         }
       }
       .l-row#{$infix}--gutters-default {
-        margin-left: 0;
-        margin-right: 0;
         > .l-col,
         > [class*="l-col-"] {
-          padding-left: ($grid-gutter-width-base / 2) !important;
-          padding-right: ($grid-gutter-width-base / 2) !important;
+          padding-left: ($grid-gutter-width-manual / 2) !important;
+          padding-right: ($grid-gutter-width-manual / 2) !important;
         }
       }
 
@@ -38,8 +28,8 @@
         padding-right: 0 !important;
       }
       .l-col#{$infix}--gutters-default {
-        padding-left: ($grid-gutter-width-base / 2) !important;
-        padding-right: ($grid-gutter-width-base / 2) !important;
+        padding-left: ($grid-gutter-width-manual / 2) !important;
+        padding-right: ($grid-gutter-width-manual / 2) !important;
       }
 
       // Remove left padding from this column
@@ -47,7 +37,7 @@
         padding-left: 0 !important;
       }
       .l-col#{$infix}--gutters-left-default {
-        padding-left: ($grid-gutter-width-base / 2) !important;
+        padding-left: ($grid-gutter-width-manual / 2) !important;
       }
 
       // Remove right padding from this column
@@ -55,7 +45,7 @@
         padding-right: 0 !important;
       }
       .l-col#{$infix}--gutters-right-default {
-        padding-right: ($grid-gutter-width-base / 2) !important;
+        padding-right: ($grid-gutter-width-manual / 2) !important;
       }
     }
   }

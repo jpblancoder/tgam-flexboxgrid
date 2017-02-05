@@ -5,8 +5,15 @@
 // and you perfer to manually set the gutter on
 // the final child column only. Which holds the content.
 $grid-gutter-width-base: 20px !default;
+@include _assert-greater-than-equal-to($grid-gutter-width-base, "$grid-gutter-width-base", 0);
 
-// Set the number of columns you want to use on your layout.
+// This value is used for manual gutter assignment,
+// using the various gutter utiltiy classes, e.g.: l-col--gutters-default
+// This value should match above base value, unless that's zero.
+$grid-gutter-width-manual: 20px !default;
+@include _assert-greater-than-equal-to($grid-gutter-width-manual, "$grid-gutter-width-manual", 0);
+
+// Set the number of columns, within a tier container.
 $grid-columns: (
   xs: 1,
   sm: 8,
@@ -16,22 +23,34 @@ $grid-columns: (
 @include _assert-ascending($grid-columns, "$grid-columns");
 @include _assert-starts-at-one($grid-columns);
 
-// Define the maximum width of `.container` for different screen sizes.
-$grid-containers: (
+// Define the maximum width of a full column, within a tier container.
+$grid-sizes: (
   // xs: 0, - intentionally excluded
   sm: 700px,
   md: 940px,
   lg: 1260px,
 ) !default;
-$grid-containers: map-remove($grid-containers, xs); // remove just in case
-@include _assert-ascending($grid-containers, "$grid-containers");
+$grid-sizes: map-remove($grid-sizes, xs); // remove this key, just in case
+@include _assert-ascending($grid-sizes, "$grid-sizes");
 
-// create breakpoints based on the above container sizes and gutter size
-$grid-breakpoints: ();
-@each $key, $value in $grid-containers {
-  $grid-breakpoints: map-merge($grid-breakpoints, ($key: ($value + $grid-gutter-width-base)));
-}
-$grid-breakpoints: map-merge((xs: 0), $grid-breakpoints); // xs key value should be zero
+// Optionally add extra padding to the left/right sides, within a tier container.
+// Final padding value will be this plus half of $grid-gutter-width-base
+$grid-paddings: (
+  xs: 10px,
+  sm: 0,
+  md: 0,
+  lg: 0,
+) !default;
+@include _assert-greater-than-equal-to($grid-paddings, "$grid-paddings", 0);
+
+// Define breakpoints that determine when to switch between the grid tiers.
+// These values could be equal to or greater to the $grid-containers values.
+$grid-breakpoints: (
+  xs: 0, // locked at zero
+  sm: 720px,
+  md: 960px,
+  lg: 1280px,
+) !default;
 @include _assert-ascending($grid-breakpoints, "$grid-breakpoints");
 @include _assert-starts-at-zero($grid-breakpoints);
 
@@ -72,7 +91,3 @@ $include-grid-no-gutters:        true !default;
 $include-grid-offset:            true !default;
 $include-grid-pull:              true !default;
 $include-grid-push:              true !default;
-
-// Container classes
-// Include (double gutter padding) on left/right of XS container?
-$include-container-padding:      true !default;

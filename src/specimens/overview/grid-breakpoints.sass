@@ -1,6 +1,25 @@
-$grid-containers: (
+// Define the maximum width of a full column, within a tier container.
+$grid-sizes: (
   // xs: 0, - intentionally excluded
   sm: 700px,
   md: 940px,
   lg: 1260px,
+);
+
+// Optionally add extra padding to the left/right sides, within a tier container.
+// Final padding value will be this plus half of $grid-gutter-width-base
+$grid-paddings: (
+  xs: 10px,
+  sm: 0,
+  md: 0,
+  lg: 0,
+);
+
+// Define breakpoints that determine when to switch between the grid tiers.
+// These values could be equal to or greater to the $grid-containers values.
+$grid-breakpoints: (
+  xs: 0, // locked at zero
+  sm: 720px,
+  md: 960px,
+  lg: 1280px,
 );
