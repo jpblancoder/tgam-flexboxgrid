@@ -95,9 +95,9 @@ gulp.task("templates:specimens:html", function templatesSpecimensHtmlTask() {
       // Required codepen CSS
       let codepenCSS = "// Optional debug class: " + debugClasses + "\n";
       codepenCSS += "// Optional body styles:\n";
-      codepenCSS += "body { padding: 0; margin: 0; }";
+      codepenCSS += "body { padding: 0; margin: 0; }\n";
       codepenCSS += "// Required body styles:\n";
-      codepenCSS += "*, *:before, *:after { box-sizing: border-box; }";
+      codepenCSS += "*, *:before, *:after { box-sizing: border-box; }\n";
 
       // Format HTML for display
       let wrapped = beautify_html(`<div class="${debugClasses}">\n${specimen}\n</div>`, beautifyOptions);
