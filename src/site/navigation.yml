@@ -28,7 +28,7 @@ primaryNav:
         name: "Columns and gutters"
         path: "/overview/#o-gutters"
       -
-        name: "Grid breakpoint values"
+        name: "Grid tier sizes"
         path: "/overview/#o-tiers"
       -
         name: "Grid summary table"
