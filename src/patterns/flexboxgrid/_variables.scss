@@ -47,8 +47,8 @@ $grid-paddings: (
 // These values could be equal to or greater to the $grid-containers values.
 $grid-breakpoints: (
   xs: 0, // locked at zero
-  sm: 720px,
-  md: 960px,
+  sm: 768px,
+  md: 980px,
   lg: 1280px
 ) !default;
 @include _assert-ascending($grid-breakpoints, "$grid-breakpoints");
