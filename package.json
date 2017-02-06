@@ -41,7 +41,6 @@
     "gulp-uglify": "2.0.0",
     "js-beautify": "1.6.8",
     "js-yaml": "3.7.0",
-    "node-bourbon": "4.2.8",
     "path": "^0.12.7",
     "prismjs": "1.6.0",
     "require-dir": "0.3.1",
