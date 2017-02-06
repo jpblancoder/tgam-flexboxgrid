@@ -121,9 +121,11 @@ In order to release a new version of the flexbox grid library, you'll need to do
 
 - Run `git checkout master` branch.
 - Re-generate the `docs` and `dist` folders for Github pages via the command `gulp publish`.
+- Commit the generated files into master via the command `git add -A` and `git commit -m "Latest publish"`.
 - Manually increment the NPM package's version number in `package.json` via `npm version patch`.
 - That will automatically create a commit of the `package.json` file, titled with the new version number.
 - Run `git push origin\master` branch.
+- Republish the NPM package to the NPM registry via `npm publish` (you may need to login first).
 
 ### Development workflow
 
@@ -145,7 +147,7 @@ In order to make use of the library, you'll need to install it as a dependency i
 
 1. If you haven't already done so, install a task runner such as [Gulp](http://gulpjs.com/) (recommended).
 2. If you haven't already done so, initialize your project via `npm init`.
-3. Install the library module via `npm install --save-dev git://github.com/empirecoder/tgam-flexboxgrid.git`.
+3. Install the library module via `npm install --save-dev tgam-flexboxgrid`.
 4. Create a file called `gulpfile.js` (or edit your existing `gulpfile.js`) and add the following:
 
 ```
@@ -168,18 +170,37 @@ You should now be able to import the library into your SCSS files via `@import "
 
 ```
 // Before importing library, set any default/custom SASS variables here, based on: flexboxgrid/_variables.scss
-$grid-gutter-width-base: 30px; // instead of 20px
+$grid-gutter-width-base: 30px; // e.g. instead of 20px
 // Also see documentation regarding excluding grid features, by setting SASS vars here.
 @import "flexboxgrid/all";
 ```
 
 ### Updating the NPM package
 
-Since we currently are not using versioning for this library. You have to manually uninstall and re-install the library.
+1. Run `npm outdated` in your command line to see if a newer version of the library is available.
+2. Edit `package.json` and manually increment the `tgam-flexboxgrid` version number to the latest.
+3. Run `npm update tgam-flexboxgrid`.
+4. Double check that the `node_modules/tgam-flexboxgrid/dist` directory exists. If not, then someone forgot to run the Gulp tasks before publishing this version of the pattern library.
 
-1. Run `npm uninstall tgam-flexboxgrid` in your command line.
-3. Run `npm install git://github.com/empirecoder/tgam-flexboxgrid.git`.
-4. Double check that the `node_modules/tgam-flexboxgrid/dist` directory exists. If not, then someone forgot to run the Gulp tasks before publishing this version of the library.
+**Note**: Unfortunately, it's necessary to manually edit package.json because running `npm-update` alone will not update the version number in your `package.json` file, nor will running `npm install --save tgam-flexboxgrid`.
+
+### Referencing a Git branch instead of an NPM package version
+
+During development, you may find it useful to import the pattern library files from a Git branch instead of from the NPM registry. This enables you to commit and push code to your `tgam-flexboxgrid` branch, then immediately pull it into your outside project, without having to publish a new version to NPM. This is ideal because you don't want to publish an official release version to NPM until your code is production-ready.
+
+**Example of pulling in a Git branch** (which you would do during development):
+
+```
+"dependencies": { "tgam-flexboxgrid": "git://github.com/empirecoder/tgam-flexboxgrid.git#branch-name" }
+```
+
+Once you've finished your work and your code is production-ready, you should then merge your `branch-name` branch into `master`, publish a new version to NPM, then point the `tgam-flexboxgrid` dependency in your consuming project's `package.json` back to the NPM registry once again.
+
+**Example of pulling in a version of the module from NPM** (which you should do in production):
+
+```
+"dependencies": { "tgam-flexboxgrid": "1.0.3" }
+```
 
 ## Inspiration
 
