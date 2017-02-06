@@ -28,7 +28,7 @@ $grid-sizes: (
   // xs: 0, - intentionally excluded
   sm: 700px,
   md: 940px,
-  lg: 1260px,
+  lg: 1260px
 ) !default;
 $grid-sizes: map-remove($grid-sizes, xs); // remove this key, just in case
 @include _assert-ascending($grid-sizes, "$grid-sizes");
@@ -39,7 +39,7 @@ $grid-paddings: (
   xs: 10px,
   sm: 0,
   md: 0,
-  lg: 0,
+  lg: 0
 ) !default;
 @include _assert-greater-than-equal-to($grid-paddings, "$grid-paddings", 0);
 
@@ -49,7 +49,7 @@ $grid-breakpoints: (
   xs: 0, // locked at zero
   sm: 720px,
   md: 960px,
-  lg: 1280px,
+  lg: 1280px
 ) !default;
 @include _assert-ascending($grid-breakpoints, "$grid-breakpoints");
 @include _assert-starts-at-zero($grid-breakpoints);
