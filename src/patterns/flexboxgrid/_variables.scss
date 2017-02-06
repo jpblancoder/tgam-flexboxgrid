@@ -1,17 +1,20 @@
 @import "assert";
 
+// This value is used to convert PX based values into EM values, for media query breakpoints
+$grid-base-font-size: 16px !default;
+
 // Set the the width of the gutters between columns.
 // Choose 0px if you nest more grids than not,
 // and you perfer to manually set the gutter on
 // the final child column only. Which holds the content.
 $grid-gutter-width-base: 20px !default;
-@include _assert-greater-than-equal-to($grid-gutter-width-base, "$grid-gutter-width-base", 0);
+@include grid-assert-greater-than-equal-to($grid-gutter-width-base, "$grid-gutter-width-base", 0);
 
 // This value is used for manual gutter assignment,
 // using the various gutter utiltiy classes, e.g.: l-col--gutters-default
 // This value should match above base value, unless that's zero.
 $grid-gutter-width-manual: 20px !default;
-@include _assert-greater-than-equal-to($grid-gutter-width-manual, "$grid-gutter-width-manual", 0);
+@include grid-assert-greater-than-equal-to($grid-gutter-width-manual, "$grid-gutter-width-manual", 0);
 
 // Set the number of columns, within a tier container.
 $grid-columns: (
@@ -20,8 +23,8 @@ $grid-columns: (
   md: 12,
   lg: 16
 ) !default;
-@include _assert-ascending($grid-columns, "$grid-columns");
-@include _assert-starts-at-one($grid-columns);
+@include grid-assert-ascending($grid-columns, "$grid-columns");
+@include grid-assert-starts-at-one($grid-columns);
 
 // Define the maximum width of a full column, within a tier container.
 $grid-sizes: (
@@ -31,7 +34,7 @@ $grid-sizes: (
   lg: 1260px
 ) !default;
 $grid-sizes: map-remove($grid-sizes, xs); // remove this key, just in case
-@include _assert-ascending($grid-sizes, "$grid-sizes");
+@include grid-assert-ascending($grid-sizes, "$grid-sizes");
 
 // Optionally add extra padding to the left/right sides, within a tier container.
 // Final padding value will be this plus half of $grid-gutter-width-base
@@ -41,53 +44,53 @@ $grid-paddings: (
   md: 0,
   lg: 0
 ) !default;
-@include _assert-greater-than-equal-to($grid-paddings, "$grid-paddings", 0);
+@include grid-assert-greater-than-equal-to($grid-paddings, "$grid-paddings", 0);
 
 // Define breakpoints that determine when to switch between the grid tiers.
 // These values could be equal to or greater to the $grid-containers values.
 $grid-breakpoints: (
   xs: 0, // locked at zero
-  sm: 768px,
-  md: 980px,
-  lg: 1280px
+  sm: 768px, // 48em
+  md: 980px, // 61.25em
+  lg: 1280px // 80em
 ) !default;
-@include _assert-ascending($grid-breakpoints, "$grid-breakpoints");
-@include _assert-starts-at-zero($grid-breakpoints);
+@include grid-assert-ascending($grid-breakpoints, "$grid-breakpoints");
+@include grid-assert-starts-at-zero($grid-breakpoints);
 
 
 // Disable any of the below feature to reduce the grid bundle size
 
 // Responsive visibility utility classes
 // Enable or disable features of the grid system
-$include-hidden:                 true !default;
+$grid-include-hidden:                 true !default;
 
 // Display property utility classes
 // Enable or disable sub-features for this feature
-$include-display-block:          true !default;
-$include-display-flex:           true !default;
-$include-display-inline-block:   true !default;
-$include-display-inline-flex:    true !default;
-$include-display-inline:         true !default;
-$include-display-none:           true !default;
-$include-display-table-cell:     true !default;
-$include-display-table:          true !default;
+$grid-include-display-block:          true !default;
+$grid-include-display-flex:           true !default;
+$grid-include-display-inline-block:   true !default;
+$grid-include-display-inline-flex:    true !default;
+$grid-include-display-inline:         true !default;
+$grid-include-display-none:           true !default;
+$grid-include-display-table-cell:     true !default;
+$grid-include-display-table:          true !default;
 
 // Flexbox grid utility classes
 // Enable or disable sub-features for this feature
-$include-flex-align-content:     true !default;
-$include-flex-align-content:     true !default;
-$include-flex-align-items:       true !default;
-$include-flex-align-self:        true !default;
-$include-flex-direction:         true !default;
-$include-flex-justify-content:   true !default;
-$include-flex-order:             true !default;
-$include-flex-text-align:        true !default;
-$include-flex-wrap:              true !default;
+$grid-include-flex-align-content:     true !default;
+$grid-include-flex-align-content:     true !default;
+$grid-include-flex-align-items:       true !default;
+$grid-include-flex-align-self:        true !default;
+$grid-include-flex-direction:         true !default;
+$grid-include-flex-justify-content:   true !default;
+$grid-include-flex-order:             true !default;
+$grid-include-flex-text-align:        true !default;
+$grid-include-flex-wrap:              true !default;
 
 // Flexbox grid layout classes
 // Enable or disable sub-features for this feature
-$include-grid-debug:             true !default;
-$include-grid-no-gutters:        true !default;
-$include-grid-offset:            true !default;
-$include-grid-pull:              true !default;
-$include-grid-push:              true !default;
+$grid-include-grid-debug:             true !default;
+$grid-include-grid-no-gutters:        true !default;
+$grid-include-grid-offset:            true !default;
+$grid-include-grid-pull:              true !default;
+$grid-include-grid-push:              true !default;

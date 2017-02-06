@@ -2,17 +2,17 @@
 //
 // Will cause the columns to appear highlighted for debugging purposes.
 
-@if $include-grid-debug {
+@if $grid-include-grid-debug {
   // This class can be added onto the element <code>.l-container</code> or <code>.l-container-fluid</code>.</p>
   // It also can placed onto an element that wraps the container element.</p>
   .l-container--debug {
     .l-container,
     .l-container-fluid {
-      @include make-container-debug();
+      @include grid-make-container-debug();
     }
 
     .l-row, .d-flex {
-      @include make-row-debug();
+      @include grid-make-row-debug();
     }
     .example-item {
       padding: 8px;
@@ -26,18 +26,18 @@
     .d-table-cell,
     .d-flex,
     .d-inline-flex {
-      @include make-col-debug();
+      @include grid-make-col-debug();
     }
   }
 
   // This class should be added onto the element <code>.l-row</code>
   .l-row--debug {
-    @include make-row-debug();
+    @include grid-make-row-debug();
   }
 
   // This class should be added onto the element <code>.l-col</code>
   .l-col--debug {
-    @include make-col-debug();
+    @include grid-make-col-debug();
   }
 
 }

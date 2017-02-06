@@ -1,4 +1,4 @@
-@mixin _assert-ascending($map, $map-name) {
+@mixin grid-assert-ascending($map, $map-name) {
   $prev-key: null;
   $prev-num: null;
   @each $key, $num in $map {
@@ -14,7 +14,7 @@
   }
 }
 
-@mixin _assert-starts-at-zero($map) {
+@mixin grid-assert-starts-at-zero($map) {
   $values: map-values($map);
   $first-value: nth($values, 1);
   @if $first-value != 0 {
@@ -22,7 +22,7 @@
   }
 }
 
-@mixin _assert-starts-at-one($map) {
+@mixin grid-assert-starts-at-one($map) {
   $values: map-values($map);
   $first-value: nth($values, 1);
   @if $first-value != 1 {
@@ -30,20 +30,20 @@
   }
 }
 
-@mixin _assert-greater-than-equal-to($item-value, $item-name, $other-value) {
+@mixin grid-assert-greater-than-equal-to($item-value, $item-name, $other-value) {
   $item-type: type-of($item-value);
   @if $item-type == "map" {
     @each $key, $value in $item-value {
-      @include _assert-gte-to($value, $item-name + "[" + $key + "]", $other-value);
+      @include grid-assert-gte-to($value, $item-name + "[" + $key + "]", $other-value);
     }
   } @else if $item-type == "number" {
-    @include _assert-gte-to($item-value, $item-name, $other-value);
+    @include grid-assert-gte-to($item-value, $item-name, $other-value);
   } @else {
     @warn "Invalid item type value for #{$item-name}: This item has value '#{$item-type}' which is neither 'map' or 'number'.";
   }
 }
 
-@mixin _assert-gte-to($item-value, $item-name, $other-value) {
+@mixin grid-assert-gte-to($item-value, $item-name, $other-value) {
   @if not comparable($item-value, $other-value) {
     @warn "Potentially invalid value for #{$item-name}: This item has value #{$item-value} whose unit makes it incomparable to #{$other-value} !";
   } @else if $other-value > $item-value {

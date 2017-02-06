@@ -1,11 +1,11 @@
 // For each breakpoint, define the container properties and padding
-@mixin make-container($paddings: $grid-paddings, $breakpoints: $grid-breakpoints, $gutter: $grid-gutter-width-base) {
+@mixin grid-make-container($paddings: $grid-paddings, $breakpoints: $grid-breakpoints, $gutter: $grid-gutter-width-base) {
   margin-left: auto;
   margin-right: auto;
 
   // add optional left/right edge padding to container
   @each $breakpoint in map-keys($paddings) {
-    @include media-breakpoint-up($breakpoint, $breakpoints) {
+    @include grid-breakpoint-up($breakpoint, $breakpoints) {
       padding-left:  map-get($paddings, $breakpoint);
       padding-right: map-get($paddings, $breakpoint);
     }
@@ -13,28 +13,28 @@
 }
 
 // For each breakpoint, define the maximum width of the container in a media query
-@mixin make-container-max-widths($sizes: $grid-sizes, $breakpoints: $grid-breakpoints, $gutter: $grid-gutter-width-base) {
+@mixin grid-make-container-max-widths($sizes: $grid-sizes, $breakpoints: $grid-breakpoints, $gutter: $grid-gutter-width-base) {
   @each $breakpoint, $size in $sizes {
-    @include media-breakpoint-up($breakpoint, $breakpoints) {
+    @include grid-breakpoint-up($breakpoint, $breakpoints) {
       width: $size + $gutter;
       max-width: 100%;
     }
   }
 }
 
-@mixin make-gutters($gutter: $grid-gutter-width-base) {
+@mixin grid-make-gutters($gutter: $grid-gutter-width-base) {
   @if ($grid-gutter-width-base > 0) {
     padding-left:  ($gutter / 2);
     padding-right: ($gutter / 2);
   }
 }
 
-@mixin make-row($gutter: $grid-gutter-width-base) {
+@mixin grid-make-row($gutter: $grid-gutter-width-base) {
   display: flex;
   flex-wrap: wrap;
 }
 
-@mixin make-col($size, $columns) {
+@mixin grid-make-col($size, $columns) {
   flex: 0 0 percentage($size / $columns);
   // width: percentage($size / $columns);
   // Add a `max-width` to ensure content within each column does not blow out
@@ -43,42 +43,42 @@
   max-width: percentage($size / $columns);
 }
 
-@mixin make-col-offset($size, $columns) {
+@mixin grid-make-col-offset($size, $columns) {
   margin-left: percentage($size / $columns);
 }
 
-@mixin make-col-push($size, $columns) {
+@mixin grid-make-col-push($size, $columns) {
   left: if($size > 0, percentage($size / $columns), auto);
 }
 
-@mixin make-col-pull($size, $columns) {
+@mixin grid-make-col-pull($size, $columns) {
   right: if($size > 0, percentage($size / $columns), auto);
 }
 
-@mixin make-col-modifier($type, $size, $columns) {
-  @if $include-grid-push and $type == push {
-    @include make-col-push($size, $columns);
+@mixin grid-make-col-modifier($type, $size, $columns) {
+  @if $grid-include-grid-push and $type == push {
+    @include grid-make-col-push($size, $columns);
 
-  } @else if $include-grid-pull and $type == pull {
-    @include make-col-pull($size, $columns);
+  } @else if $grid-include-grid-pull and $type == pull {
+    @include grid-make-col-pull($size, $columns);
 
-  } @else if $include-grid-offset and $type == offset {
-    @include make-col-offset($size, $columns);
+  } @else if $grid-include-grid-offset and $type == offset {
+    @include grid-make-col-offset($size, $columns);
   }
 }
 
-@mixin make-grid-columns($g-columns: $grid-columns, $gutter: $grid-gutter-width-base, $breakpoints: $grid-breakpoints) {
+@mixin grid-make-grid-columns($g-columns: $grid-columns, $gutter: $grid-gutter-width-base, $breakpoints: $grid-breakpoints) {
   // Common properties for all breakpoints
   %grid-column {
     position: relative;
     width: 100%;
     min-height: 1px; // Prevent columns from collapsing when empty
 
-    @include make-gutters($gutter);
+    @include grid-make-gutters($gutter);
   }
 
   @each $breakpoint in map-keys($breakpoints) {
-    $infix: breakpoint-infix($breakpoint, $breakpoints);
+    $infix: grid-breakpoint-infix($breakpoint, $breakpoints);
     $columns: map-get($g-columns, $breakpoint);
 
     // Allow columns to stretch full width below their breakpoints
@@ -91,7 +91,7 @@
       @extend %grid-column;
     }
 
-    @include media-breakpoint-up($breakpoint, $breakpoints) {
+    @include grid-breakpoint-up($breakpoint, $breakpoints) {
       // Provide basic `.l-col-{bp}` classes for equal-width flexbox columns
       .l-col#{$infix} {
         flex-basis: 0;
@@ -105,7 +105,7 @@
 
       @for $i from 1 through $columns {
         .l-col#{$infix}-#{$i} {
-          @include make-col($i, $columns);
+          @include grid-make-col($i, $columns);
         }
       }
 
@@ -113,7 +113,7 @@
       @each $modifier in (pull, push) {
         @for $i from 0 through $columns {
           .l-#{$modifier}#{$infix}-#{$i} {
-            @include make-col-modifier($modifier, $i, $columns)
+            @include grid-make-col-modifier($modifier, $i, $columns)
           }
         }
       }
@@ -123,7 +123,7 @@
       @for $i from 0 through ($columns - 1) {
         @if not ($infix == "" and $i == 0) { // Avoid emitting useless .offset-xs-0
           .l-offset#{$infix}-#{$i} {
-            @include make-col-modifier(offset, $i, $columns)
+            @include grid-make-col-modifier(offset, $i, $columns)
           }
         }
       }
@@ -131,21 +131,21 @@
   }
 }
 
-@mixin make-container-debug() {
+@mixin grid-make-container-debug() {
   outline: 1px solid rgba(222, 100, 92, 0.4);
 }
 
-@mixin make-row-debug() {
+@mixin grid-make-row-debug() {
   margin-top: 16px;
   margin-bottom: 16px;
   outline: 1px solid rgba(118, 203, 68, 0.4);
   > .l-col,
   > [class*="l-col-"] {
-    @include make-col-debug();
+    @include grid-make-col-debug();
   }
 }
 
-@mixin make-col-debug() {
+@mixin grid-make-col-debug() {
   // only outline column if there is no gutters
   @if ($grid-gutter-width-base == 0) {
     outline: 1px solid rgba(104, 138, 224, 0.4);

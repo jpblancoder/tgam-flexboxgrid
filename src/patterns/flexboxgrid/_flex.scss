@@ -4,10 +4,10 @@
 // All classes are prefixed with `u` as in `utility`.
 
 @each $breakpoint in map-keys($grid-breakpoints) {
-  @include media-breakpoint-up($breakpoint, $grid-breakpoints) {
-    $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+  @include grid-breakpoint-up($breakpoint, $grid-breakpoints) {
+    $infix: grid-breakpoint-infix($breakpoint, $grid-breakpoints);
 
-    @if $include-flex-order {
+    @if $grid-include-flex-order {
       .u-flex#{$infix}-first {
         order: -1;
       }
@@ -19,7 +19,7 @@
       }
     }
 
-    @if $include-flex-direction {
+    @if $grid-include-flex-direction {
       .u-flex#{$infix}-row {
         flex-direction: row !important;
       }
@@ -34,7 +34,7 @@
       }
     }
 
-    @if $include-flex-wrap {
+    @if $grid-include-flex-wrap {
       .u-flex#{$infix}-wrap {
         flex-wrap: wrap !important;
       }
@@ -46,7 +46,7 @@
       }
     }
 
-    @if $include-flex-justify-content {
+    @if $grid-include-flex-justify-content {
       .u-justify-content#{$infix}-start {
         justify-content: flex-start !important;
       }
@@ -64,7 +64,7 @@
       }
     }
 
-    @if $include-flex-align-items {
+    @if $grid-include-flex-align-items {
       .u-align-items#{$infix}-start {
         align-items: flex-start !important;
       }
@@ -82,7 +82,7 @@
       }
     }
 
-    @if $include-flex-align-content {
+    @if $grid-include-flex-align-content {
       .u-align-content#{$infix}-start {
         align-content: flex-start !important;
       }
@@ -103,7 +103,7 @@
       }
     }
 
-    @if $include-flex-align-self {
+    @if $grid-include-flex-align-self {
       .u-align-self#{$infix}-auto {
         align-self: auto !important;
       }
@@ -124,7 +124,7 @@
       }
     }
 
-    @if $include-flex-text-align {
+    @if $grid-include-flex-text-align {
       .u-text-align#{$infix}-left {
         text-align: left !important;
       }
