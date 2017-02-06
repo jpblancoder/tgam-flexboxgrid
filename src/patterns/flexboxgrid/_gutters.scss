@@ -1,10 +1,10 @@
 // Remove the horizontal padding from the row, and remove padding
 // from all immediate children columns (to prevent runaway style inheritance).
 
-@if $include-grid-no-gutters {
+@if $grid-include-grid-no-gutters {
   @each $breakpoint in map-keys($grid-breakpoints) {
-    @include media-breakpoint-up($breakpoint, $grid-breakpoints) {
-      $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+    @include grid-breakpoint-up($breakpoint, $grid-breakpoints) {
+      $infix: grid-breakpoint-infix($breakpoint, $grid-breakpoints);
 
       // Remove left/right padding from all columns in row
       .l-row#{$infix}--gutters-none {

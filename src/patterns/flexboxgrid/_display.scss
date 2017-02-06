@@ -3,52 +3,52 @@
 // All classes are prefixed with `d` as in `display`.
 
 @each $breakpoint in map-keys($grid-breakpoints) {
-  @include media-breakpoint-up($breakpoint, $grid-breakpoints) {
-    $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+  @include grid-breakpoint-up($breakpoint, $grid-breakpoints) {
+    $infix: grid-breakpoint-infix($breakpoint, $grid-breakpoints);
 
-    @if $include-display-none {
+    @if $grid-include-display-none {
       .d-none#{$infix} {
         display: none !important;
       }
     }
 
-    @if $include-display-inline {
+    @if $grid-include-display-inline {
       .d-inline#{$infix} {
         display: inline !important;
       }
     }
 
-    @if $include-display-inline-block {
+    @if $grid-include-display-inline-block {
       .d-inline-block#{$infix} {
         display: inline-block !important;
       }
     }
 
-    @if $include-display-block {
+    @if $grid-include-display-block {
       .d-block#{$infix} {
         display: block !important;
       }
     }
 
-    @if $include-display-table {
+    @if $grid-include-display-table {
       .d-table#{$infix} {
         display: table !important;
       }
     }
 
-    @if $include-display-table-cell {
+    @if $grid-include-display-table-cell {
       .d-table-cell#{$infix} {
         display: table-cell !important;
       }
     }
 
-    @if $include-display-flex {
+    @if $grid-include-display-flex {
       .d-flex#{$infix} {
         display: flex !important;
       }
     }
 
-    @if $include-display-inline-flex {
+    @if $grid-include-display-inline-flex {
       .d-inline-flex#{$infix} {
         display: inline-flex !important;
       }

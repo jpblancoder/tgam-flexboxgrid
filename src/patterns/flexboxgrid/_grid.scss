@@ -2,8 +2,8 @@
 //
 // Set the container width, and override it for fixed navbars in media queries.
 .l-container {
-  @include make-container();
-  @include make-container-max-widths();
+  @include grid-make-container();
+  @include grid-make-container-max-widths();
 }
 
 // Fluid container
@@ -11,13 +11,13 @@
 // Utilizes the mixin meant for fixed width containers, but without any defined
 // width for fluid, full width layouts.
 .l-container-fluid {
-  @include make-container();
+  @include grid-make-container();
 }
 
 // Generate very little CSS for a row
 .l-row {
-  @include make-row();
+  @include grid-make-row();
 }
 
 // Generate a lot of CSS for columns themselves
-@include make-grid-columns();
+@include grid-make-grid-columns();
