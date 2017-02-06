@@ -7,7 +7,6 @@ const rename = require("gulp-rename");
 const sourcemaps = require("gulp-sourcemaps");
 const sass = require("gulp-sass");
 const runSequence = require("run-sequence");
-const bourbonIncludePaths = require("node-bourbon").includePaths;
 const siteConfig = require("../site-config.js");
 
 /**
@@ -19,7 +18,6 @@ gulp.task("styles:site:sass", function () {
     .pipe(sourcemaps.init())
     .pipe(sass({
       outputStyle: "compressed",
-      includePaths: bourbonIncludePaths,
       precision: 10
     }).on("error", sass.logError))
     .pipe(autoprefixer({
@@ -39,7 +37,7 @@ gulp.task("styles:specimen:sass", function () {
     .pipe(sourcemaps.init())
     .pipe(sass({
       outputStyle: "expanded",
-      includePaths: ["./src/patterns/flexboxgrid"].concat(bourbonIncludePaths),
+      includePaths: ["./src/patterns/flexboxgrid"],
       precision: 10
     }).on("error", sass.logError))
     .pipe(autoprefixer({
