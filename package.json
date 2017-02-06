@@ -1,6 +1,6 @@
 {
   "name": "tgam-flexboxgrid",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "The Globe and Mail's flexbox grid",
   "readme": "This package contains the a layout grid based off of the CSS3 flexbox specification.",
   "license": "ISC",
