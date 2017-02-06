@@ -5,42 +5,42 @@
   padding-right: 10px;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 48em) {
   .l-container {
     padding-left: 0;
     padding-right: 0;
   }
 }
 
-@media (min-width: 980px) {
+@media (min-width: 61.25em) {
   .l-container {
     padding-left: 0;
     padding-right: 0;
   }
 }
 
-@media (min-width: 1280px) {
+@media (min-width: 80em) {
   .l-container {
     padding-left: 0;
     padding-right: 0;
   }
 }
 
-@media (min-width: 768px) {
+@media (min-width: 48em) {
   .l-container {
     width: 720px;
     max-width: 100%;
   }
 }
 
-@media (min-width: 980px) {
+@media (min-width: 61.25em) {
   .l-container {
     width: 960px;
     max-width: 100%;
   }
 }
 
-@media (min-width: 1280px) {
+@media (min-width: 80em) {
   .l-container {
     width: 1280px;
     max-width: 100%;
@@ -54,21 +54,21 @@
   padding-right: 10px;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 48em) {
   .l-container-fluid {
     padding-left: 0;
     padding-right: 0;
   }
 }
 
-@media (min-width: 980px) {
+@media (min-width: 61.25em) {
   .l-container-fluid {
     padding-left: 0;
     padding-right: 0;
   }
 }
 
-@media (min-width: 1280px) {
+@media (min-width: 80em) {
   .l-container-fluid {
     padding-left: 0;
     padding-right: 0;
@@ -126,7 +126,7 @@
   left: 100%;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 48em) {
   .l-col-sm {
     -ms-flex-preferred-size: 0;
     flex-basis: 0;
@@ -259,7 +259,7 @@
   }
 }
 
-@media (min-width: 980px) {
+@media (min-width: 61.25em) {
   .l-col-md {
     -ms-flex-preferred-size: 0;
     flex-basis: 0;
@@ -448,7 +448,7 @@
   }
 }
 
-@media (min-width: 1280px) {
+@media (min-width: 80em) {
   .l-col-lg {
     -ms-flex-preferred-size: 0;
     flex-basis: 0;
@@ -868,7 +868,7 @@
   text-align: right !important;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 48em) {
   .u-flex-sm-first {
     -ms-flex-order: -1;
     order: -1;
@@ -1011,7 +1011,7 @@
   }
 }
 
-@media (min-width: 980px) {
+@media (min-width: 61.25em) {
   .u-flex-md-first {
     -ms-flex-order: -1;
     order: -1;
@@ -1154,7 +1154,7 @@
   }
 }
 
-@media (min-width: 1280px) {
+@media (min-width: 80em) {
   .u-flex-lg-first {
     -ms-flex-order: -1;
     order: -1;
@@ -1331,7 +1331,7 @@
   display: inline-flex !important;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 48em) {
   .d-none-sm {
     display: none !important;
   }
@@ -1360,7 +1360,7 @@
   }
 }
 
-@media (min-width: 980px) {
+@media (min-width: 61.25em) {
   .d-none-md {
     display: none !important;
   }
@@ -1389,7 +1389,7 @@
   }
 }
 
-@media (min-width: 1280px) {
+@media (min-width: 80em) {
   .d-none-lg {
     display: none !important;
   }
@@ -1422,37 +1422,37 @@
   display: none !important;
 }
 
-@media (max-width: 767px) {
+@media (max-width: 47.9375em) {
   .d-hidden-xs-down {
     display: none !important;
   }
 }
 
-@media (min-width: 768px) {
+@media (min-width: 48em) {
   .d-hidden-sm-up {
     display: none !important;
   }
 }
 
-@media (max-width: 979px) {
+@media (max-width: 61.1875em) {
   .d-hidden-sm-down {
     display: none !important;
   }
 }
 
-@media (min-width: 980px) {
+@media (min-width: 61.25em) {
   .d-hidden-md-up {
     display: none !important;
   }
 }
 
-@media (max-width: 1279px) {
+@media (max-width: 79.9375em) {
   .d-hidden-md-down {
     display: none !important;
   }
 }
 
-@media (min-width: 1280px) {
+@media (min-width: 80em) {
   .d-hidden-lg-up {
     display: none !important;
   }
@@ -1500,7 +1500,7 @@
   padding-right: 10px !important;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 48em) {
   .l-row-sm--gutters-none > .l-col,
   .l-row-sm--gutters-none > [class*="l-col-"] {
     padding-left: 0 !important;
@@ -1533,7 +1533,7 @@
   }
 }
 
-@media (min-width: 980px) {
+@media (min-width: 61.25em) {
   .l-row-md--gutters-none > .l-col,
   .l-row-md--gutters-none > [class*="l-col-"] {
     padding-left: 0 !important;
@@ -1566,7 +1566,7 @@
   }
 }
 
-@media (min-width: 1280px) {
+@media (min-width: 80em) {
   .l-row-lg--gutters-none > .l-col,
   .l-row-lg--gutters-none > [class*="l-col-"] {
     padding-left: 0 !important;
