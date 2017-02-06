@@ -73,15 +73,11 @@ primaryNav:
         name: "Align self"
         path: "/util/#u-flexbox-self"
       -
-        name: "Auto margins"
-        path: "/util/#u-flexbox-auto"
-        children:
-        -
-          name: "With justify-content"
-          path: "/util/#u-flexbox-auto-justify"
-        -
-          name: "With align-items"
-          path: "/util/#u-flexbox-auto-items"
+        name: "Margins w/ justify-content"
+        path: "/util/#u-flexbox-auto-justify"
+      -
+        name: "Margins w/ align-items"
+        path: "/util/#u-flexbox-auto-items"
       -
         name: "Wrap"
         path: "/util/#u-flexbox-wrap"
