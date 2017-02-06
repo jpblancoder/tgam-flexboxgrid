@@ -17,6 +17,19 @@
           {{else}}
             <a class="primary-nav__link" href="{{basePath}}{{child.path}}">{{child.name}}</a>
           {{/if}}
+          {{#if child.children}}
+          <ul class="primary-nav__list primary-nav__list--nested">
+            {{#each child.children as |gchild|}}
+            <li class="primary-nav__item primary-nav__item--nested">
+              {{#if gchild.active}}
+                <span class="primary-nav__current"><span class="visually-hidden">Current Page: </span>{{gchild.name}}</span>
+              {{else}}
+                <a class="primary-nav__link" href="{{basePath}}{{gchild.path}}">{{gchild.name}}</a>
+              {{/if}}
+            </li>
+            {{/each}}
+          </ul>
+          {{/if}}
         </li>
         {{/each}}
       </ul>
