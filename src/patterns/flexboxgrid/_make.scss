@@ -34,36 +34,51 @@
   flex-wrap: wrap;
 }
 
-@mixin grid-make-col($size, $columns) {
-  flex: 0 0 percentage($size / $columns);
-  // width: percentage($size / $columns);
+// When not XS tier, return non-percentage value, in order to more easily nest grids.
+// $size is the desired column count
+// $columns is the max total
+// $breakpoint is this tier namespace
+// $gutter is the global value for column spacing
+@function grid-percentage($size, $columns, $breakpoint, $gutter: $grid-gutter-width-base) {
+  $max: map-get($grid-sizes, $breakpoint);
+  @if $max == null {
+    @return percentage($size / $columns);
+  } @else {
+    @return (((($max + $gutter) / $columns) * $size));
+  }
+}
+
+@mixin grid-make-col($size, $columns, $breakpoint) {
+  flex: 0 0 grid-percentage($size, $columns, $breakpoint);
+  // width: grid-percentage($size / $columns);
   // Add a `max-width` to ensure content within each column does not blow out
   // the width of the column. Applies to IE10+ and Firefox. Chrome and Safari
   // do not appear to require this.
-  max-width: percentage($size / $columns);
+  max-width: grid-percentage($size, $columns, $breakpoint);
 }
 
-@mixin grid-make-col-offset($size, $columns) {
+@mixin grid-make-col-offset($size, $columns, $breakpoint) {
+  // margin-left: grid-percentage($size, $columns, $breakpoint);
   margin-left: percentage($size / $columns);
 }
 
-@mixin grid-make-col-push($size, $columns) {
-  left: if($size > 0, percentage($size / $columns), auto);
+@mixin grid-make-col-push($size, $columns, $breakpoint) {
+  left: if($size > 0, grid-percentage($size, $columns, $breakpoint), auto);
 }
 
-@mixin grid-make-col-pull($size, $columns) {
-  right: if($size > 0, percentage($size / $columns), auto);
+@mixin grid-make-col-pull($size, $columns, $breakpoint) {
+  right: if($size > 0, grid-percentage($size, $columns, $breakpoint), auto);
 }
 
-@mixin grid-make-col-modifier($type, $size, $columns) {
+@mixin grid-make-col-modifier($type, $size, $columns, $breakpoint) {
   @if $grid-include-grid-push and $type == push {
-    @include grid-make-col-push($size, $columns);
+    @include grid-make-col-push($size, $columns, $breakpoint);
 
   } @else if $grid-include-grid-pull and $type == pull {
-    @include grid-make-col-pull($size, $columns);
+    @include grid-make-col-pull($size, $columns, $breakpoint);
 
   } @else if $grid-include-grid-offset and $type == offset {
-    @include grid-make-col-offset($size, $columns);
+    @include grid-make-col-offset($size, $columns, $breakpoint);
   }
 }
 
@@ -105,7 +120,7 @@
 
       @for $i from 1 through $columns {
         .l-col#{$infix}-#{$i} {
-          @include grid-make-col($i, $columns);
+          @include grid-make-col($i, $columns, $breakpoint);
         }
       }
 
@@ -113,7 +128,7 @@
       @each $modifier in (pull, push) {
         @for $i from 0 through $columns {
           .l-#{$modifier}#{$infix}-#{$i} {
-            @include grid-make-col-modifier($modifier, $i, $columns)
+            @include grid-make-col-modifier($modifier, $i, $columns, $breakpoint)
           }
         }
       }
@@ -123,7 +138,7 @@
       @for $i from 0 through ($columns - 1) {
         @if not ($infix == "" and $i == 0) { // Avoid emitting useless .offset-xs-0
           .l-offset#{$infix}-#{$i} {
-            @include grid-make-col-modifier(offset, $i, $columns)
+            @include grid-make-col-modifier(offset, $i, $columns, $breakpoint)
           }
         }
       }
@@ -133,6 +148,45 @@
 
 @mixin grid-make-container-debug() {
   outline: 1px solid rgba(222, 100, 92, 0.4);
+}
+
+@mixin grid-make-container-overlay() {
+  position: relative;
+  &::before {
+    content:"";
+    opacity: 0.5;
+    display: block;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 10px;
+    z-index: 1;
+    background-image: none;
+    background-repeat: repeat-y;
+    background-position: top left;
+    pointer-events: none; // prevent inspector from via mouse click
+  }
+  @include grid-breakpoint-up(sm) {
+    &::before {
+      // 620px
+      background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAmwAAAAKCAYAAAAJpwJLAAAAAXNSR0IArs4c6QAAAbBJREFUeAHt1sErg3Ecx/HfpKHUDs+jKEWjUeymtJOVmogLOZi1g9XKGhd/gN0c3HCxlCfiMjvIarVSS7LTSrkwLc+BRVpkFCtF/obf4Zvezx/w6fO8vr/Dx+GJr/QfJdPqv3/vTU61NBdQxeTWta5/nU0knPd2xb19mNMVKTanZBpqI+D9PrOsW10l/bFYq/H00rl6UtAVKTan0N2h0sMDX7n9nTudJUfDYaPn8aMtni/qjBWZlfF61IW7vZZJ7T3oKjgWinb4yrZruljSFSk2J+n3qrLLrGZTu886Sk4EI13jV+WWkRtbR5zojLUpn3ptNivZg803XUX9oUhv9PyycbBS1RUpNmc5GPjtVrfzlvWpq+TQwmLf+vGpw6jVdUWKzZmPTqoZ0yw1iG1IMQQQQAABBBBAAIE/AQYbDwEBBBBAAAEEEBAuwGATfiDqIYAAAggggAACDDbeAAIIIIAAAgggIFyAwSb8QNRDAAEEEEAAAQQYbLwBBBBAAAEEEEBAuACDTfiBqIcAAggggAACCDDYeAMIIIAAAggggIBwAQab8ANRDwEEEEAAAQQQ+AHIcVKWdypmywAAAABJRU5ErkJggg==');
+      // 700px
+      // background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAArwAAAAKCAYAAABWto0CAAAAAXNSR0IArs4c6QAAAPNJREFUeAHt1qENAlEQBNCDYgj9QA0oHHXgUNQA/VyohqBO7DqyZvK++hmxyb41sztcb8fX8714m8D5clo+j/u6Jf//OFdDztVkIuE8oVpncq4mEwnnCdU6k3M1mUg4T6jWmT/nfY0lBAgQIECAAAECBHIEFN6cW9qEAAECBAgQIECgEVB4GxQRAQIECBAgQIBAjoDCm3NLmxAgQIAAAQIECDQCCm+DIiJAgAABAgQIEMgRUHhzbmkTAgQIECBAgACBRkDhbVBEBAgQIECAAAECOQIKb84tbUKAAAECBAgQINAIKLwNiogAAQIECBAgQCBH4AvsITVBRvb/kgAAAABJRU5ErkJggg==');
+    }
+  }
+  @include grid-breakpoint-up(md) {
+    &::before {
+      // 940px
+      background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAA6wAAAAKCAYAAACwltMqAAAAAXNSR0IArs4c6QAAASdJREFUeAHt17EJAlEQBNDTYsTEBuzBTsysw8xO7MEGTA6rEfMNBpRJfBcuA8N/cMFsdufL/nm8L//wHR6n5XW7rr98K7/vNPnxSwX8v6nUnOM3u6RXfqnUnOM3u6RXfqnUnOM3u6RXfqnUnOM3u6TXj982DcsRIECAAAECBAgQIECAAIGmgMHa1NZFgAABAgQIECBAgAABArGAwRpTCRIgQIAAAQIECBAgQIBAU8BgbWrrIkCAAAECBAgQIECAAIFYwGCNqQQJECBAgAABAgQIECBAoClgsDa1dREgQIAAAQIECBAgQIBALGCwxlSCBAgQIECAAAECBAgQINAUMFib2roIECBAgAABAgQIECBAIBYwWGMqQQIECBAgQIAAAQIECBBoCrwBGrFRQQtEyZcAAAAASUVORK5CYII=');
+    }
+  }
+  @include grid-breakpoint-up(lg) {
+    &::before {
+      // 1260px
+      background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAABOwAAAAKCAYAAAAHF8EJAAAAAXNSR0IArs4c6QAAAWdJREFUeAHt2LEJwmAUBODoCu4gDmcXxzCdw4k7uEOwv+JAX+WX8jh4/B+kucP5ul5O2335h++93pbXY3v+8q38vtPkx68V8P+2UrnHL7u0Kb9WKvf4ZZc25ddK5R6/7NKm/Fqp3OOXXdqUXyuVe/yyS5vya6Vyj192adOP37Et6xEgQIAAAQIECBAgQIAAAQIECBAgMC9gsJs3doEAAQIECBAgQIAAAQIECBAgQIBALWCwq6kUCRAgQIAAAQIECBAgQIAAAQIECMwLGOzmjV0gQIAAAQIECBAgQIAAAQIECBAgUAsY7GoqRQIECBAgQIAAAQIECBAgQIAAAQLzAga7eWMXCBAgQIAAAQIECBAgQIAAAQIECNQCBruaSpEAAQIECBAgQIAAAQIECBAgQIDAvIDBbt7YBQIECBAgQIAAAQIECBAgQIAAAQK1gMGuplIkQIAAAQIECBAgQIAAAQIECBAgMC+wA2VLbUFGhrmPAAAAAElFTkSuQmCC');
+    }
+  }
 }
 
 @mixin grid-make-row-debug() {

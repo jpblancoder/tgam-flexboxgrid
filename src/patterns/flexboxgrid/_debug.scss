@@ -3,11 +3,10 @@
 // Will cause the columns to appear highlighted for debugging purposes.
 
 @if $grid-include-grid-debug {
-  // This class can be added onto the element <code>.l-container</code> or <code>.l-container-fluid</code>.</p>
+  // This class can be added onto the element <code>.l-container</code>.</p>
   // It also can placed onto an element that wraps the container element.</p>
   .l-container--debug {
-    .l-container,
-    .l-container-fluid {
+    .l-container {
       @include grid-make-container-debug();
     }
 
@@ -28,6 +27,10 @@
     .d-inline-flex {
       @include grid-make-col-debug();
     }
+  }
+
+  .l-container--overlay {
+    @include grid-make-container-overlay();
   }
 
   // This class should be added onto the element <code>.l-row</code>

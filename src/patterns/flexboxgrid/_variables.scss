@@ -29,7 +29,7 @@ $grid-columns: (
 // Define the maximum width of a full column, within a tier container.
 $grid-sizes: (
   // xs: 0, - intentionally excluded
-  sm: 700px,
+  sm: 620px, // was 700px
   md: 940px,
   lg: 1260px
 ) !default;

@@ -6,14 +6,6 @@
   @include grid-make-container-max-widths();
 }
 
-// Fluid container
-//
-// Utilizes the mixin meant for fixed width containers, but without any defined
-// width for fluid, full width layouts.
-.l-container-fluid {
-  @include grid-make-container();
-}
-
 // Generate very little CSS for a row
 .l-row {
   @include grid-make-row();
