@@ -1,14 +1,16 @@
+// This mixin is specifically for #pb-root in PageBuilder.
+// Create a container and row like element, without negative left/right margins
+@mixin grid-make-root() {
+  @include grid-make-container();
+  @include grid-make-container-max-widths();
+  @include grid-make-flex();
+}
+
 // For each breakpoint, define the container properties and padding
-@mixin grid-make-container($paddings: $grid-paddings, $breakpoints: $grid-breakpoints, $gutter: $grid-gutter-width-base) {
+@mixin grid-make-container($paddings: $grid-paddings, $breakpoints: $grid-breakpoints,
+  $gutter: $grid-gutter-width-base) {
   margin-left: auto;
   margin-right: auto;
-
-  // if the same element is a container and a row,
-  // then do not have negative margins on this row/container element.
-  &.l-row {
-    margin-left: auto;
-    margin-right: auto;
-  }
 
   // if a row is an immediate child of a container,
   // then do not have negative margins on that child row element.
@@ -27,7 +29,8 @@
 }
 
 // For each breakpoint, define the maximum width of the container in a media query
-@mixin grid-make-container-max-widths($sizes: $grid-sizes, $breakpoints: $grid-breakpoints, $gutter: $grid-gutter-width-base) {
+@mixin grid-make-container-max-widths($sizes: $grid-sizes, $breakpoints: $grid-breakpoints,
+  $gutter: $grid-gutter-width-base) {
   @each $breakpoint, $size in $sizes {
     @include grid-breakpoint-up($breakpoint, $breakpoints) {
       width: $size + $gutter;
@@ -48,6 +51,11 @@
   flex-wrap: wrap;
   margin-left: ($gutter / -2);
   margin-right: ($gutter / -2);
+}
+
+@mixin grid-make-flex() {
+  display: flex;
+  flex-wrap: wrap;
 }
 
 // When not XS tier, return non-percentage value (in order to more easily nest grids).
@@ -98,7 +106,8 @@
   }
 }
 
-@mixin grid-make-grid-columns($g-columns: $grid-columns, $gutter: $grid-gutter-width-base, $breakpoints: $grid-breakpoints) {
+@mixin grid-make-grid-columns( $g-columns: $grid-columns, $gutter: $grid-gutter-width-base,
+  $breakpoints: $grid-breakpoints) {
   // Common properties for all breakpoints
   %grid-column {
     position: relative;
@@ -166,7 +175,8 @@
   outline: 1px solid rgba(222, 100, 92, 0.4);
 }
 
-@mixin grid-make-container-overlay($breakpoints: $grid-breakpoints, $sizes: $grid-sizes, $columns: $grid-columns, $gutter: $grid-gutter-width-base) {
+@mixin grid-make-container-overlay( $breakpoints: $grid-breakpoints, $sizes: $grid-sizes, $columns: $grid-columns,
+  $gutter: $grid-gutter-width-base) {
   position: relative;
   &::before {
     content: "";
