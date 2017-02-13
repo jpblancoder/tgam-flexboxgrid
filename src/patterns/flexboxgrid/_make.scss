@@ -105,7 +105,7 @@
   }
 }
 
-@mixin grid-make-grid-columns( $g-columns: $grid-columns, $gutter: $grid-gutter-width-base,
+@mixin grid-make-grid-columns($g-columns: $grid-columns, $gutter: $grid-gutter-width-base,
   $breakpoints: $grid-breakpoints) {
   // Common properties for all breakpoints
   %grid-column {
@@ -174,7 +174,7 @@
   outline: 1px solid rgba(222, 100, 92, 0.4);
 }
 
-@mixin grid-make-container-overlay( $breakpoints: $grid-breakpoints, $sizes: $grid-sizes, $columns: $grid-columns,
+@mixin grid-make-container-overlay($breakpoints: $grid-breakpoints, $sizes: $grid-sizes, $columns: $grid-columns,
   $gutter: $grid-gutter-width-base) {
   position: relative;
   &::before {
