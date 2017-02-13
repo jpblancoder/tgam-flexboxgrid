@@ -1,10 +1,10 @@
 <p>For faster mobile-friendly development, use these utility classes for showing and hiding content by device via media query.</p>
 
 <ul>
-  <li>The <code>.d-hidden-*-up</code> classes hide the element when the viewport is at the given breakpoint or wider. For example, <code>.d-hidden-md-up</code> hides an element on medium, large, and extra-large viewports.</li>
+  <li>The <code>.d-hidden-*-up</code> classes hide the element when the viewport is at the given breakpoint or wider. For example, <code>.d-hidden-md-up</code> hides an element on medium, and large viewports.</li>
   <li>The <code>.d-hidden-*-down</code> classes hide the element when the viewport is at the given breakpoint or smaller. For example, <code>.d-hidden-md-down</code> hides an element on extra-small, small, and medium viewports.</li>
   <li>There are no explicit “visible”/”show” responsive utility classes; you make an element visible by simply not hiding it at that breakpoint size.</li>
-  <li>You can combine one <code>.d-hidden-*-up</code> class with one <code>.d-hidden-*-down</code> class to show an element only on a given interval of screen sizes. For example, <code>.d-hidden-sm-down.d-hidden-xl-up</code> shows the element only on medium and large viewports. Using multiple <code>.d-hidden-*-up</code> classes or multiple <code>.d-hidden-*-down</code> classes is redundant and pointless.</li>
+  <li>You can combine one <code>.d-hidden-*-up</code> class with one <code>.d-hidden-*-down</code> class to show an element only on a given interval of screen sizes. For example, <code>.d-hidden-sm-down.d-hidden-lg-up</code> shows the element only on medium viewports. Using multiple <code>.d-hidden-*-up</code> classes or multiple <code>.d-hidden-*-down</code> classes is redundant and pointless.</li>
   <li>These classes don’t attempt to accommodate less common cases where an element’s visibility can’t be expressed as a single contiguous range of viewport breakpoint sizes; you will instead need to use custom CSS in such cases.</li>
 </ul>
 
@@ -14,74 +14,74 @@
       <th></th>
       <th>
         Extra small devices<br>
-        <small>Portrait phones<br> (≤767px)<br> (≤47em)</small>
+        <small>Portrait phones<br>(≤767px)<br>(≤47em)</small>
       </th>
       <th>
         Small devices<br>
-        <small>Landscape phones<br> (≥768px - ≤979px)<br> (≥48em - ≤61.24em)</small>
+        <small>Landscape phones<br>(≥768px&nbsp;-&nbsp;≤979px)<br>(≥48em&nbsp;-&nbsp;≤61.24em)</small>
       </th>
       <th>
         Medium devices<br>
-        <small>Tablets<br> (≥980px - ≤1279px)<br> (≥61.25em - ≤79em)</small>
+        <small>Tablets<br>(≥980px&nbsp;-&nbsp;≤1279px)<br>(≥61.25em&nbsp;-&nbsp;≤79em)</small>
       </th>
       <th>
         Large devices<br>
-        <small>Desktops<br> (≥1280px)<br> (≥80em)</small>
+        <small>Desktops<br>(≥1280px)<br>(≥80em)</small>
       </th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <th scope="row"><code>.d-hidden-xs-down</code></th>
+      <th scope="row"><code>d-hidden-xs-down</code></th>
       <td class="is-hidden">Hidden</td>
       <td class="is-visible">Visible</td>
       <td class="is-visible">Visible</td>
       <td class="is-visible">Visible</td>
     </tr>
     <tr>
-      <th scope="row"><code>.d-hidden-sm-down</code></th>
+      <th scope="row"><code>d-hidden-sm-down</code></th>
       <td class="is-hidden">Hidden</td>
       <td class="is-hidden">Hidden</td>
       <td class="is-visible">Visible</td>
       <td class="is-visible">Visible</td>
     </tr>
     <tr>
-      <th scope="row"><code>.d-hidden-md-down</code></th>
+      <th scope="row"><code>d-hidden-md-down</code></th>
       <td class="is-hidden">Hidden</td>
       <td class="is-hidden">Hidden</td>
       <td class="is-hidden">Hidden</td>
       <td class="is-visible">Visible</td>
     </tr>
     <tr>
-      <th scope="row"><code>.d-hidden-lg-down</code></th>
+      <th scope="row"><code>d-hidden-lg-down</code></th>
       <td class="is-hidden">Hidden</td>
       <td class="is-hidden">Hidden</td>
       <td class="is-hidden">Hidden</td>
       <td class="is-hidden">Hidden</td>
     </tr>
     <tr>
-      <th scope="row"><code>.d-hidden-xs-up</code></th>
+      <th scope="row"><code>d-hidden-xs-up</code></th>
       <td class="is-hidden">Hidden</td>
       <td class="is-hidden">Hidden</td>
       <td class="is-hidden">Hidden</td>
       <td class="is-hidden">Hidden</td>
     </tr>
     <tr>
-      <th scope="row"><code>.d-hidden-sm-up</code></th>
+      <th scope="row"><code>d-hidden-sm-up</code></th>
       <td class="is-visible">Visible</td>
       <td class="is-hidden">Hidden</td>
       <td class="is-hidden">Hidden</td>
       <td class="is-hidden">Hidden</td>
     </tr>
     <tr>
-      <th scope="row"><code>.d-hidden-md-up</code></th>
+      <th scope="row"><code>d-hidden-md-up</code></th>
       <td class="is-visible">Visible</td>
       <td class="is-visible">Visible</td>
       <td class="is-hidden">Hidden</td>
       <td class="is-hidden">Hidden</td>
     </tr>
     <tr>
-      <th scope="row"><code>.d-hidden-lg-up</code></th>
+      <th scope="row"><code>d-hidden-lg-up</code></th>
       <td class="is-visible">Visible</td>
       <td class="is-visible">Visible</td>
       <td class="is-visible">Visible</td>

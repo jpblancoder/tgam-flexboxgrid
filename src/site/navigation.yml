@@ -175,9 +175,6 @@ primaryNav:
       name: "Template 1 layout"
       path: "/example/#e-template-1-layout"
     -
-      name: "Complex nested grid"
-      path: "/example/#e-complex-grid"
-    -
       name: "Four grid tier"
       path: "/example/#e-four-grid-tier"
     -
@@ -190,8 +187,11 @@ primaryNav:
       name: "Two columns"
       path: "/example/#e-two-columns"
     -
-      name: "Two columns with two nested columns"
+      name: "Nested grid #1"
       path: "/example/#e-two-columns-nested"
+    -
+      name: "Nested grid #2"
+      path: "/example/#e-complex-grid"
     -
       name: "Mixed: mobile and desktop"
       path: "/example/#e-mixed-2"
