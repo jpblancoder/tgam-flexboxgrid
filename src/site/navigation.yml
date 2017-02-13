@@ -12,7 +12,7 @@ primaryNav:
       name: "Containers"
       path: "/overview/#o-containers"
     -
-      name: "Consistent columns"
+      name: "Consistent fixed-width columns"
       path: "/overview/#o-fluid-grid"
     -
       name: "Responsive modifiers"
