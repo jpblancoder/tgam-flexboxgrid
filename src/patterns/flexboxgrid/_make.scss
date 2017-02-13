@@ -1,7 +1,23 @@
+// This mixin is specifically for #pb-root in PageBuilder.
+// Create a container and row like element, without negative left/right margins
+@mixin grid-make-root() {
+  @include grid-make-container();
+  @include grid-make-container-max-widths();
+  @include grid-make-flex();
+}
+
 // For each breakpoint, define the container properties and padding
-@mixin grid-make-container($paddings: $grid-paddings, $breakpoints: $grid-breakpoints, $gutter: $grid-gutter-width-base) {
+@mixin grid-make-container($paddings: $grid-paddings, $breakpoints: $grid-breakpoints,
+  $gutter: $grid-gutter-width-base) {
   margin-left: auto;
   margin-right: auto;
+
+  // if a row is an immediate child of a container,
+  // then do not have negative margins on that child row element.
+  >.l-row {
+    margin-left: 0;
+    margin-right: 0;
+  }
 
   // add optional left/right edge padding to container
   @each $breakpoint in map-keys($paddings) {
@@ -13,7 +29,8 @@
 }
 
 // For each breakpoint, define the maximum width of the container in a media query
-@mixin grid-make-container-max-widths($sizes: $grid-sizes, $breakpoints: $grid-breakpoints, $gutter: $grid-gutter-width-base) {
+@mixin grid-make-container-max-widths($sizes: $grid-sizes, $breakpoints: $grid-breakpoints,
+  $gutter: $grid-gutter-width-base) {
   @each $breakpoint, $size in $sizes {
     @include grid-breakpoint-up($breakpoint, $breakpoints) {
       width: $size + $gutter;
@@ -24,7 +41,7 @@
 
 @mixin grid-make-gutters($gutter: $grid-gutter-width-base) {
   @if ($grid-gutter-width-base > 0) {
-    padding-left:  ($gutter / 2);
+    padding-left: ($gutter / 2);
     padding-right: ($gutter / 2);
   }
 }
@@ -32,42 +49,64 @@
 @mixin grid-make-row($gutter: $grid-gutter-width-base) {
   display: flex;
   flex-wrap: wrap;
+  margin-left: ($gutter / -2);
+  margin-right: ($gutter / -2);
 }
 
-@mixin grid-make-col($size, $columns) {
-  flex: 0 0 percentage($size / $columns);
-  // width: percentage($size / $columns);
-  // Add a `max-width` to ensure content within each column does not blow out
-  // the width of the column. Applies to IE10+ and Firefox. Chrome and Safari
-  // do not appear to require this.
-  max-width: percentage($size / $columns);
+@mixin grid-make-flex() {
+  display: flex;
+  flex-wrap: wrap;
 }
 
-@mixin grid-make-col-offset($size, $columns) {
-  margin-left: percentage($size / $columns);
-}
-
-@mixin grid-make-col-push($size, $columns) {
-  left: if($size > 0, percentage($size / $columns), auto);
-}
-
-@mixin grid-make-col-pull($size, $columns) {
-  right: if($size > 0, percentage($size / $columns), auto);
-}
-
-@mixin grid-make-col-modifier($type, $size, $columns) {
-  @if $grid-include-grid-push and $type == push {
-    @include grid-make-col-push($size, $columns);
-
-  } @else if $grid-include-grid-pull and $type == pull {
-    @include grid-make-col-pull($size, $columns);
-
-  } @else if $grid-include-grid-offset and $type == offset {
-    @include grid-make-col-offset($size, $columns);
+// When not XS tier, return non-percentage value (in order to more easily nest grids).
+// $size is the desired column count
+// $columns is the max total
+// $breakpoint is this tier namespace
+// $gutter is the global value for column spacing
+// $max is the maximum grid tier width
+@function grid-percentage($size, $columns, $breakpoint, $gutter: $grid-gutter-width-base) {
+  $max: map-get($grid-sizes, $breakpoint);
+  @if $max == null {
+    @return percentage($size / $columns);
+  } @else {
+    @return ($size / $columns) * ($max + $gutter);
   }
 }
 
-@mixin grid-make-grid-columns($g-columns: $grid-columns, $gutter: $grid-gutter-width-base, $breakpoints: $grid-breakpoints) {
+@mixin grid-make-col($size, $columns, $breakpoint) {
+  flex: 0 0 grid-percentage($size, $columns, $breakpoint);
+  // Add a `max-width` to ensure content within each column does not blow out
+  // the width of the column. Applies to IE10+ and Firefox. Chrome and Safari
+  // do not appear to require this.
+  max-width: grid-percentage($size, $columns, $breakpoint);
+}
+
+@mixin grid-make-col-offset($size, $columns, $breakpoint) {
+  margin-left: grid-percentage($size, $columns, $breakpoint);
+}
+
+@mixin grid-make-col-push($size, $columns, $breakpoint) {
+  left: if($size > 0, grid-percentage($size, $columns, $breakpoint), auto);
+}
+
+@mixin grid-make-col-pull($size, $columns, $breakpoint) {
+  right: if($size > 0, grid-percentage($size, $columns, $breakpoint), auto);
+}
+
+@mixin grid-make-col-modifier($type, $size, $columns, $breakpoint) {
+  @if $grid-include-grid-push and $type == push {
+    @include grid-make-col-push($size, $columns, $breakpoint);
+
+  } @else if $grid-include-grid-pull and $type == pull {
+    @include grid-make-col-pull($size, $columns, $breakpoint);
+
+  } @else if $grid-include-grid-offset and $type == offset {
+    @include grid-make-col-offset($size, $columns, $breakpoint);
+  }
+}
+
+@mixin grid-make-grid-columns($g-columns: $grid-columns, $gutter: $grid-gutter-width-base,
+  $breakpoints: $grid-breakpoints) {
   // Common properties for all breakpoints
   %grid-column {
     position: relative;
@@ -105,7 +144,7 @@
 
       @for $i from 1 through $columns {
         .l-col#{$infix}-#{$i} {
-          @include grid-make-col($i, $columns);
+          @include grid-make-col($i, $columns, $breakpoint);
         }
       }
 
@@ -113,7 +152,7 @@
       @each $modifier in (pull, push) {
         @for $i from 0 through $columns {
           .l-#{$modifier}#{$infix}-#{$i} {
-            @include grid-make-col-modifier($modifier, $i, $columns)
+            @include grid-make-col-modifier($modifier, $i, $columns, $breakpoint)
           }
         }
       }
@@ -123,7 +162,7 @@
       @for $i from 0 through ($columns - 1) {
         @if not ($infix == "" and $i == 0) { // Avoid emitting useless .offset-xs-0
           .l-offset#{$infix}-#{$i} {
-            @include grid-make-col-modifier(offset, $i, $columns)
+            @include grid-make-col-modifier(offset, $i, $columns, $breakpoint)
           }
         }
       }
@@ -133,6 +172,39 @@
 
 @mixin grid-make-container-debug() {
   outline: 1px solid rgba(222, 100, 92, 0.4);
+}
+
+@mixin grid-make-container-overlay($breakpoints: $grid-breakpoints, $sizes: $grid-sizes, $columns: $grid-columns,
+  $gutter: $grid-gutter-width-base) {
+  position: relative;
+  &::before {
+    content: "";
+    opacity: 0.4;
+    display: block;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: $gutter / 2;
+    z-index: 1;
+    background-repeat: repeat;
+    background-position: top left;
+    pointer-events: none; // prevent inspector from via mouse click
+  }
+  @each $breakpoint in map-keys($breakpoints) {
+    @include grid-breakpoint-up($breakpoint, $breakpoints) {
+      @if map-has-key($sizes, $breakpoint) { // exclude xs tier
+        $size: map-get($sizes, $breakpoint); // max tier container width
+        $cols: map-get($columns, $breakpoint); // total column count
+        $col: ($size - ($gutter * ($cols - 1))) / $cols; // calc column width
+        // use linear gradient to create grid columns
+        &::before {
+          background-size: ($col + $gutter) 24px;
+          background-image: linear-gradient(to right, #E9CBD5 0, #E9CBD5 $col, transparent $col);
+        }
+      }
+    }
+  }
 }
 
 @mixin grid-make-row-debug() {

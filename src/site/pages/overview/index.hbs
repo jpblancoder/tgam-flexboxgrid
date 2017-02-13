@@ -1,17 +1,20 @@
 <h2>Overview</h2>
 <a id="page-heading" class="anchor" tabindex="-1"></a>
 
-<p>A grid system uses a series of containers, rows, and columns to layout and align content.
-  It’s built with flexbox and is fully responsive.</p>
+<p>This adaptive grid system uses a single container, row(s), and column(s) to layout and align content.
+  A mobile-first flexbox grid system based on the CSS flex display property.</p>
 
 <ul>
-  <li>Containers provide a means to center your site’s contents. Use <code>.l-container</code> for fixed width
-    or <code>.l-container-fluid</code> for full width.</li>
+  <li>A container provides a means to center your site's contents. Use <code>.l-container</code> for fixed width.</li>
   <li>Content should be placed within columns, and only columns may be immediate children of rows.</li>
   <li>There are <strong>four grid tiers</strong>, one for each responsive breakpoint: all breakpoints
     (extra small), small, medium, and large.</li>
+  <li>It supports different column counts for each of the grid tiers.
+    Which are extra-small (1), small (8), medium (12), and large (16).</li>
   <li>Grid tiers are based on minimum widths, meaning they apply to that one tier and all those above it
     (e.g., <code>.l-col-sm-4</code> applies to small, medium, and large devices).</li>
+  <li><strong>Unlike Bootstrap</strong> grid, which is percentage based, TGAM flexboxgrid <strong>columns are fixed width.</strong>
+  Which allows easier nesting, but also forces you to explicitly define that columns width for each tier.</li>
 </ul>
 
 <p>Be aware of the limitations and <a href="https://github.com/philipwalton/flexbugs">bugs around flexbox</a>,
@@ -21,27 +24,24 @@
 <h3>Containers</h3>
 <a id="o-containers" class="anchor"></a>
 
-<p>Containers are the most basic layout element and are required when using our default grid system.
-  Choose from a responsive, fixed-width container (meaning its <code>max-width</code> changes at each breakpoint)
-  or fluid-width (meaning it’s <code>100%</code> wide all the time).</p>
-
-<p>While containers can be nested, most layouts do not require a nested container.
-  Resize your screen to see how the two containers behave differently when between breakpoints.</p>
+<p>Containers are the most basic layout element and are <strong>required</strong> when using the grid system.
+  <strong>Containers are fixed-width</strong>, meaning its <code>max-width</code> changes/adapts at each breakpoint,
+  to a pre-determined fixed-width.</p>
+<p>Containers <strong>should not be nested</strong>. You only require a single parent container.
+  Resize your screen to see how the container adapts when between breakpoints.</p>
 <div class="l-container--debug">
   {{> overview/containers-fixed}}
 </div>
 {{> overview/containers-fixed-code}}
 
-<p>Use <code>.l-container-fluid</code> for a full width container, spanning the entire width of the viewport.</p>
-<div class="l-container--debug">
-  {{> overview/containers-fluid}}
-</div>
-{{> overview/containers-fluid-code}}
-
-<h3>Fluid columns</h3>
+<h3>Consistent fixed-width columns</h3>
 <a id="o-fluid-grid" class="anchor"></a>
 
-<p>Percent based widths allow fluid resizing of columns and rows.</p>
+<p>Pixel based widths allow consistent column sizes regardless of grid nesting.
+  However, you need to he explicit for each grid tier. If you don't specify the current tier,
+  then the next smaller tier's column width will be used instead.</p>
+<p>This could be also be desired behaviour, depending on what you were trying to accomplish.
+  But as you see below, those columns may not align with the current grid tier's columns.</p>
 <div class="l-container--debug">
   {{> overview/fluid-grid}}
 </div>
@@ -56,7 +56,7 @@
 </div>
 {{> overview/responsive-modifiers-code}}
 
-<h3>Responsive columns</h3>
+<h3>Responsive column counts</h3>
 <a id="o-responsive-grid" class="anchor"></a>
 
 <p>Each of the 4 breakpoint tiers has a different column count. Extra-small (1), small (8), medium (12), large (16).</p>
@@ -77,7 +77,7 @@ and the container widths—then recompile.</p>
 <a id="o-gutters" class="anchor"></a>
 
 <p>The number of grid columns and their horizontal padding (aka, gutters) can be modified via Sass variables.
-  <code>$grid-columns</code> is used to generate the widths (in percent) of each individual column while
+  <code>$grid-columns</code> is used to generate the widths (in pixels) of each individual column while
   <code>$grid-gutter-width-base</code> sets padding-left and padding-right for the column gutters.</p>
 
 {{> overview/grid-columns-scss}}
@@ -119,11 +119,11 @@ You can do so by updating the below Sass variables to:</p>
 <h3>Responsive breakpoint mixins</h3>
 <a id="o-resp-mixins" class="anchor"></a>
 
-<p>Since Bootstrap is developed to be mobile first, we use a handful of media queries to create sensible
+<p>Since the grid is developed to be mobile first, we use a handful of media queries to create sensible
 breakpoints for our layouts and interfaces. These breakpoints are mostly based on minimum viewport widths
 and allow us to scale up elements as the viewport changes.</p>
 
-<p>Bootstrap primarily uses the following media query ranges—or breakpoints—in our source
+<p>The grid primarily uses the following media query ranges—or breakpoints—in our source
 Sass files for our layout, grid system, and components.</p>
 
 <p>Since we write our source CSS in Sass, all our media queries are available via Sass mixins:</p>

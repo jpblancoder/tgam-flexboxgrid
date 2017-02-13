@@ -1,12 +1,36 @@
-<!-- "l-container l-row" is equal to PageBuilder's #pb-root -->
-<!-- Which is both a grid container and grid row. -->
-<!-- The contained section elements are grid columns. -->
-<div title="pb-root" class="l-container l-row">
-  <div title="section" class="l-col-1">top-furniture-area</div>
-  <div title="section" class="l-col-1">top-fullwidth-area</div>
-  <div title="section" class="l-col-1">title-content-area</div>
-  <div title="section" class="l-col-1 l-col-sm-8 l-col-md-8 l-col-lg-10 l-offset-lg-1">main-content-area</div>
-  <div title="section" class="l-col-1 l-col-sm-6 l-offset-sm-1 l-col-md-4 l-offset-md-0 l-col-lg-4 l-offset-lg-1">secondary-content-area</div>
-  <div title="section" class="l-col-1">promo-content-area</div>
-  <div title="section" class="l-col-1 l-col-sm-6 l-offset-sm-1 l-col-md-12 l-offset-md-0 l-col-lg-12 l-offset-lg-2">bottom-furniture-area</div>
+<!-- This is a debug class that sets an overlay to highlight the entire grid's columns -->
+<div class="l-container--overlay">
+  <!-- #pb-root has a selected PageBuilder "layout" applied to it, this example is "template-1" -->
+  <!-- #pb-root is both a grid "container" and also a "flex row" (similiar to l-row) -->
+  <!-- #pb-root styles in PageBuilder are equal to "l-container d-flex u-flex-wrap" -->
+  <div title="pb-root" class="l-container d-flex u-flex-wrap">
+    <!-- The contained "section" elements are grid "columns" -->
+    <div title="section" class="l-col-1">top-furniture-area</div>
+    <div title="section" class="l-col-1">top-fullwidth-area</div>
+    <div title="section" class="l-col-1">title-content-area</div>
+    <!-- These "section columns" wrap within the "row", to below other columns before them (in source order) -->
+    <div title="section" class="l-col-1 l-col-sm-8 l-col-md-8 l-col-lg-12">
+      <div>main-content-area</div>
+      <!-- PageBuilder "chains" are a way to create a new row, and wrap "features" in columns -->
+      <div title="chain" class="l-row">
+        <div title="feature" class="l-col-1 l-col-lg-10 l-offset-lg-1">
+          <!-- PageBuilder "features" can then contain their own nested rows and columns -->
+          <!-- In order to layout various "specimens" that compose a larger "component" -->
+          <div title="component" class="l-row u-align-content-stretch">
+            <!-- A card would be any individual "specimen" from the pattern library -->
+            <div class="l-col-1 l-col-sm-4 l-col-md-4 l-col-lg-5">Card</div>
+            <div class="l-col-1 l-col-sm-4 l-col-md-4 l-col-lg-5">Card</div>
+            <div class="l-col-1 l-col-sm-4 l-col-md-4 l-col-lg-5">Card</div>
+            <div class="l-col-1 l-col-sm-4 l-col-md-4 l-col-lg-5">Card</div>
+            <div class="l-col-1 l-col-sm-4 l-col-md-4 l-col-lg-5">Card</div>
+            <div class="l-col-1 l-col-sm-4 l-col-md-4 l-col-lg-5">Card</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- This seconday content column becomes a right-rail on wide screens -->
+    <div title="section" class="l-col-1 l-col-sm-6 l-col-md-4 l-col-lg-4 l-offset-sm-1 l-offset-md-0 l-offset-lg-0">secondary-content-area</div>
+    <div title="section" class="l-col-1">promo-content-area</div>
+    <div title="section" class="l-col-1 l-col-sm-6 l-col-md-12 l-col-lg-12 l-offset-sm-1 l-offset-md-0 l-offset-lg-2">bottom-furniture-area</div>
+  </div>
 </div>

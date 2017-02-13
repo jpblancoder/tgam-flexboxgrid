@@ -90,17 +90,19 @@ gulp.task("templates:specimens:html", function templatesSpecimensHtmlTask() {
       };
 
       // Debug classes that wrap code in codepen
-      let debugClasses = "l-container--debug";
+      let containerDebug = "l-container--debug";
+      let containerOverlay = "l-container--overlay";
 
       // Required codepen CSS
-      let codepenCSS = "// Optional debug class: " + debugClasses + "\n";
-      codepenCSS += "// Optional body styles:\n";
+      let codepenCSS = "// Optional debug classes: " + containerDebug + ", " + containerOverlay + "\n";
+      codepenCSS += "// Optional styles:\n";
       codepenCSS += "body { padding: 0; margin: 0; }\n";
-      codepenCSS += "// Required body styles:\n";
+      codepenCSS += "// Required styles:\n";
+      codepenCSS += "body { overflow-x: hidden; }\n";
       codepenCSS += "*, *:before, *:after { box-sizing: border-box; }\n";
 
       // Format HTML for display
-      let wrapped = beautify_html(`<div class="${debugClasses}">\n${specimen}\n</div>`, beautifyOptions);
+      let wrapped = beautify_html(`<div class="${containerDebug}">\n${specimen}\n</div>`, beautifyOptions);
       let formatted = beautify_html(specimen, beautifyOptions);
       let prismed = Prism.highlight(formatted, Prism.languages.markup);
 
