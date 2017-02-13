@@ -69,13 +69,12 @@
   @if $max == null {
     @return percentage($size / $columns);
   } @else {
-    @return (((($max + $gutter) / $columns) * $size));
+    @return ($size / $columns) * ($max + $gutter);
   }
 }
 
 @mixin grid-make-col($size, $columns, $breakpoint) {
   flex: 0 0 grid-percentage($size, $columns, $breakpoint);
-  // width: grid-percentage($size / $columns);
   // Add a `max-width` to ensure content within each column does not blow out
   // the width of the column. Applies to IE10+ and Firefox. Chrome and Safari
   // do not appear to require this.
@@ -180,7 +179,7 @@
   position: relative;
   &::before {
     content: "";
-    opacity: 0.2;
+    opacity: 0.4;
     display: block;
     height: 100%;
     width: 100%;

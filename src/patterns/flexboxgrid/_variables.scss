@@ -29,9 +29,10 @@ $grid-columns: (
 // Define the maximum width of a full column, within a tier container.
 $grid-sizes: (
   // xs: 0, - intentionally excluded
-  sm: 620px, // was 700px
-  md: 940px,
-  lg: 1260px
+  sm: 700px, // UX - 70px column
+  // sm: 620px, // JP - 60px column
+  md: 940px, // UX - 60px column
+  lg: 1260px // UX - 60px column
 ) !default;
 $grid-sizes: map-remove($grid-sizes, xs); // remove this key, just in case
 @include grid-assert-ascending($grid-sizes, "$grid-sizes");
