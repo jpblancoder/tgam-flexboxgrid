@@ -10,18 +10,12 @@ $grid-base-font-size: 16px !default;
 $grid-gutter-width-base: 20px !default;
 @include grid-assert-greater-than-equal-to($grid-gutter-width-base, "$grid-gutter-width-base", 0);
 
-// This value is used for manual gutter assignment,
-// using the various gutter utiltiy classes, e.g.: l-col--gutters-default
-// This value should match above base value, unless that's zero.
-$grid-gutter-width-manual: 20px !default;
-@include grid-assert-greater-than-equal-to($grid-gutter-width-manual, "$grid-gutter-width-manual", 0);
-
 // Set the number of columns, within a tier container.
 $grid-columns: (
-  xs: 1,
-  sm: 8,
-  md: 12,
-  lg: 16
+  xs: 1,  // 100% column
+  sm: 8,  // 70px columns
+  md: 12, // 60px columns
+  lg: 16  // 60px columns
 ) !default;
 @include grid-assert-ascending($grid-columns, "$grid-columns");
 @include grid-assert-starts-at-one($grid-columns);
@@ -29,10 +23,9 @@ $grid-columns: (
 // Define the maximum width of a full column, within a tier container.
 $grid-sizes: (
   // xs: 0, - intentionally excluded
-  sm: 700px, // UX - 70px column
-  // sm: 620px, // JP - 60px column
-  md: 940px, // UX - 60px column
-  lg: 1260px // UX - 60px column
+  sm: 700px,
+  md: 940px,
+  lg: 1260px
 ) !default;
 $grid-sizes: map-remove($grid-sizes, xs); // remove this key, just in case
 @include grid-assert-ascending($grid-sizes, "$grid-sizes");

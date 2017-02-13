@@ -17,12 +17,12 @@
         }
       }
       .l-row#{$infix}--gutters-default {
-        margin-left: -($grid-gutter-width-manual / 2);
-        margin-right: -($grid-gutter-width-manual / 2);
+        margin-left: -($grid-gutter-width-base / 2);
+        margin-right: -($grid-gutter-width-base / 2);
         > .l-col,
         > [class*="l-col-"] {
-          padding-left: ($grid-gutter-width-manual / 2);
-          padding-right: ($grid-gutter-width-manual / 2);
+          padding-left: ($grid-gutter-width-base / 2);
+          padding-right: ($grid-gutter-width-base / 2);
         }
       }
 
@@ -32,8 +32,8 @@
         padding-right: 0;
       }
       .l-col#{$infix}--gutters-default {
-        padding-left: ($grid-gutter-width-manual / 2);
-        padding-right: ($grid-gutter-width-manual / 2);
+        padding-left: ($grid-gutter-width-base / 2);
+        padding-right: ($grid-gutter-width-base / 2);
       }
 
       // Remove left padding from this column
@@ -41,7 +41,7 @@
         padding-left: 0;
       }
       .l-col#{$infix}--gutters-left-default {
-        padding-left: ($grid-gutter-width-manual / 2);
+        padding-left: ($grid-gutter-width-base / 2);
       }
 
       // Remove right padding from this column
@@ -49,7 +49,7 @@
         padding-right: 0;
       }
       .l-col#{$infix}--gutters-right-default {
-        padding-right: ($grid-gutter-width-manual / 2);
+        padding-right: ($grid-gutter-width-base / 2);
       }
     }
   }
