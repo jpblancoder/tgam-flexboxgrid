@@ -39,6 +39,9 @@ primaryNav:
     -
       name: "Responsive breakpoint mixins"
       path: "/overview/#o-resp-mixins"
+    -
+      name: "Custom column mixins"
+      path: "/overview/#o-column-mixins"
   -
     name: "Utilities"
     path: "/util/"

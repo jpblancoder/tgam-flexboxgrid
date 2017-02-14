@@ -145,3 +145,13 @@ Sass files for our layout, grid system, and components.</p>
 The Sass mixin for targeting the same screen size range would be:</p>
 
 {{> overview/resp-breakpoints-between-scss}}
+
+<h3>Custom column mixins</h3>
+<a id="o-column-mixins" class="anchor"></a>
+
+<p>Since this grid's columns are fixed-width, there may be situations where you want to have percentage-width columns.</p>
+
+<p>In order to do that, you need to use the following <code>l-col-ready</code>, and a SASS mixin or manually apply custom CSS to the column.</p>
+
+{{> overview/column-mixins-example-scss}}
+{{> overview/column-mixins-example-code}}

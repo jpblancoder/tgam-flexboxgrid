@@ -1,0 +1,11 @@
+// Overlay grid classes
+
+@if $grid-include-grid-overlay {
+  // Will place an overlay on the grid to highlight the columns for the entire height of the container.
+  // This class should be placed onto an element that wraps the container element.
+  .l-container--overlay {
+    .l-container {
+      @include grid-make-container-overlay();
+    }
+  }
+}

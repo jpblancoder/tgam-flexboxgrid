@@ -1,0 +1,57 @@
+// constant percentage columns across all grid tiers
+.col-half {
+  @include grid-make-col-ready();
+  @include grid-make-col-percent(1, 2); // 50%
+}
+.col-third {
+  @include grid-make-col-ready();
+  @include grid-make-col-percent(1, 3); // 33%
+}
+.col-fourth {
+  @include grid-make-col-ready();
+  @include grid-make-col-percent(1, 4); // 25%
+}
+
+// usage with `grid-make-col-ready()` mixin, and without `make-col-ready` class
+.content-1 {
+  @include grid-make-col-ready();
+
+  @include grid-breakpoint-down(sm) {
+    @include grid-make-col-percent(5, 8); // 62%
+  }
+
+  @include grid-breakpoint-up(md) {
+    @include grid-make-col-percent(10, 12); // 83%
+  }
+}
+.content-2 {
+  @include grid-make-col-ready();
+
+  @include grid-breakpoint-down(sm) {
+    @include grid-make-col-percentage(3, $grid-columns, sm); // 37%
+  }
+
+  @include grid-breakpoint-up(md) {
+    @include grid-make-col-percentage(2, $grid-columns, md); // 16%
+  }
+}
+
+// usage without `grid-make-col-ready()` mixin, and with `make-col-ready` class
+.content-3 {
+  @include grid-breakpoint-down(sm) {
+    @include grid-make-col-percent(5, 8); // 62%
+  }
+
+  @include grid-breakpoint-up(md) {
+    @include grid-make-col-percent(10, 12); // 83%
+  }
+}
+.content-4 {
+  @include grid-breakpoint-down(sm) {
+    @include grid-make-col-percentage(3, $grid-columns, sm); // 37%
+  }
+
+  @include grid-breakpoint-up(md) {
+    @include grid-make-col-percentage(2, $grid-columns, md); // 16%
+  }
+}
