@@ -60,11 +60,11 @@
 
 // When not XS tier, return non-percentage value (in order to more easily nest grids).
 // $size is the desired column count
-// $columns is the max total
+// $columns collection contains tier max column counts
 // $breakpoint is this tier namespace
 // $gutter is the global value for column spacing
 // $max is the maximum grid tier width
-@function grid-percentage($size, $columns, $breakpoint, $gutter: $grid-gutter-width-base) {
+@function grid-width-fixed($size, $columns, $breakpoint, $gutter: $grid-gutter-width-base) {
   $max: map-get($grid-sizes, $breakpoint);
   @if $max == null {
     @return percentage($size / $columns);
@@ -73,24 +73,59 @@
   }
 }
 
-@mixin grid-make-col($size, $columns, $breakpoint) {
-  flex: 0 0 grid-percentage($size, $columns, $breakpoint);
+// Make the element grid-ready (applying everything but the width)
+@mixin grid-make-col-ready($gutter: $grid-gutter-width-base) {
+  position: relative;
+  // Prevent columns from becoming too narrow when at smaller grid tiers by
+  // always setting `width: 100%;`. This works because we use `flex` values
+  // later on to override this initial width.
+  width: 100%;
+  min-height: 1px; // Prevent columns from collapsing when empty
+
+  @include grid-make-gutters($gutter);
+}
+
+// Apply a fixed column width
+// For normal column creation, which are related to grid column counts.
+@mixin grid-make-col-fixed($size, $columns, $breakpoint) {
+  flex: 0 0 grid-width-fixed($size, $columns, $breakpoint);
   // Add a `max-width` to ensure content within each column does not blow out
   // the width of the column. Applies to IE10+ and Firefox. Chrome and Safari
   // do not appear to require this.
-  max-width: grid-percentage($size, $columns, $breakpoint);
+  max-width: grid-width-fixed($size, $columns, $breakpoint);
+}
+
+// Apply a percentage column width
+// For custom column creation, which are related to grid column counts.
+@mixin grid-make-col-percentage($size, $columns, $breakpoint) {
+  $max: map-get($columns, $breakpoint);
+  flex: 0 0 percentage($size / $max);
+  // Add a `max-width` to ensure content within each column does not blow out
+  // the width of the column. Applies to IE10+ and Firefox. Chrome and Safari
+  // do not appear to require this.
+  max-width: percentage($size / $max);
+}
+
+// Apply a percentage column width
+// For custom column creation, which aren't related to grid column counts.
+@mixin grid-make-col-percent($size, $max) {
+  flex: 0 0 percentage($size / $max);
+  // Add a `max-width` to ensure content within each column does not blow out
+  // the width of the column. Applies to IE10+ and Firefox. Chrome and Safari
+  // do not appear to require this.
+  max-width: percentage($size / $max);
 }
 
 @mixin grid-make-col-offset($size, $columns, $breakpoint) {
-  margin-left: grid-percentage($size, $columns, $breakpoint);
+  margin-left: grid-width-fixed($size, $columns, $breakpoint);
 }
 
 @mixin grid-make-col-push($size, $columns, $breakpoint) {
-  left: if($size > 0, grid-percentage($size, $columns, $breakpoint), auto);
+  left: if($size > 0, grid-width-fixed($size, $columns, $breakpoint), auto);
 }
 
 @mixin grid-make-col-pull($size, $columns, $breakpoint) {
-  right: if($size > 0, grid-percentage($size, $columns, $breakpoint), auto);
+  right: if($size > 0, grid-width-fixed($size, $columns, $breakpoint), auto);
 }
 
 @mixin grid-make-col-modifier($type, $size, $columns, $breakpoint) {
@@ -109,11 +144,12 @@
   $breakpoints: $grid-breakpoints) {
   // Common properties for all breakpoints
   %grid-column {
-    position: relative;
-    width: 100%;
-    min-height: 1px; // Prevent columns from collapsing when empty
+    @include grid-make-col-ready($gutter);
+  }
 
-    @include grid-make-gutters($gutter);
+  // Can be used to help create columns with custom percentage or fixed widths
+  .l-col-ready {
+    @extend %grid-column;
   }
 
   @each $breakpoint in map-keys($breakpoints) {
@@ -144,7 +180,7 @@
 
       @for $i from 1 through $columns {
         .l-col#{$infix}-#{$i} {
-          @include grid-make-col($i, $columns, $breakpoint);
+          @include grid-make-col-fixed($i, $columns, $breakpoint);
         }
       }
 

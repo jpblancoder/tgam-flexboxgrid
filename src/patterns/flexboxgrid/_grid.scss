@@ -13,3 +13,13 @@
 
 // Generate a lot of CSS for columns themselves
 @include grid-make-grid-columns();
+
+// Utility to clear columns, for a new "row", within an actual `l-row`
+.l-row-clearfix {
+  width: 100%;
+  &::after {
+    display: block;
+    content: "";
+    clear: both;
+  }
+}
