@@ -39,13 +39,6 @@
   }
 }
 
-@mixin grid-make-gutters($gutter: $grid-gutter-width-base) {
-  @if ($grid-gutter-width-base > 0) {
-    padding-left: ($gutter / 2);
-    padding-right: ($gutter / 2);
-  }
-}
-
 @mixin grid-make-row($gutter: $grid-gutter-width-base) {
   display: flex;
   flex-wrap: wrap;
@@ -73,46 +66,40 @@
   }
 }
 
-// Make the element grid-ready (applying everything but the width)
+// Apply styles to make an element grid column ready
+// Everything but the width of the column is applied
 @mixin grid-make-col-ready($gutter: $grid-gutter-width-base) {
   position: relative;
-  // Prevent columns from becoming too narrow when at smaller grid tiers by
-  // always setting `width: 100%;`. This works because we use `flex` values
-  // later on to override this initial width.
   width: 100%;
   min-height: 1px; // Prevent columns from collapsing when empty
-
   @include grid-make-gutters($gutter);
 }
 
-// Apply a fixed column width
+// Apply default gutter padding to a column
+@mixin grid-make-gutters($gutter: $grid-gutter-width-base) {
+  padding-left: ($gutter / 2);
+  padding-right: ($gutter / 2);
+}
+
+// Apply a fixed column width (PX unit)
 // For normal column creation, which are related to grid column counts.
 @mixin grid-make-col-fixed($size, $columns, $breakpoint) {
   flex: 0 0 grid-width-fixed($size, $columns, $breakpoint);
-  // Add a `max-width` to ensure content within each column does not blow out
-  // the width of the column. Applies to IE10+ and Firefox. Chrome and Safari
-  // do not appear to require this.
   max-width: grid-width-fixed($size, $columns, $breakpoint);
 }
 
-// Apply a percentage column width
+// Apply a percentage column width (% unit)
 // For custom column creation, which are related to grid column counts.
 @mixin grid-make-col-percentage($size, $columns, $breakpoint) {
   $max: map-get($columns, $breakpoint);
   flex: 0 0 percentage($size / $max);
-  // Add a `max-width` to ensure content within each column does not blow out
-  // the width of the column. Applies to IE10+ and Firefox. Chrome and Safari
-  // do not appear to require this.
   max-width: percentage($size / $max);
 }
 
-// Apply a percentage column width
+// Apply a percentage column width (% unit)
 // For custom column creation, which aren't related to grid column counts.
 @mixin grid-make-col-percent($size, $max) {
   flex: 0 0 percentage($size / $max);
-  // Add a `max-width` to ensure content within each column does not blow out
-  // the width of the column. Applies to IE10+ and Firefox. Chrome and Safari
-  // do not appear to require this.
   max-width: percentage($size / $max);
 }
 

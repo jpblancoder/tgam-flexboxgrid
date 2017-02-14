@@ -1,0 +1,29 @@
+// Apply styles to make an element grid column ready
+// Everything but the width of the column is applied
+@mixin grid-make-col-ready($gutter: $grid-gutter-width-base) {
+  position: relative;
+  width: 100%;
+  min-height: 1px; // Prevent columns from collapsing when empty
+  @include grid-make-gutters($gutter);
+}
+
+// Apply default gutter padding to a column
+@mixin grid-make-gutters($gutter: $grid-gutter-width-base) {
+  padding-left: ($gutter / 2);
+  padding-right: ($gutter / 2);
+}
+
+// Apply a percentage column width (% unit)
+// For custom column creation, which are related to grid column counts.
+@mixin grid-make-col-percentage($size, $columns, $breakpoint) {
+  $max: map-get($columns, $breakpoint);
+  flex: 0 0 percentage($size / $max);
+  max-width: percentage($size / $max);
+}
+
+// Apply a percentage column width (% unit)
+// For custom column creation, which aren't related to grid column counts.
+@mixin grid-make-col-percent($size, $max) {
+  flex: 0 0 percentage($size / $max);
+  max-width: percentage($size / $max);
+}
