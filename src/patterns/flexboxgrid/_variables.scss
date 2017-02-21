@@ -1,5 +1,3 @@
-@import "assert";
-
 // This value is used to convert PX based values into EM values, for media query breakpoints
 $grid-base-font-size: 16px !default;
 
@@ -71,7 +69,6 @@ $grid-include-display-table:          true !default;
 
 // Flexbox grid utility classes
 // Enable or disable sub-features for this feature
-$grid-include-flex-align-content:     true !default;
 $grid-include-flex-align-content:     true !default;
 $grid-include-flex-align-items:       true !default;
 $grid-include-flex-align-self:        true !default;

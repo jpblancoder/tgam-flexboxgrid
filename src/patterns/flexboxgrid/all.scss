@@ -1,11 +1,7 @@
 @charset "UTF-8";
 
-// grid mixins
-@import "breakpoints";
-@import "make";
-
-// grid settings
-@import "variables";
+// grid assert, vars, breakpoints, and make mixins
+@import "core";
 
 // grid component
 @import "grid";
