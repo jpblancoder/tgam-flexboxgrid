@@ -26,7 +26,8 @@ gulp.task("default", function defaultTask(done) {
 gulp.task("generate", function generateTask(done) {
   runSequence(
     "clean",
-    ["templates", "styles", "scripts", "images"],
+    "styles",
+    ["templates", "scripts", "images"],
     function onSequenceComplete() {
       done();
     }

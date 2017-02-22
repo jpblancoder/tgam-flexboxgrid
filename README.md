@@ -2,7 +2,8 @@
 
 ## Introduction
 
-A mobile-first flexbox grid system based on the CSS flex display property. A customized, name-spaced, and extended Bootstrap 4 (alpha) grid.
+A mobile-first flexbox grid system based on the CSS flex display property. A customized, name-spaced, and extended Bootstrap 4 grid.
+
 It also supports different column counts for each of the 4 breakpoint tiers. Which are extra-small (1), small (8), medium (12), and large (16).
 [Check the documentation](http://empirecoder.github.io/tgam-flexboxgrid).
 

@@ -12,6 +12,8 @@ const rmdir = require("rimraf");
 const runSequence = require("run-sequence");
 const helpers = require("../helpers.js");
 const siteConfig = require("../site-config.js");
+const filesize = require("filesize");
+const gzipSize = require('gzip-size');
 
 // Primary navigation tree
 let navTree;
@@ -20,6 +22,9 @@ let navTree;
 let specimenPageTemplate;
 let specimenSnippetTemplate;
 let pageTemplate;
+
+// repo package info
+let pack;
 
 /**
  * Initialization
@@ -30,6 +35,10 @@ gulp.task("templates:init", function templatesInitTask() {
   if (config.primaryNav) {
     navTree = config.primaryNav;
   }
+
+  // Load the package info
+  pack = JSON.parse(fs.readFileSync('./package.json'));
+
   // Compile static templates
   specimenPageTemplate = handlebars.Handlebars.compile(
     fs.readFileSync("./src/site/templates/specimen-page.hbs", "utf8")
@@ -108,7 +117,7 @@ gulp.task("templates:specimens:html", function templatesSpecimensHtmlTask() {
 
       // Codepen.io prefill: https://blog.codepen.io/documentation/api/prefill/
       let codepenData = {
-        title: "TGAM Flexbox Grid",
+        title: pack.short,
         editors: "110", // panels: html show, css show, js hide
         head: `<meta name="viewport" content="width=device-width, initial-scale=1.0">`,
         html: wrapped,
@@ -156,7 +165,7 @@ gulp.task("templates:specimens:pages", function templatesSpecimensPagesTask() {
 
       // Pass specimen HTML into specimen page template
       let pageHtml = specimenPageTemplate({
-        metaTitle: "TGAM Flexbox Grid",
+        metaTitle: pack.short,
         basePath: siteConfig.basePath,
         wrapClasses: "l-container--debug",
         body: specimenHtml
@@ -174,9 +183,20 @@ gulp.task("templates:specimens:pages", function templatesSpecimensPagesTask() {
  * Generate site pages
  */
 gulp.task("templates:site:pages", function templatesSitePagesTask() {
+  let filePath = `./public${siteConfig.basePath}/dist/flexboxgrid.min.css`;
+
+  let fileStat = fs.statSync(filePath);
+  let minSize = filesize(fileStat.size);
+
+  let fileContent = fs.readFileSync(filePath, "utf8");
+  let zipSize = filesize(gzipSize.sync(String(fileContent)));
+
   let templateData = {
     basePath: siteConfig.basePath,
-    navTree: navTree
+    navTree: navTree,
+    pack: pack,
+    minSize: minSize, // minified file size
+    zipSize: zipSize // gzipped file size
   };
 
   let options = {
@@ -200,7 +220,7 @@ gulp.task("templates:site:pages", function templatesSitePagesTask() {
 
       // Pass page HTML into page template
       let pageHtml = pageTemplate({
-        metaTitle: "TGAM Flexbox Grid",
+        metaTitle: pack.short,
         basePath: siteConfig.basePath,
         bodyClasses: "",
         body: file.contents.toString(),
