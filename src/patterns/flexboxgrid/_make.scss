@@ -96,6 +96,33 @@
   max-width: percentage($size / $max);
 }
 
+// Apply a fixed bleed to the left and right margin of element.
+@mixin grid-make-col-bleed($current, $desired, $breakpoint, $gutter: $grid-gutter-width-base) {
+  $bleed: grid-width-bleed($current, $desired, $breakpoint, $gutter);
+  margin-left: rem(-$bleed);
+  margin-right: rem(-$bleed);
+}
+
+// Calc the bleed for an element out of a column, but align it with a larger column width.
+// $current is the current column count within the $breakpoint tier
+// $desired is the desired column count within the $breakpoint tier
+// $breakpoint is the tier to use for current/desired calculations
+// $gutter is the grid gutter width
+@function grid-width-bleed($current, $desired, $breakpoint, $gutter: $grid-gutter-width-base) {
+  $columns: map-get($grid-columns, $breakpoint);
+  $current-width: grid-width-fixed($current, $columns, $breakpoint) - ($gutter * 2);
+  $desired-width: grid-width-fixed($desired, $columns, $breakpoint) - ($gutter * 2);
+  $bleed: ($desired-width - $current-width) / 2;
+  @return $bleed;
+}
+
+// Apply a custom fixed column width (PX unit)
+// For very custom column creation, which are NOT related to grid column counts.
+@mixin grid-make-col-custom($width) {
+  flex: 0 0 $width;
+  max-width: $width;
+}
+
 // Apply a percentage column width (% unit)
 // For custom column creation, which aren't related to grid column counts.
 @mixin grid-make-col-percent($size, $max) {
