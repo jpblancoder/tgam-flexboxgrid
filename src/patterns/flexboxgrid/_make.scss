@@ -36,6 +36,7 @@
   @each $breakpoint, $size in $sizes {
     @include grid-breakpoint-up($breakpoint, $breakpoints) {
       min-width: $size + $gutter;
+      width: $size + $gutter;
       max-width: 100%;
     }
   }
