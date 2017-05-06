@@ -121,10 +121,10 @@ These are the files that get copied into the `dist` directory when the Gulp task
 In order to release a new version of the flexbox grid library, you'll need to do the following:
 
 - Run `git checkout master` branch.
-- Re-generate the `docs` and `dist` folders for Github pages via the command `gulp publish`.
-- Commit the generated files into master via the command `git add -A` and `git commit -m "Latest publish"`.
 - Manually increment the NPM package's version number in `package.json` via `npm version patch`.
 - That will automatically create a commit of the `package.json` file, titled with the new version number.
+- Re-generate the `docs` and `dist` folders for Github pages via the command `gulp publish`.
+- Commit the generated files into master via the command `git add -A` and `git commit -m "Latest publish"`.
 - Run `git push origin\master` branch.
 - Republish the NPM package to the NPM registry via `npm publish` (you may need to login first).
 
