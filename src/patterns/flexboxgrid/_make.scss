@@ -28,12 +28,14 @@
   }
 }
 
-// For each breakpoint, define the maximum width of the container in a media query
+// For each breakpoint, define the maximum width of the container in a media query.
+// Also define a min-width, since this is an adaptive (and not responsive) grid.
+// This is a fix for desktop browsers which have scrollbars, that occupy typically 16px width.
 @mixin grid-make-container-max-widths($sizes: $grid-sizes, $breakpoints: $grid-breakpoints,
   $gutter: $grid-gutter-width-base) {
   @each $breakpoint, $size in $sizes {
     @include grid-breakpoint-up($breakpoint, $breakpoints) {
-      width: $size + $gutter;
+      min-width: $size + $gutter;
       max-width: 100%;
     }
   }
