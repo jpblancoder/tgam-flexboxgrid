@@ -33,21 +33,21 @@
 
 @media (min-width: 48em) {
   .l-container {
-    width: 720px;
+    min-width: 720px;
     max-width: 100%;
   }
 }
 
 @media (min-width: 61.25em) {
   .l-container {
-    width: 960px;
+    min-width: 960px;
     max-width: 100%;
   }
 }
 
 @media (min-width: 80em) {
   .l-container {
-    width: 1280px;
+    min-width: 1280px;
     max-width: 100%;
   }
 }
