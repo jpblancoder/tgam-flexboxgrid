@@ -8,7 +8,7 @@
   <pre><h4>{{ title }}</h4><code class='language-{{ language }}'>{{{ body }}}</code></pre>
 </div>
 {{#if codepen}}
-<form id="{{ uniqueId }}" action="http://codepen.io/pen/define" method="POST" target="_blank">
+<form id="{{ uniqueId }}" action="https://codepen.io/pen/define" method="POST" target="_blank">
   <input type="hidden" name="data" value="{{{ codepen }}}" />
 </form>
 {{/if}}
