@@ -100,6 +100,7 @@
 }
 
 // Apply a fixed bleed to the left and right margin of element.
+// In order to make the column match a desired column (rem) width.
 @mixin grid-make-col-bleed($current, $desired, $breakpoint, $gutter: $grid-gutter-width-base) {
   $bleed: grid-width-bleed($current, $desired, $breakpoint, $gutter);
   margin-left: rem(-$bleed);
@@ -117,6 +118,16 @@
   $desired-width: grid-width-fixed($desired, $columns, $breakpoint) - ($gutter * 2);
   $bleed: ($desired-width - $current-width) / 2;
   @return $bleed;
+}
+
+// Apply a fixed bleed to the left and right margin of element.
+// In order to make the column match a desired viewport (vw) width.
+@mixin grid-make-col-vw($vwidth, $current, $breakpoint, $gutter: $grid-gutter-width-base) {
+  $columns: map-get($grid-columns, $breakpoint);
+  $current-width: grid-width-fixed($current, $columns, $breakpoint) - ($gutter * 2);
+  width: #{$vwidth}vw;
+  margin-left: calc(-#{$vwidth / 2}vw + #{$current-width / 2});
+  margin-right: calc(-#{$vwidth / 2}vw + #{$current-width / 2});
 }
 
 // Apply a custom fixed column width (PX unit)
