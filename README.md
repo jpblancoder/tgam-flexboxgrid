@@ -5,7 +5,7 @@
 A mobile-first flexbox grid system based on the CSS flex display property. A customized, name-spaced, and extended Bootstrap 4 grid.
 
 It also supports different column counts for each of the 4 breakpoint tiers. Which are extra-small (1), small (8), medium (12), and large (16).
-[Check the documentation](http://empirecoder.github.io/tgam-flexboxgrid).
+[Check the documentation](http://jpblancoder.github.io/tgam-flexboxgrid).
 
 This project is an extension of our living style guide. It uses [Gulp](http://gulpjs.com/) tasks to generate a [static documentation site](https://github.com/blog/2228-simpler-github-pages-publishing), which then gets [deployed](https://help.github.com/articles/configuring-a-publishing-source-for-github-pages/) to a Github. It also doubles as an [NPM package](https://www.npmjs.com/). `npm install` it into your projects and you'll be able to `@import` SCSS from the `dist` directory.
 
@@ -138,7 +138,7 @@ It's best practice to create a new Git branch before you start making changes to
 4. Push your local branch up to the remote repository: `git push -u origin my-new-branch`.
 5. Do some work and commit your changes: `git commit -m "My commit message"`.
 6. Repeat step 5 as many times as necessary.
-7. When you're finished working, go to Github.com and [create a new pull request](https://github.com/empirecoder/tgam-flexboxgrid/pulls).
+7. When you're finished working, go to Github.com and [create a new pull request](https://github.com/jpblancoder/tgam-flexboxgrid/pulls).
 8. Wait for your peers to review your pull request and merge it into `master`.
 9. Follow the above instructions to publish a new version of the flexbox grid library to Github pages.
 
@@ -192,7 +192,7 @@ During development, you may find it useful to import the pattern library files f
 **Example of pulling in a Git branch** (which you would do during development):
 
 ```
-"dependencies": { "tgam-flexboxgrid": "git://github.com/empirecoder/tgam-flexboxgrid.git#branch-name" }
+"dependencies": { "tgam-flexboxgrid": "git://github.com/jpblancoder/tgam-flexboxgrid.git#branch-name" }
 ```
 
 Once you've finished your work and your code is production-ready, you should then merge your `branch-name` branch into `master`, publish a new version to NPM, then point the `tgam-flexboxgrid` dependency in your consuming project's `package.json` back to the NPM registry once again.
