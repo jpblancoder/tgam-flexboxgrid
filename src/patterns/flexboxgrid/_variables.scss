@@ -49,6 +49,14 @@ $grid-breakpoints: (
 @include grid-assert-ascending($grid-breakpoints, "$grid-breakpoints");
 @include grid-assert-starts-at-zero($grid-breakpoints);
 
+// Define debug overlay colors for each tier.
+// I advise using a different color per tier.
+$grid-colors: (
+  // xs: #000, - intentionally excluded
+  sm: #E3BBDC,
+  md: #E3C2BB,
+  lg: #E9CBD5
+) !default;
 
 // Disable any of the below feature to reduce the grid bundle size
 

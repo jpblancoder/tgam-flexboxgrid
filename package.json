@@ -8,11 +8,11 @@
   "author": "The Globe and Mail (https://github.com/globeandmail)",
   "repository": {
     "type": "git",
-    "url": "git://github.com/empirecoder/tgam-flexboxgrid.git"
+    "url": "git://github.com/jpblancoder/tgam-flexboxgrid.git"
   },
-  "homepage": "https://github.com/empirecoder/tgam-flexboxgrid",
+  "homepage": "https://github.com/jpblancoder/tgam-flexboxgrid",
   "bugs": {
-    "url": "https://github.com/empirecoder/tgam-flexboxgrid/issues"
+    "url": "https://github.com/jpblancoder/tgam-flexboxgrid/issues"
   },
   "main": "index.js",
   "files": [

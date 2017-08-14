@@ -72,10 +72,10 @@
 // Apply styles to make an element grid column ready
 // Everything but the width of the column is applied
 @mixin grid-make-col-ready($gutter: $grid-gutter-width-base) {
+  @include grid-make-gutters($gutter);
   position: relative;
   width: 100%;
   min-height: 1px; // Prevent columns from collapsing when empty
-  @include grid-make-gutters($gutter);
 }
 
 // Apply default gutter padding to a column
@@ -238,8 +238,11 @@
   outline: 1px solid rgba(222, 100, 92, 0.4);
 }
 
-@mixin grid-make-container-overlay($breakpoints: $grid-breakpoints, $sizes: $grid-sizes, $columns: $grid-columns,
-  $gutter: $grid-gutter-width-base) {
+@mixin grid-make-container-overlay($breakpoints: $grid-breakpoints,
+  $sizes: $grid-sizes,
+  $columns: $grid-columns,
+  $gutter: $grid-gutter-width-base,
+  $colors: $grid-colors) {
   position: relative;
   &::before {
     content: "";
@@ -261,10 +264,11 @@
         $size: map-get($sizes, $breakpoint); // max tier container width
         $cols: map-get($columns, $breakpoint); // total column count
         $col: ($size - ($gutter * ($cols - 1))) / $cols; // calc column width
+        $color: map-get($colors, $breakpoint); // overlay color for column
         // use linear gradient to create grid columns
         &::before {
           background-size: ($col + $gutter) 24px;
-          background-image: linear-gradient(to right, #E9CBD5 0, #E9CBD5 $col, transparent $col);
+          background-image: linear-gradient(to right, $color 0, $color $col, transparent $col);
         }
       }
     }
