@@ -72,10 +72,10 @@
 // Apply styles to make an element grid column ready
 // Everything but the width of the column is applied
 @mixin grid-make-col-ready($gutter: $grid-gutter-width-base) {
+  @include grid-make-gutters($gutter);
   position: relative;
   width: 100%;
   min-height: 1px; // Prevent columns from collapsing when empty
-  @include grid-make-gutters($gutter);
 }
 
 // Apply default gutter padding to a column
