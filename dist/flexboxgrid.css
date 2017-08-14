@@ -65,11 +65,11 @@
 }
 
 .l-col-ready, .l-col-1, .l-col, .l-col-sm-1, .l-col-sm-2, .l-col-sm-3, .l-col-sm-4, .l-col-sm-5, .l-col-sm-6, .l-col-sm-7, .l-col-sm-8, .l-col-sm, .l-col-md-1, .l-col-md-2, .l-col-md-3, .l-col-md-4, .l-col-md-5, .l-col-md-6, .l-col-md-7, .l-col-md-8, .l-col-md-9, .l-col-md-10, .l-col-md-11, .l-col-md-12, .l-col-md, .l-col-lg-1, .l-col-lg-2, .l-col-lg-3, .l-col-lg-4, .l-col-lg-5, .l-col-lg-6, .l-col-lg-7, .l-col-lg-8, .l-col-lg-9, .l-col-lg-10, .l-col-lg-11, .l-col-lg-12, .l-col-lg-13, .l-col-lg-14, .l-col-lg-15, .l-col-lg-16, .l-col-lg {
+  padding-left: 10px;
+  padding-right: 10px;
   position: relative;
   width: 100%;
   min-height: 1px;
-  padding-left: 10px;
-  padding-right: 10px;
 }
 
 .l-col {
@@ -1698,14 +1698,14 @@
 @media (min-width: 48em) {
   .l-container--overlay .l-container::before {
     background-size: 90px 24px;
-    background-image: linear-gradient(to right, #E9CBD5 0, #E9CBD5 70px, transparent 70px);
+    background-image: linear-gradient(to right, #E3BBDC 0, #E3BBDC 70px, transparent 70px);
   }
 }
 
 @media (min-width: 61.25em) {
   .l-container--overlay .l-container::before {
     background-size: 80px 24px;
-    background-image: linear-gradient(to right, #E9CBD5 0, #E9CBD5 60px, transparent 60px);
+    background-image: linear-gradient(to right, #E3C2BB 0, #E3C2BB 60px, transparent 60px);
   }
 }
 
