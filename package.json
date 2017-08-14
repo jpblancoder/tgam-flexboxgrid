@@ -1,6 +1,6 @@
 {
   "name": "tgam-flexboxgrid",
-  "version": "1.0.13",
+  "version": "1.0.14",
   "short": "TGAM Flexbox Grid",
   "description": "The Globe and Mail's flexbox grid",
   "readme": "A mobile-first flexbox grid system based on the CSS flex display property. A customized, namespaced, and extended Bootstrap 4 grid.",
