@@ -1,3 +1,5 @@
+@import "units";
+
 // This value is used to convert PX based values into EM values, for media query breakpoints
 $grid-base-font-size: 16px !default;
 
@@ -5,7 +7,7 @@ $grid-base-font-size: 16px !default;
 // Choose 0px if you nest more grids than not,
 // and you perfer to manually set the gutter on
 // the final child column only. Which holds the content.
-$grid-gutter-width-base: 20px !default;
+$grid-gutter-width-base: grid-rem(20) !default;
 @include grid-assert-greater-than-equal-to($grid-gutter-width-base, "$grid-gutter-width-base", 0);
 
 // Set the number of columns, within a tier container.
@@ -21,9 +23,9 @@ $grid-columns: (
 // Define the maximum width of a full column, within a tier container.
 $grid-sizes: (
   // xs: 0, - intentionally excluded
-  sm: 700px,
-  md: 940px,
-  lg: 1260px
+  sm: grid-rem(700),
+  md: grid-rem(940),
+  lg: grid-rem(1260)
 ) !default;
 $grid-sizes: map-remove($grid-sizes, xs); // remove this key, just in case
 @include grid-assert-ascending($grid-sizes, "$grid-sizes");
@@ -31,7 +33,7 @@ $grid-sizes: map-remove($grid-sizes, xs); // remove this key, just in case
 // Optionally add extra padding to the left/right sides, within a tier container.
 // Final padding value will be this plus half of $grid-gutter-width-base
 $grid-paddings: (
-  xs: 10px,
+  xs: grid-rem(10),
   sm: 0,
   md: 0,
   lg: 0
@@ -42,9 +44,9 @@ $grid-paddings: (
 // These values could be equal to or greater to the $grid-containers values.
 $grid-breakpoints: (
   xs: 0, // locked at zero
-  sm: 768px, // 48em
-  md: 980px, // 61.25em
-  lg: 1280px // 80em
+  sm: grid-rem(768),
+  md: grid-rem(980),
+  lg: grid-rem(1280)
 ) !default;
 @include grid-assert-ascending($grid-breakpoints, "$grid-breakpoints");
 @include grid-assert-starts-at-zero($grid-breakpoints);

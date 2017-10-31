@@ -12,7 +12,7 @@
       @include grid-make-row-debug();
     }
     .example-item {
-      padding: 8px;
+      padding: grid-rem(8);
     }
     .example-item,
     .d-none,
