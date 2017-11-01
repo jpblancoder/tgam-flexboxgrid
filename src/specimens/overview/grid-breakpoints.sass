@@ -1,15 +1,15 @@
 // Define the maximum width of a full column, within a tier container.
 $grid-sizes: (
   // xs: 0, - intentionally excluded
-  sm: 700px,
-  md: 940px,
-  lg: 1260px
+  sm: grid-rem(700),
+  md: grid-rem(940),
+  lg: grid-rem(1260)
 );
 
 // Optionally add extra padding to the left/right sides, within a tier container.
 // Final padding value will be this plus half of $grid-gutter-width-base
 $grid-paddings: (
-  xs: 10px,
+  xs: grid-rem(10),
   sm: 0,
   md: 0,
   lg: 0
@@ -19,7 +19,7 @@ $grid-paddings: (
 // These values could be equal to or greater to the $grid-containers values.
 $grid-breakpoints: (
   xs: 0, // locked at zero
-  sm: 768px,
-  md: 980px,
-  lg: 1280px
+  sm: grid-rem(768),
+  md: grid-rem(980),
+  lg: grid-rem(1280)
 );

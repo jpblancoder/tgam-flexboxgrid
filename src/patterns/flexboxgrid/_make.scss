@@ -84,7 +84,7 @@
   padding-right: ($gutter / 2);
 }
 
-// Apply a fixed column width (PX unit)
+// Apply a fixed column width (REM unit)
 // For normal column creation, which are related to grid column counts.
 @mixin grid-make-col-fixed($size, $columns, $breakpoint) {
   flex: 0 0 grid-width-fixed($size, $columns, $breakpoint);
@@ -103,8 +103,8 @@
 // In order to make the column match a desired column (rem) width.
 @mixin grid-make-col-bleed($current, $desired, $breakpoint, $gutter: $grid-gutter-width-base) {
   $bleed: grid-width-bleed($current, $desired, $breakpoint, $gutter);
-  margin-left: rem(-$bleed);
-  margin-right: rem(-$bleed);
+  margin-left: -$bleed;
+  margin-right: -$bleed;
 }
 
 // Calc the bleed for an element out of a column, but align it with a larger column width.
@@ -130,7 +130,7 @@
   margin-right: calc(-#{$vwidth / 2}vw + #{$current-width / 2});
 }
 
-// Apply a custom fixed column width (PX unit)
+// Apply a custom fixed column width (REM unit)
 // For very custom column creation, which are NOT related to grid column counts.
 @mixin grid-make-col-custom($width) {
   flex: 0 0 $width;

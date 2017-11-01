@@ -35,7 +35,7 @@
 //    767px
 @function grid-breakpoint-max($name, $breakpoints: $grid-breakpoints) {
   $next: grid-breakpoint-next($name, $breakpoints);
-  @return if($next, grid-breakpoint-min($next, $breakpoints) - 1px, null);
+  @return if($next, grid-breakpoint-min($next, $breakpoints) - grid-rem(1), null);
 }
 
 // Returns a blank string if smallest breakpoint, otherwise returns the name with a dash infront.
@@ -54,7 +54,7 @@
 @mixin grid-breakpoint-up($name, $breakpoints: $grid-breakpoints) {
   $min: grid-breakpoint-min($name, $breakpoints);
   @if $min {
-    @media (min-width: grid-px2em($min)) {
+    @media (min-width: grid-rem-to-em($min)) {
       @content;
     }
   } @else {
@@ -67,7 +67,7 @@
 @mixin grid-breakpoint-down($name, $breakpoints: $grid-breakpoints) {
   $max: grid-breakpoint-max($name, $breakpoints);
   @if $max {
-    @media (max-width: grid-px2em($max)) {
+    @media (max-width: grid-rem-to-em($max)) {
       @content;
     }
   } @else {
@@ -92,16 +92,4 @@
   @include grid-breakpoint-between($name, $name, $breakpoints) {
     @content;
   }
-}
-
-// Convert pixel value to em value
-// Based on Sass-mq function: https://github.com/sass-mq/sass-mq
-@function grid-px2em($px, $base-font-size: $grid-base-font-size) {
-  @if unitless($px) {
-    @warn "Assuming #{$px} to be in pixels, attempting to convert it into pixels.";
-    @return grid-px2em($px * 1px, $base-font-size);
-  } @else if unit($px) == em {
-    @return $px;
-  }
-  @return ($px / $base-font-size) * 1em;
 }

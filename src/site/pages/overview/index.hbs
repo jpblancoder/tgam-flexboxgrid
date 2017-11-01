@@ -37,7 +37,7 @@
 <h3>Consistent fixed-width columns</h3>
 <a id="o-fluid-grid" class="anchor"></a>
 
-<p>Pixel based widths allow consistent column sizes regardless of grid nesting.
+<p>REM based widths allow consistent column sizes regardless of grid nesting.
   However, you need to he explicit for each grid tier. If you don't specify the current tier,
   then the next smaller tier's column width will be used instead.</p>
 <p>This could be also be desired behaviour, depending on what you were trying to accomplish.
@@ -77,7 +77,7 @@ and the container widths—then recompile.</p>
 <a id="o-gutters" class="anchor"></a>
 
 <p>The number of grid columns and their horizontal padding (aka, gutters) can be modified via Sass variables.
-  <code>$grid-columns</code> is used to generate the widths (in pixels) of each individual column while
+  <code>$grid-columns</code> is used to generate the widths (in REMs) of each individual column while
   <code>$grid-gutter-width-base</code> sets padding-left and padding-right for the column gutters.</p>
 
 {{> overview/grid-columns-scss}}
