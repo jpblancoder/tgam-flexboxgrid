@@ -4,30 +4,12 @@
   @return ($value / ($value * 0 + 1));
 }
 
-// Convert EM value into same REM value
-@function grid-rem-to-em($size) {
-  @if not unitless($size) {
-    $size: grid-strip-unit($size);
-  }
-  @return $size * 1em;
-}
-
 // Convert REM value into same EM value
 @function grid-em-to-rem($size) {
   @if not unitless($size) {
     $size: grid-strip-unit($size);
   }
   @return $size * 1rem;
-}
-
-// Convert pixel value to EM value
-// Based on Panther function: https://github.com/globeandmail/ux-pattern-library
-// But don't ever return 1px, when it is that value.
-@function grid-em($size, $base-font-size: $grid-base-font-size) {
-  @if not unitless($size) {
-    $size: grid-strip-unit($size);
-  }
-  @return ($size / grid-strip-unit($base-font-size)) * 1em;
 }
 
 // Convert pixel value to REM value
