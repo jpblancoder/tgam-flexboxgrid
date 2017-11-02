@@ -13,8 +13,6 @@
 }
 
 // Convert pixel value to REM value
-// Based on Panther function: https://github.com/globeandmail/ux-pattern-library
-// But don't ever return 1px, when it is that value.
 @function grid-rem($size, $base-font-size: $grid-base-font-size) {
   @if not unitless($size) {
     $size: grid-strip-unit($size);
