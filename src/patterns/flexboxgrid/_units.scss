@@ -19,3 +19,49 @@
   }
   @return ($size / grid-strip-unit($base-font-size)) * 1rem;
 }
+
+// Round a number to specified digits.
+// https://gist.github.com/terkel/4373420
+//
+// @param  {Number} $number A number to round
+// @param  {Number} [$digits:0] Digits to output
+// @param  {String} [$mode:round] (round|ceil|floor) How to round a number
+// @return {Number} A rounded number
+// @example
+//        grid-round(0.333)    => 0
+//        grid-round(0.333, 1) => 0.3
+//        grid-round(0.333, 2) => 0.33
+//        grid-round(0.666)    => 1
+//        grid-round(0.666, 1) => 0.7
+//        grid-round(0.666, 2) => 0.67
+@function grid-round($number, $digits: 0, $mode: round) {
+  $n: 1;
+  // $number must be a number
+  @if type-of($number) != number {
+    @warn '#{ $number } is not a number.';
+    @return $number;
+  }
+  // $digits must be a unitless number
+  @if type-of($digits) != number {
+    @warn '#{ $digits } is not a number.';
+    @return $number;
+  } @else if not unitless($digits) {
+    @warn '#{ $digits } has a unit.';
+    @return $number;
+  }
+  @if $digits > 0 {
+    @for $i from 1 through $digits {
+      $n: $n * 10;
+    }
+  }
+  @if $mode == round {
+    @return round($number * $n) / $n;
+  } @else if $mode == ceil {
+    @return ceil($number * $n) / $n;
+  } @else if $mode == floor {
+    @return floor($number * $n) / $n;
+  } @else {
+    @warn '#{ $mode } is undefined keyword.';
+    @return $number;
+  }
+}
