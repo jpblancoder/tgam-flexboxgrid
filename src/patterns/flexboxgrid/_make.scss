@@ -7,8 +7,7 @@
 }
 
 // For each breakpoint, define the container properties and padding
-@mixin grid-make-container($paddings: $grid-paddings, $breakpoints: $grid-breakpoints,
-  $gutter: $grid-gutter-width-base) {
+@mixin grid-make-container($paddings: $grid-paddings, $breakpoints: $grid-breakpoints) {
   margin-left: auto;
   margin-right: auto;
 
@@ -267,7 +266,8 @@
         $color: map-get($colors, $breakpoint); // overlay color for column
         // use linear gradient to create grid columns
         &::before {
-          background-size: ($col + $gutter) 24px;
+          width: $size; // container size
+          background-size: ($col + $gutter) grid-rem(24);
           background-image: linear-gradient(to right, $color 0, $color $col, transparent $col);
         }
       }
@@ -276,8 +276,8 @@
 }
 
 @mixin grid-make-row-debug() {
-  margin-top: 16px;
-  margin-bottom: 16px;
+  margin-top: grid-rem(16);
+  margin-bottom: grid-rem(16);
   outline: 1px solid rgba(118, 203, 68, 0.4);
   > .l-col,
   > [class*="l-col-"] {
