@@ -237,7 +237,8 @@
   outline: 1px solid rgba(222, 100, 92, 0.4);
 }
 
-@mixin grid-make-container-overlay($breakpoints: $grid-breakpoints,
+@mixin grid-make-container-overlay(
+  $breakpoints: $grid-breakpoints,
   $sizes: $grid-sizes,
   $columns: $grid-columns,
   $gutter: $grid-gutter-width-base,
@@ -269,6 +270,55 @@
           width: $size; // container size
           background-size: ($col + $gutter) grid-rem(24);
           background-image: linear-gradient(to right, $color 0, $color $col, transparent $col);
+        }
+      }
+    }
+  }
+}
+
+@mixin grid-make-container-reporter(
+  $breakpoints: $grid-breakpoints,
+  $sizes: $grid-sizes,
+  $columns: $grid-columns,
+  $gutter: $grid-gutter-width-base,
+  $colors: $grid-colors) {
+  &::after {
+    display: block;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    padding: 2px;
+    font-size: 12px;
+    font-weight: bold;
+    color: #333;
+    z-index: 2;
+    border-top: 1px solid #666;
+    border-left: 1px solid #666;
+    // need to handle first tier differently than the others
+    $next: grid-breakpoint-next("xs");
+    $bp-to: map-get($grid-breakpoints, $next);
+    $bp-to-str: "≤ #{grid-px($bp-to) - 1px}";
+    content: "XS tier: (#{$bp-to-str}), 100% cols, 1 col, #{grid-px($gutter)} left/right gutter";
+    background-color: #E1E8F8;
+  }
+  @each $breakpoint in map-keys($breakpoints) {
+    @include grid-breakpoint-up($breakpoint, $breakpoints) {
+      @if map-has-key($sizes, $breakpoint) { // exclude xs tier
+        $size: map-get($sizes, $breakpoint); // max tier container width
+        $cols: map-get($columns, $breakpoint); // total column count
+        $col: ($size - ($gutter * ($cols - 1))) / $cols; // calc column width
+        $color: map-get($colors, $breakpoint); // overlay color for column
+        $bp: map-get($breakpoints, $breakpoint); // current bp value
+        $bp-str: "≥ #{grid-px($bp)}"; // current bp string
+        $bp-to-str: ""; // next bp string
+        $next: grid-breakpoint-next($breakpoint); // next tier breakpoint
+        @if $next != null {
+          $bp-to: map-get($grid-breakpoints, $next); // next tier bp value
+          $bp-to-str: " to ≤ #{grid-px($bp-to) - 1px}";
+        }
+        &::after {
+          content: "#{to-upper-case($breakpoint)} tier: (#{$bp-str}#{$bp-to-str}), #{grid-px($size)} max-col, #{$cols} cols, #{grid-px($col)} col, #{grid-px($gutter)} gutter";
+          background-color: $color;
         }
       }
     }
