@@ -1,3 +1,4 @@
+@charset "UTF-8";
 .l-container {
   margin-left: auto;
   margin-right: auto;
@@ -1847,6 +1848,43 @@
     background-image: -webkit-linear-gradient(left, #E9CBD5 0, #E9CBD5 3.75rem, transparent 3.75rem);
     background-image: -o-linear-gradient(left, #E9CBD5 0, #E9CBD5 3.75rem, transparent 3.75rem);
     background-image: linear-gradient(to right, #E9CBD5 0, #E9CBD5 3.75rem, transparent 3.75rem);
+  }
+}
+
+.l-container--overlay .l-container::after {
+  display: block;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  padding: 2px;
+  font-size: 12px;
+  font-weight: bold;
+  color: #333;
+  z-index: 2;
+  border-top: 1px solid #666;
+  border-left: 1px solid #666;
+  content: "XS tier: (≤ 767px), 100% cols, 1 col, 20px left/right gutter";
+  background-color: #E1E8F8;
+}
+
+@media (min-width: 48rem) {
+  .l-container--overlay .l-container::after {
+    content: "SM tier: (≥ 768px to ≤ 979px), 700px max-col, 8 cols, 70px col, 20px gutter";
+    background-color: #E3BBDC;
+  }
+}
+
+@media (min-width: 61.25rem) {
+  .l-container--overlay .l-container::after {
+    content: "MD tier: (≥ 980px to ≤ 1279px), 940px max-col, 12 cols, 60px col, 20px gutter";
+    background-color: #E3C2BB;
+  }
+}
+
+@media (min-width: 80rem) {
+  .l-container--overlay .l-container::after {
+    content: "LG tier: (≥ 1280px), 1260px max-col, 16 cols, 60px col, 20px gutter";
+    background-color: #E9CBD5;
   }
 }
 
