@@ -1,9 +1,7 @@
 "use strict";
 
-/**
- * CSS transition callback polyfill (borrowed from Modernizr)
- */
-exports.whichTransitionEvent = function() {
+// CSS transition callback polyfill (borrowed from Modernizr)
+exports.whichTransitionEvent = function whichTransitionEvent() {
   let t;
   let el = document.createElement("fakeelement");
   let transitions = {
@@ -19,10 +17,8 @@ exports.whichTransitionEvent = function() {
   }
 };
 
-/**
- * CSS animation callback polyfill (borrowed from Modernizr)
- */
-exports.whichAnimationEvent = function() {
+// CSS animation callback polyfill (borrowed from Modernizr)
+exports.whichAnimationEvent = function whichAnimationEvent() {
   let a;
   let el = document.createElement("fakeelement");
   let animations = {

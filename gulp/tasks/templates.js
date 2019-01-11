@@ -2,10 +2,10 @@
 
 const fs = require("fs");
 const gulp = require("gulp");
-const rename = require('gulp-rename');
+const rename = require("gulp-rename");
 const tap = require("gulp-tap");
-const handlebars = require('gulp-compile-handlebars');
-const beautify_html = require("js-beautify").html;
+const handlebars = require("gulp-compile-handlebars");
+const beautifyHTML = require("js-beautify").html;
 const path = require("path");
 const Prism = require("prismjs");
 const rmdir = require("rimraf");
@@ -13,7 +13,7 @@ const runSequence = require("run-sequence");
 const helpers = require("../helpers.js");
 const siteConfig = require("../site-config.js");
 const filesize = require("filesize");
-const gzipSize = require('gzip-size');
+const gzipSize = require("gzip-size");
 
 // Primary navigation tree
 let navTree;
@@ -37,7 +37,7 @@ gulp.task("templates:init", function templatesInitTask() {
   }
 
   // Load the package info
-  pack = JSON.parse(fs.readFileSync('./package.json'));
+  pack = JSON.parse(fs.readFileSync("./package.json"));
 
   // Compile static templates
   specimenPageTemplate = handlebars.Handlebars.compile(
@@ -111,15 +111,15 @@ gulp.task("templates:specimens:html", function templatesSpecimensHtmlTask() {
       codepenCSS += "*, *:before, *:after { box-sizing: border-box; }\n";
 
       // Format HTML for display
-      let wrapped = beautify_html(`<div class="${containerDebug}">\n${specimen}\n</div>`, beautifyOptions);
-      let formatted = beautify_html(specimen, beautifyOptions);
+      let wrapped = beautifyHTML(`<div class="${containerDebug}">\n${specimen}\n</div>`, beautifyOptions);
+      let formatted = beautifyHTML(specimen, beautifyOptions);
       let prismed = Prism.highlight(formatted, Prism.languages.markup);
 
       // Codepen.io prefill: https://blog.codepen.io/documentation/api/prefill/
       let codepenData = {
         title: pack.short,
         editors: "110", // panels: html show, css show, js hide
-        head: `<meta name="viewport" content="width=device-width, initial-scale=1.0">`,
+        head: "<meta name='viewport' content='width=device-width, initial-scale=1.0'>",
         html: wrapped,
         css: codepenCSS,
         css_pre_processor: "scss",
@@ -127,7 +127,7 @@ gulp.task("templates:specimens:html", function templatesSpecimensHtmlTask() {
       };
 
       // Stringify the html for form submission to Codepen
-      var codepenJSON = JSON.stringify(codepenData).replace(/"/g, "&​quot;").replace(/'/g, "&apos;");
+      let codepenJSON = JSON.stringify(codepenData).replace(/"/g, "&​quot;").replace(/'/g, "&apos;");
 
       // Get part of the url for the specimen
       let filePath = file.path.split(siteConfig.basePath + "/src")[1].replace(".hbs", ".html");
@@ -139,7 +139,7 @@ gulp.task("templates:specimens:html", function templatesSpecimensHtmlTask() {
         iframeSrc: siteConfig.basePath + filePath,
         body: prismed,
         codepen: codepenJSON,
-        uniqueId: "specimen-codepen-" + (new Date%9e6).toString(36)
+        uniqueId: "specimen-codepen-" + (new Date % 9e6).toString(36)
       });
 
       // Replace file contents with snippet HTML
@@ -175,7 +175,7 @@ gulp.task("templates:specimens:pages", function templatesSpecimensPagesTask() {
       return file;
     }))
     // .pipe(rename({basename: "index", extname: ".html"}))
-    .pipe(rename({extname: ".html"}))
+    .pipe(rename({ extname: ".html" }))
     .pipe(gulp.dest(`./public${siteConfig.basePath}/specimens`));
 });
 
@@ -204,7 +204,7 @@ gulp.task("templates:site:pages", function templatesSitePagesTask() {
     batch: ["./temp", "./src/site/templates", "./src/specimens"],
     helpers: {
       // used in primary/secondary nav partials
-      basePath: function(str) {
+      basePath: function basePathFn() {
         return templateData.basePath;
       }
     }
@@ -231,7 +231,7 @@ gulp.task("templates:site:pages", function templatesSitePagesTask() {
       file.contents = new Buffer(pageHtml);
       return file;
     }))
-    .pipe(rename({extname: ".html"}))
+    .pipe(rename({ extname: ".html" }))
     .pipe(gulp.dest(`./public${siteConfig.basePath}`));
 });
 
@@ -268,10 +268,8 @@ gulp.task("templates", function templatesTask(done) {
   );
 });
 
-/**
- * Returns a copy of the original tree, with an "active" property added
- * to the object who's "path" property matches the search string
- */
+// Returns a copy of the original tree, with an "active" property added
+// to the object who's "path" property matches the search string
 function applyActivePathToTree(tree, searchString) {
   const findPath = function iterate(obj, search) {
     for (let prop in obj) {
@@ -291,9 +289,7 @@ function applyActivePathToTree(tree, searchString) {
   return treeCopy;
 }
 
-/**
- * Removes leading and trailing slashes from string
- */
+// Removes leading and trailing slashes from string
 function removeOuterSlashes(str) {
   return str.replace(/^\/|\/$/g, "");
 }
