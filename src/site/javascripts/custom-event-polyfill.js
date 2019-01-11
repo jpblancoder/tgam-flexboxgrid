@@ -1,6 +1,7 @@
 // Polyfills "new CustomEvent()" for IE11
 // https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent/CustomEvent
 
+/* eslint-disable */
 (function() {
   if (typeof window.CustomEvent === "function") return false;
   function CustomEvent(event, params) {
@@ -12,3 +13,4 @@
   CustomEvent.prototype = window.Event.prototype;
   window.CustomEvent = CustomEvent;
 })();
+/* eslint-enable */

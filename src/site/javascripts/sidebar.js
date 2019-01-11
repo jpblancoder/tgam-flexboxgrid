@@ -17,7 +17,7 @@ const toggleText = toggle.getElementsByClassName("burger-button__text").item(0);
 const sidebar = document.getElementById("sidebar");
 const main = document.getElementById("main-content");
 
-let maintainSidebarStateOnResize = false;
+// let maintainSidebarStateOnResize = false;
 let sidebarKey = "flexboxgrid-sidebar-open";
 
 function setSidebarState() {
@@ -78,7 +78,7 @@ function close() {
   }
 }
 
-function onSidebarAnimationEnd(e) {
+function onSidebarAnimationEnd() {
   // Using classList.remove() with multiple arguments fails in IE11,
   // so we're removing classes separately
   sidebar.classList.remove("sidebar--hiding");

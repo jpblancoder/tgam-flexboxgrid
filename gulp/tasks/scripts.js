@@ -7,7 +7,6 @@ const sourcemaps = require("gulp-sourcemaps");
 const uglify = require("gulp-uglify");
 const source = require("vinyl-source-stream");
 const buffer = require("vinyl-buffer");
-const transform = require("vinyl-transform");
 const siteConfig = require("../site-config.js");
 
 /**
@@ -15,7 +14,7 @@ const siteConfig = require("../site-config.js");
  * on every specimen page
  */
 gulp.task("scripts:babel-polyfill", function scriptsBabelPolyfillTask() {
-  return browserify(["./src/site/javascripts/babel-polyfill.js"], {debug: true})
+  return browserify(["./src/site/javascripts/babel-polyfill.js"], { debug: true })
     .bundle()
     .pipe(source("babel-polyfill.min.js"))
     .pipe(buffer())
@@ -27,8 +26,8 @@ gulp.task("scripts:babel-polyfill", function scriptsBabelPolyfillTask() {
  * Transpile, bundle and uglify site JavaScript
  */
 gulp.task("scripts:site", function scriptsSiteTask() {
-  return browserify(["./src/site/javascripts/main.js"], {debug: true})
-    .transform("babelify", {presets: ["es2015"]})
+  return browserify(["./src/site/javascripts/main.js"], { debug: true })
+    .transform("babelify", { presets: ["es2015"] })
     .bundle()
     .pipe(source("bundle.min.js"))
     .pipe(buffer())
@@ -52,11 +51,10 @@ gulp.task("scripts:site:vendor", function scriptsSiteVendorTask() {
  * Gateway task
  */
 gulp.task("scripts", [
-    "scripts:babel-polyfill",
-    "scripts:site",
-    "scripts:site:vendor"
-  ],
-  function scriptsTask(done) {
-    done();
-  }
-);
+  "scripts:babel-polyfill",
+  "scripts:site",
+  "scripts:site:vendor"
+],
+function scriptsTask(done) {
+  done();
+});

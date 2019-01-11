@@ -10,7 +10,7 @@ function directoryExists(directoryPath) {
     if (stats.isDirectory()) {
       return true;
     }
-  } catch(e) {
+  } catch (e) {
     // console.log(e);
   }
   return false;
@@ -22,7 +22,7 @@ function fileExists(filePath) {
     if (stats.isFile()) {
       return true;
     }
-  } catch(e) {
+  } catch (e) {
     // console.log(e);
   }
   return false;
@@ -33,7 +33,7 @@ function loadConfigFile(filePath) {
   if (fileExists(filePath)) {
     try {
       config = yaml.safeLoad(fs.readFileSync(filePath, "utf8"));
-    } catch(e) {
+    } catch (e) {
       console.log(e);
     }
   }

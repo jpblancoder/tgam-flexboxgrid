@@ -1,3 +1,5 @@
-# /node_modules/* and /bower_components/* ignored by default
-
-gulp/**/*
+node_modules
+dist
+docs
+public
+src/site/vendor
