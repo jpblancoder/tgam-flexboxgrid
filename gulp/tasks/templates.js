@@ -71,7 +71,7 @@ gulp.task("templates:specimens:scss", function templatesSpecimensScssTask() {
       });
 
       // Replace file contents with snippet HTML
-      file.contents = new Buffer(specimen);
+      file.contents = new Buffer.from(specimen);
       return file;
     }))
     .pipe(rename({
@@ -143,7 +143,7 @@ gulp.task("templates:specimens:html", function templatesSpecimensHtmlTask() {
       });
 
       // Replace file contents with snippet HTML
-      file.contents = new Buffer(specimen);
+      file.contents = new Buffer.from(specimen);
       return file;
     }))
     .pipe(rename({
@@ -171,7 +171,7 @@ gulp.task("templates:specimens:pages", function templatesSpecimensPagesTask() {
         body: specimenHtml
       });
       // Replace file contents with page HTML
-      file.contents = new Buffer(pageHtml);
+      file.contents = new Buffer.from(pageHtml);
       return file;
     }))
     // .pipe(rename({basename: "index", extname: ".html"}))
@@ -228,7 +228,7 @@ gulp.task("templates:site:pages", function templatesSitePagesTask() {
       });
 
       // Replace file contents with snippet HTML
-      file.contents = new Buffer(pageHtml);
+      file.contents = new Buffer.from(pageHtml);
       return file;
     }))
     .pipe(rename({ extname: ".html" }))
