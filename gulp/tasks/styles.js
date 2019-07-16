@@ -2,7 +2,6 @@
 
 const gulp = require("gulp");
 const autoprefixer = require("gulp-autoprefixer");
-const browserslist = require("browserslist");
 const cleanCSS = require("gulp-clean-css");
 const rename = require("gulp-rename");
 const sourcemaps = require("gulp-sourcemaps");
@@ -10,7 +9,6 @@ const sass = require("gulp-sass");
 const runSequence = require("run-sequence");
 const siteConfig = require("../site-config.js");
 
-const supportedBrowsers = browserslist("last 4 versions, > 1%, not ie <= 10");
 const sassPrecision = 2; // decimal places, default is 5
 
 /**
@@ -24,10 +22,7 @@ gulp.task("styles:site:sass", function stylesSiteTask() {
       outputStyle: "compressed",
       precision: sassPrecision
     }).on("error", sass.logError))
-    .pipe(autoprefixer({
-      browsers: supportedBrowsers,
-      cascade: false
-    }))
+    .pipe(autoprefixer({ cascade: false }))
     .pipe(sourcemaps.write("./"))
     .pipe(gulp.dest(`./public${siteConfig.basePath}/stylesheets`));
 });
@@ -44,10 +39,7 @@ gulp.task("styles:specimen:sass", function stylesSpecimenSassTask() {
       includePaths: ["./src/patterns/flexboxgrid"],
       precision: sassPrecision
     }).on("error", sass.logError))
-    .pipe(autoprefixer({
-      browsers: supportedBrowsers,
-      cascade: false
-    }))
+    .pipe(autoprefixer({ cascade: false }))
     .pipe(sourcemaps.write("./"))
     .pipe(gulp.dest(`./public${siteConfig.basePath}/dist`));
 });
