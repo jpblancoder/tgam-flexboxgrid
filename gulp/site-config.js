@@ -4,5 +4,5 @@ module.exports = {
   // Must have leading slash and no trailing slash
   // Must match github repo name, so that when in github "docs" folder, urls will work.
   basePath: "/tgam-flexboxgrid",
-  distURL: "https://jpblancoder.github.io/tgam-flexboxgrid/dist/flexboxgrid.min.css"
+  distURL: "https://globeandmail.github.io/tgam-flexboxgrid/dist/flexboxgrid.min.css"
 };
