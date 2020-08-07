@@ -54,7 +54,7 @@
     "js-yaml": "3.13.1",
     "npm-check": "5.9.0",
     "path": "^0.12.7",
-    "prismjs": "1.16.0",
+    "prismjs": "1.21.0",
     "require-dir": "1.2.0",
     "rimraf": "^2.6.2",
     "run-sequence": "2.2.1",
